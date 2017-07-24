@@ -16,11 +16,20 @@ public class UserAPIController {
 	
 	//so this guy's gonna be able to update and insert information into the users table of the database
 	//and also it should be able to get that information out
+	
+	@RequestMapping(path="/users/createUser", method=RequestMethod.PUT)
+	public User createUser(@RequestParam String email, @RequestParam String password){
+		User newUser = new User(email, password);
+		
+		return newUser;
+	}
+	
+	@RequestMapping(path="/users/")
 
 	@RequestMapping(path="/users/{userId}/updateUser", method=RequestMethod.POST)
 	public User updateUser(@PathVariable Long userId, @RequestParam(value="email", required=false) String email, @RequestParam(value="password", required=false) String password, @RequestParam(value="confirmPassword", required=false) String confirmPassword,
-			@RequestParam(value="name", required=false) String name, @RequestParam(value="height", required=false) Integer height, @RequestParam(value="weight", required=false) Integer weight,
-			@RequestParam(value="sex", required=false) String sex, @RequestParam(value="targetWeight", required=false) Integer targetWeight,
+			@RequestParam(value="name", required=false) String name, @RequestParam(value="height", required=false) Integer height, @RequestParam(value="weight", required=false) Double weight,
+			@RequestParam(value="sex", required=false) String sex, @RequestParam(value="targetWeight", required=false) Double targetWeight,
 			@RequestParam(value="targetBMI", required=false) Double targetBMI, @RequestParam(value="phoneNumber", required=false) String phoneNumber,
 			ModelMap model){
 		User user = getActiveUser(model);
