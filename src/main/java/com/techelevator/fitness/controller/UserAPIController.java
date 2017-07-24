@@ -1,5 +1,6 @@
 package com.techelevator.fitness.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,24 +9,34 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.techelevator.fitness.model.JDBCUserDAO;
 import com.techelevator.fitness.model.User;
+import com.techelevator.fitness.model.UserDAO;
 
 @RestController
 @SessionAttributes("user")
 public class UserAPIController {
 	
+	
 	//so this guy's gonna be able to update and insert information into the users table of the database
 	//and also it should be able to get that information out
 	
+	private UserDAO userDAO;
+	
+	@Autowired
+	public UserAPIController(UserDAO userDAO) {
+		this.userDAO = userDAO;
+	}
+
 	@RequestMapping(path="/users/createUser", method=RequestMethod.PUT)
 	public User createUser(@RequestParam String email, @RequestParam String password){
-		User newUser = new User(email, password);
-		
-		return newUser;
+		if(userDAO.getUserByEmail(email) == null) {
+			User newUser = new User(email, password, 2);
+			return newUser;
+		}
+		return ;
 	}
 	
-	@RequestMapping(path="/users/")
-
 	@RequestMapping(path="/users/{userId}/updateUser", method=RequestMethod.POST)
 	public User updateUser(@PathVariable Long userId, @RequestParam(value="email", required=false) String email, @RequestParam(value="password", required=false) String password, @RequestParam(value="confirmPassword", required=false) String confirmPassword,
 			@RequestParam(value="name", required=false) String name, @RequestParam(value="height", required=false) Integer height, @RequestParam(value="weight", required=false) Double weight,
@@ -34,11 +45,11 @@ public class UserAPIController {
 			ModelMap model){
 		User user = getActiveUser(model);
 		
-		if(!email.equals(null)){
+		if(email != null){
 			user.setEmail(email);
 		}
 		
-		if(!password.equals(null)){
+		if(password != null){
 			user.setPassword(password);
 		}
 		
