@@ -17,5 +17,6 @@
     <url-pattern>*.png</url-pattern>
     <url-pattern>*.jpg</url-pattern>
     <url-pattern>*.gif</url-pattern>
+    <url-pattern>*.tag</url-pattern>
   </servlet-mapping>
 </web-app>

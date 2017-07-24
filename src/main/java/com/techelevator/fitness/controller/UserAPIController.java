@@ -24,7 +24,7 @@ public class UserAPIController {
 		this.userDAO = userDAO;
 	}
 
-	@RequestMapping(path="/users/register", method=RequestMethod.PUT)
+	@RequestMapping(path="/users/register", method=RequestMethod.GET)
 	public JSONResponse createUser(@ModelAttribute User newUser){
 		if(userDAO.getUserByEmail(newUser.getEmail()) == null) {
 			userDAO.addUser(newUser);
