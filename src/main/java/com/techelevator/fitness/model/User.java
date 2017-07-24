@@ -26,8 +26,8 @@ public class User {
 		return (int) (totalInches * 2.54);
 	}
 	
-	public Integer getWeightInKilograms(Integer weightInPounds) {
-		return (int) (weightInPounds * 0.45359237);
+	public Double getWeightInKilograms(Integer weightInPounds) {
+		return (weightInPounds * 0.45359237);
 	}
 	
 	public Long getUserId() {
