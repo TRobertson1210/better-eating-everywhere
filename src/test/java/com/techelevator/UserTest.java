@@ -21,13 +21,13 @@ public class UserTest {
 
 	@Test
 	public void testWeightConversion() {
-		User test = new User("email", "password", 1);
+		User test = new User();
 		assertEquals(77.11, test.getWeightInKilograms(170), 0.0);
 	}
 	
 	@Test
 	public void testHeightConversion() {
-		User test = new User("email", "password", 1);
+		User test = new User();
 		assertEquals(193, test.getHeightInCentimeters(6, 4), 0.0);
 		assertEquals(195, test.getHeightInCentimeters(6, 5), 0.0);
 	}
