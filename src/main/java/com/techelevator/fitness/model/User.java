@@ -13,10 +13,12 @@ public class User {
 	private Integer targetWeight;
 	private Double targetBMI;
 	private String phoneNumber;
+	private Integer permissionLevel;
 	
-	public User(String email, String password) {
+	public User(String email, String password, Integer permissionLevel) {
 		this.email = email;
 		this.password = password;
+		this.permissionLevel = permissionLevel;
 	}
 	
 	public Integer getHeightInCentimeters(Integer feet, Integer inches) {
@@ -94,6 +96,11 @@ public class User {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	
+	public Integer getPermissionLevel() {
+		return permissionLevel;
+	}
+	public void setPermissionLevel(Integer permissionLevel) {
+		this.permissionLevel = permissionLevel;
+	}
 	
 }

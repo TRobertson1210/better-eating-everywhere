@@ -47,7 +47,14 @@
 		<property name="defaultAutoCommit" value="false" />
 	</bean>
 
-	<beans profile="heroku">
+
+	
+    <!-- enable the configuration of transactional behavior based on annotations -->
+    <tx:annotation-driven transaction-manager="txManager"/>
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    	<beans profile="heroku">
 		<bean class="java.net.URI" id="dbUrl">
 			<constructor-arg value="#{systemEnvironment['DATABASE_URL']}"/>
 		</bean>
@@ -57,10 +64,4 @@
 			<property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
 		</bean>	
 	</beans>
-	
-    <!-- enable the configuration of transactional behavior based on annotations -->
-    <tx:annotation-driven transaction-manager="txManager"/>
-    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
 </beans>
