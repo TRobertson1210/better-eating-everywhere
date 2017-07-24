@@ -20,7 +20,7 @@ public class User {
 		this.password = password;
 		this.permissionLevel = permissionLevel;
 	}
-	
+	//These methods allow for the user to input their information in imperial units
 	public Integer getHeightInCentimeters(Integer feet, Integer inches) {
 		Integer totalInches = inches + feet*12;
 		return (int) (totalInches * 2.54);
