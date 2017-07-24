@@ -2,6 +2,7 @@ package com.techelevator.fitness.model;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ public class JDBCUserDAO implements UserDAO {
 	
 	private JdbcTemplate jdbc;
 	
+	@Autowired
 	public JDBCUserDAO(DataSource dataSource){
 		this.jdbc = new JdbcTemplate(dataSource);
 	}
