@@ -2,6 +2,7 @@ package com.techelevator.fitness.model;
 
 public class User {
 	
+	private Long userId;
 	private String email;
 	private String password;
 	private String confirmPassword;
@@ -17,7 +18,12 @@ public class User {
 		this.email = email;
 		this.password = password;
 	}
-	
+	public Long getUserId() {
+		return userId;
+	}
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 	public String getEmail() {
 		return email;
 	}
