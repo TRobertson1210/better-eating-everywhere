@@ -14,6 +14,7 @@ public class User {
 	private Double targetBMI;
 	private String phoneNumber;
 	private Integer permissionLevel;
+	private String salt;
 	
 	public User(String email, String password, Integer permissionLevel) {
 		this.email = email;
@@ -27,7 +28,7 @@ public class User {
 	}
 	
 	public Double getWeightInKilograms(Integer weightInPounds) {
-		return (weightInPounds * 0.45359237);
+		return (double) Math.round((weightInPounds * 0.45359237)*100)/100;
 	}
 	
 	public Long getUserId() {
@@ -102,5 +103,10 @@ public class User {
 	public void setPermissionLevel(Integer permissionLevel) {
 		this.permissionLevel = permissionLevel;
 	}
-	
+	public String getSalt() {
+		return salt;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
 }
