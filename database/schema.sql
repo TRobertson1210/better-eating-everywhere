@@ -1,7 +1,3 @@
--- *************************************************************************************************
--- This script creates all of the database objects (tables, sequences, etc) for the database
--- *************************************************************************************************
-
 BEGIN;
 
 CREATE SEQUENCE seq_user_id;
@@ -16,7 +12,8 @@ CREATE TABLE users (
     sex CHAR(1),
     target_weight INTEGER,
     target_BMI DECIMAL(3,1),
-    phone_number VARCHAR(255)
+    phone_number VARCHAR(255),
+    permission_level INTEGER
 );
 
 CREATE SEQUENCE seq_food_event_id;
