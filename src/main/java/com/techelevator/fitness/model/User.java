@@ -7,10 +7,10 @@ public class User {
 	private String password;
 	private String confirmPassword;
 	private String name;
-	private Integer height;
-	private Integer weight;
+	private Integer height; //Height and Weight stored in metric
+	private Double weight;
 	private String sex;
-	private Integer targetWeight;
+	private Double targetWeight;
 	private Double targetBMI;
 	private String phoneNumber;
 	private Integer permissionLevel;
@@ -26,9 +26,9 @@ public class User {
 		return (int) (totalInches * 2.54);
 	}
 	
-	
-	
-	
+	public Integer getWeightInKilograms(Integer weightInPounds) {
+		return (int) (weightInPounds * 0.45359237);
+	}
 	
 	public Long getUserId() {
 		return userId;
@@ -66,10 +66,10 @@ public class User {
 	public void setHeight(Integer height) {
 		this.height = height;
 	}
-	public Integer getWeight() {
+	public Double getWeight() {
 		return weight;
 	}
-	public void setWeight(Integer weight) {
+	public void setWeight(Double weight) {
 		this.weight = weight;
 	}
 	public String getSex() {
@@ -78,10 +78,10 @@ public class User {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public Integer getTargetWeight() {
+	public Double getTargetWeight() {
 		return targetWeight;
 	}
-	public void setTargetWeight(Integer targetWeight) {
+	public void setTargetWeight(Double targetWeight) {
 		this.targetWeight = targetWeight;
 	}
 	public Double getTargetBMI() {
