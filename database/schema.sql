@@ -18,7 +18,8 @@ CREATE TABLE users (
     target_weight DECIMAL(5,2),
     target_BMI DECIMAL(3,1),
     phone_number VARCHAR(255),
-    permission_level INTEGER
+    permission_level INTEGER,
+    salt VARCHAR(255)
 );
 
 CREATE SEQUENCE seq_food_event_id;

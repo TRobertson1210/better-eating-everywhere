@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.techelevator.fitness.model.JDBCUserDAO;
+import com.techelevator.fitness.model.JSONResponse;
 import com.techelevator.fitness.model.User;
 import com.techelevator.fitness.model.UserDAO;
 
@@ -29,12 +29,12 @@ public class UserAPIController {
 	}
 
 	@RequestMapping(path="/users/createUser", method=RequestMethod.PUT)
-	public User createUser(@RequestParam String email, @RequestParam String password){
+	public JSONResponse createUser(@RequestParam String email, @RequestParam String password){
 		if(userDAO.getUserByEmail(email) == null) {
 			User newUser = new User(email, password, 2);
-			return newUser;
+			return new JSONResponse("success", newUser);
 		}
-		return ;
+		return new JSONResponse("failure", null);
 	}
 	
 	@RequestMapping(path="/users/{userId}/updateUser", method=RequestMethod.POST)

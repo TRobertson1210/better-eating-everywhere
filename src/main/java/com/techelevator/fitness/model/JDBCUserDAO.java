@@ -4,7 +4,9 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JDBCUserDAO implements UserDAO {
 	
 	private JdbcTemplate jdbc;
@@ -25,10 +27,10 @@ public class JDBCUserDAO implements UserDAO {
 	}
 	
 	private User mapRowToUser(SqlRowSet results){
-		User user = null;
+		User user = new User(results.getString("email"), results.getString("hashed_password"), results.getInt("permission_level"));
 		
 		user.setUserId(results.getLong("user_id"));
-		user.setEmail(results.getString("email"));
+
 		//user.setPassword(results.getString("hashed_password"));
 		user.setName(results.getString("name"));
 		user.setHeight(results.getInt("height"));
@@ -37,7 +39,6 @@ public class JDBCUserDAO implements UserDAO {
 		user.setTargetWeight(results.getDouble("target_weight"));
 		user.setTargetBMI(results.getDouble("target_BMI"));
 		user.setPhoneNumber(results.getString("phone_number"));
-		user.setPermissionLevel(results.getInt("permission_level"));
 		
 		return user;
 	}
