@@ -8,11 +8,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.fitness.model.JSONResponse;
+import com.techelevator.fitness.model.LoginInfo;
 import com.techelevator.fitness.model.User;
 import com.techelevator.fitness.model.UserDAO;
 import com.techelevator.fitness.security.PasswordHasher;
@@ -36,8 +36,8 @@ public class UserAPIController {
 	@RequestMapping(path="/user/register", method=RequestMethod.POST)
 	public JSONResponse createUser(@Valid @ModelAttribute User newUser,
 			BindingResult result) {
-		ErrorMessageGenerator emg = new ErrorMessageGenerator();
 		if(result.hasErrors()) {
+			ErrorMessageGenerator emg = new ErrorMessageGenerator();
 			return new JSONResponse("failure", emg.generateErrorMessage(result));
 		}
 		if(userDAO.getUserByEmail(newUser.getEmail()) == null) {
@@ -53,13 +53,17 @@ public class UserAPIController {
 		return new JSONResponse("success", currentUser);
 	}
 
-	@RequestMapping(path="/user/login", method=RequestMethod.GET)
-	public JSONResponse login(@RequestParam String email, @RequestParam String password, ModelMap model){
+	@RequestMapping(path="/user/login", method=RequestMethod.POST)
+	public JSONResponse login(@Valid @ModelAttribute LoginInfo loginInfo, ModelMap model, BindingResult result){
+		if(result.hasErrors()){
+			ErrorMessageGenerator emg = new ErrorMessageGenerator();
+			return new JSONResponse("errors", emg.generateErrorMessage(result));
+		}
 		if(!model.containsAttribute("loggedInUser")){
-			User compareUser = userDAO.getUserByEmail(email);
+			User compareUser = userDAO.getUserByEmail(loginInfo.getEmail());
 			if(compareUser != null){
 				PasswordHasher pboy = new PasswordHasher();
-				if(compareUser.getHashedPassword().equals(pboy.computeHash(password, compareUser.getSalt()))){
+				if(compareUser.getHashedPassword().equals(pboy.computeHash(loginInfo.getPassword(), compareUser.getSalt()))){
 					model.addAttribute("loggedInUser", compareUser);
 					return new JSONResponse("success", compareUser);
 				}

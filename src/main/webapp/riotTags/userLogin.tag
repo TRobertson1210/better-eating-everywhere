@@ -18,7 +18,7 @@
 			e.preventDefault();
 			$.ajax({
 				url: "http://localhost:8080/capstone/user/login",
-				type: "GET",
+				type: "POST",
 				data: {
 					"email" : $('#loginEmail').val(),
 					"password" : $('#loginPassword').val(),
