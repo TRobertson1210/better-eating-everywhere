@@ -22,6 +22,8 @@ body {
 	padding: 15px;
 	margin: auto;
 	width: 30%;
+	max-width: 300px;
+	min-width: 250px;
 	display: grid;
 	grid-template-columns: 1fr;
 	z-index: 5;
@@ -55,6 +57,11 @@ body {
 	margin: auto;
 	grid-column: 2 / 3;
 	width: 100%;
+}
+
+.registration form span {
+	color: red;
+	grid-column: 2 / 3;
 }
 
 .registration div.submitButton {
