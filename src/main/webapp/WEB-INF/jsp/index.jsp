@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link href="<c:url value="/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet"/>
 	<link href="<c:url value="/css/site.css" />" rel="stylesheet"/>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/riot@3.6.1/riot+compiler.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -10,8 +11,9 @@
 </head>
 <body>
 
-
-	<foodLookup></foodLookup>
+	<homePage></homePage>
+	<userregistration class="userRegistration"></userregistration>
+	<userLogin class="userLogin"></userLogin>
 	
 	<c:url value="/riotTags/userRegistration.tag" var="userRegistrationLocation" />
 	<script src="${userRegistrationLocation}" type="riot/tag"></script>
@@ -21,14 +23,18 @@
 	
 	<c:url value="/riotTags/foodLookup.tag" var="foodLookupLocation"/>
 	<script src="${foodLookupLocation}" type="riot/tag"></script>
+	
+	<c:url value="/riotTags/homePage.tag" var="homePageLocation" />
+	<script src="${homePageLocation}" type="riot/tag"></script>
 		
 	<script>
 	window.CREATE_URL = "<c:url value="/users/register/"/>"
 	
 
 	
+	riot.mount('homePage');
 	riot.mount('userRegistration', {
-		title: 'Registration',
+		title: 'Register',
 	});
 	riot.mount('userLogin', {
 		title: 'Login',

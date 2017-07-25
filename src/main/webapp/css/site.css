@@ -4,11 +4,42 @@ body {
 
 .content-blocker {
 	position: fixed;
-	background-color: rgba(0,0,0,0.7);
-	opacity: 0.3;
-	width: 100%;
-	height: 100%;
+	top:0px;
+	bottom:0px;
+	right: 0px;
+	left: 0px;
+	background-color: rgba(0,0,0,0.6);
+	width: 100vw;
+	height: 100vh;
 	z-index: 2;
+}
+
+.x-out {
+	color: black;
+	position: absolute;
+	top: 1%;
+	right: 1%;
+	font-size: 10pt;
+}
+
+/* Homepage Element CSS */
+homePage {
+	visibility: visible;
+}
+
+.homepage-signup {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	background-image: url('../img/homepage-banner.jpeg');
+}
+
+.homepage-signup div.homepage-navbar {
+	text-align: center;
+	grid-column: 1 / 3;
+}
+
+.homepage-signup div.signup-content {
+	grid-column: 1 / 2;
 }
 
 /* Registration Element CSS */
@@ -60,6 +91,7 @@ body {
 }
 
 .registration form span {
+	font-size: 9pt;
 	color: red;
 	grid-column: 2 / 3;
 }
@@ -110,9 +142,68 @@ body {
 	top:1px;
 }
 
+/* Login CSS */
 
+.login {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 10pt;
+	position: relative;
+	background-color: white;
+	border-radius: 2%;
+	padding: 15px;
+	margin: auto;
+	width: 30%;
+	max-width: 300px;
+	min-width: 250px;
+	display: grid;
+	grid-template-columns: 1fr;
+	z-index: 5;
+	-webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+}
 
-.myButton {
+.login h3 {
+	margin-top: 0px;
+	text-align: center;
+}
+
+.login form {
+	display: grid;
+	grid-gap: 3px;
+	grid-template-columns: 1fr 1fr;
+}
+
+.login form label {
+	grid-column: 1 / 2;
+}
+
+.login form input {
+	margin: auto;
+	grid-column: 2 / 3;
+	width: 95%;
+}
+
+.login form span {
+	font-size: 9pt;
+	color: red;
+	grid-column: 2 / 3;
+}
+
+.login div.loginButton {
+	padding-top: 20px;
+	text-align: center;
+	grid-column: 1 / 3;
+}
+
+.login div.loginButton input {
+	color:#ffffff;
+	font-size:12px;
+	font-weight:bold;
+	padding:8px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #154682;
+	border: 0px solid black;
 	-moz-box-shadow: 0px 10px 14px -7px #54a3f7;
 	-webkit-box-shadow: 0px 10px 14px -7px #54a3f7;
 	box-shadow: 0px 10px 14px -7px #54a3f7;
@@ -127,17 +218,9 @@ body {
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
 	border-radius:8px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:12px;
-	font-weight:bold;
-	padding:8px 15px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #154682;
 }
-.myButton:hover {
+
+.login div.loginButton input:hover {
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7), color-stop(1, #007dc1));
 	background:-moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);
 	background:-webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);
@@ -147,7 +230,8 @@ body {
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7', endColorstr='#007dc1',GradientType=0);
 	background-color:#0061a7;
 }
-.myButton:active {
+
+.login div.loginButton input:active {
 	position:relative;
 	top:1px;
 }

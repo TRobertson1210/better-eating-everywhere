@@ -2,6 +2,7 @@ package com.techelevator.fitness.model;
 
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -30,6 +31,7 @@ public class User {
 	private Double targetWeight;
 	@Min(1)
 	private Double targetBMI;
+	@Pattern(regexp = "^\\(\\d{3}\\)\\d{3}-\\d{4}$", message="Please enter a valid phone number")
 	private String phoneNumber;
 	private Integer permissionLevel;
 	private String salt;
