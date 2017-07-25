@@ -3,10 +3,11 @@
 	</div>
 		<div class="registration">
 			<h3>{ title }</h3>
+			<span class="glyphicon glyphicon-remove-circle x-out"></span>
 			<form onsubmit={register}>
 				<span id="email"></span>
 				<label>Email Address: </label>
-				<input id="email" type="text" name="email" placeholder="Email Address" required /><br>
+				<input id="email" type="email" name="email" placeholder="Email Address" required /><br>
 				<span id="password"></span>
 				<label for="password">Password: </label>
 				<input id="password" type="password" name="password" required /><br>
@@ -85,6 +86,15 @@
 			if(jsonResult.status === "failure") {
 				if(jsonResult.value.email != null) {
 					$('span#email').text(jsonResult.value.email);
+				}
+				if(jsonResult.value.password != null) {
+					$('span#password').text(jsonResult.value.password);
+				}
+				if(jsonResult.value.confirmPassword != null) {
+					$('span#confirmPassword').text(jsonResult.value.confirmPassword);
+				}
+				if(jsonResult.value.phoneNumber != null) {
+					$('span#phoneNumber').text(jsonResult.value.phoneNumber);
 				}
 			}
 		}
