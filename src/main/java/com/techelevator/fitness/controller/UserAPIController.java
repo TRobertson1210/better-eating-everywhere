@@ -1,10 +1,13 @@
 package com.techelevator.fitness.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -55,6 +58,7 @@ public class UserAPIController {
 
 	@RequestMapping(path="/user/login", method=RequestMethod.POST)
 	public JSONResponse login(@Valid @ModelAttribute LoginInfo loginInfo, ModelMap model, BindingResult result){
+
 		if(result.hasErrors()){
 			ErrorMessageGenerator emg = new ErrorMessageGenerator();
 			return new JSONResponse("errors", emg.generateErrorMessage(result));
@@ -69,7 +73,8 @@ public class UserAPIController {
 				}
 			}
 		}
-		return new JSONResponse("failure", null);
+		ErrorMessageGenerator emg = new ErrorMessageGenerator();
+		return new JSONResponse("failure", emg.generateErrorMessage(result));
 	}
 
 }

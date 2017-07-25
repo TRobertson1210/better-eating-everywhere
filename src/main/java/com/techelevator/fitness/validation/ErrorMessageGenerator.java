@@ -11,22 +11,19 @@ import org.springframework.validation.FieldError;
 public class ErrorMessageGenerator {	
 	
 
-	public List<Map<String, String>> generateErrorMessage(BindingResult result) {
+	public Map<String, String> generateErrorMessage(BindingResult result) {
 		List<FieldError> fieldErrorList = result.getFieldErrors();
-		
-		List<Map<String, String>> bigErrorList = new ArrayList<>();
+				
+		Map<String, String> errorMap = new HashMap<>();
 		
 		for(FieldError fieldError : fieldErrorList){
 			String defaultMessage = fieldError.getDefaultMessage();
 			String field = fieldError.getField();
-			Map<String, String> errorMap = new HashMap<>();
-			//errorMap.put("Field", field);
 			errorMap.put(field, defaultMessage);
-			bigErrorList.add(errorMap);
 		}
 				
 			
-		return bigErrorList;
+		return errorMap;
 	}
 	
 }
