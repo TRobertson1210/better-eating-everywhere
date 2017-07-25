@@ -50,7 +50,7 @@ public class JDBCUserDAO implements UserDAO {
 		
 		user.setUserId(results.getLong("user_id"));
 		user.setEmail(results.getString("email"));
-		user.setPassword(results.getString("hashed_password"));
+		user.setHashedPassword(results.getString("hashed_password"));
 		user.setName(results.getString("name"));
 		user.setHeight(results.getInt("height"));
 		user.setWeight(results.getDouble("weight"));

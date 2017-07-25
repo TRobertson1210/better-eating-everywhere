@@ -9,16 +9,22 @@
 <body>
 
 	<userRegistration></userRegistration>
+	<userLogin></userLogin>
 	
 	<c:url value="/riotTags/userRegistration.tag" var="userRegistrationLocation" />
 	<script src="${userRegistrationLocation}" type="riot/tag"></script>
-
-	
+		
+	<c:url value="/riotTags/userLogin.tag" var="userLoginLocation" />
+	<script src="${userLoginLocation}" type="riot/tag"></script>
+		
 	<script>
 	window.CREATE_URL = "<c:url value="/users/register/"/>"
 	
 	riot.mount('userRegistration', {
 		title: 'Registration',
+	});
+	riot.mount('userLogin', {
+		title: 'Login',
 	});
 	</script>
 </body>
