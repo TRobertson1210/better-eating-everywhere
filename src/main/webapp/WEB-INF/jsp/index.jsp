@@ -12,7 +12,6 @@
 	
 	<c:url value="/riotTags/userRegistration.tag" var="userRegistrationLocation" />
 	<script src="${userRegistrationLocation}" type="riot/tag"></script>
-	<script src="https://rawgit.com/riot/riot/master/riot%2Bcompiler.min.js"></script>
 
 	
 	<script>

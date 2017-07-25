@@ -1,5 +1,8 @@
 package com.techelevator.fitness.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class User {
 	
 	private Long userId;
