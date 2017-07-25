@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.techelevator.fitness.model.JSONResponse;
 import com.techelevator.fitness.model.User;
 import com.techelevator.fitness.model.UserDAO;
 import com.techelevator.fitness.security.PasswordHasher;
+import com.techelevator.fitness.validation.ValidationPojo;
 
 @RestController
 @SessionAttributes("loggedInUser")
@@ -36,8 +36,9 @@ public class UserAPIController {
 	@RequestMapping(path="/user/register", method=RequestMethod.POST)
 	public JSONResponse createUser(@Valid @ModelAttribute User newUser,
 			BindingResult result) {
+		ValidationPojo resultThing = new ValidationPojo();
 		if(result.hasErrors()) {
-			return new JSONResponse("failure", result.getFieldErrors().);
+			return new JSONResponse("failure", resultThing.generateErrorMessage(result));
 		}
 		if(userDAO.getUserByEmail(newUser.getEmail()) == null) {
 			userDAO.addUser(newUser);

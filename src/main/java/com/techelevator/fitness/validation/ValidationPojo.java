@@ -24,8 +24,8 @@ public class ValidationPojo {
 			String defaultMessage = fieldError.getDefaultMessage();
 			String field = fieldError.getField();
 			Map<String, String> errorMap = new HashMap<>();
-			errorMap.put("Field", field);
-			errorMap.put("Message", defaultMessage);
+			//errorMap.put("Field", field);
+			errorMap.put(field, defaultMessage);
 			bigErrorList.add(errorMap);
 		}
 				
