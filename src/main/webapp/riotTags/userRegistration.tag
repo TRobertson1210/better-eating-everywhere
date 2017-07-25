@@ -15,9 +15,15 @@
 		this.title = opts.title;
 		
 		register(e) {
+			e.preventDefault();
 			$.ajax({
 				url: "http://localhost:8080/capstone/user/register",
 				type: "POST",
+				data: {
+					"email" : $('#email').val(),
+					"password" : $('#password').val(),
+					"permissionLevel" : $('#permissionLevel').val(),
+				},
 				datatype: "json",
 			}).done(function (data) {
 				console.log(data);

@@ -2,12 +2,15 @@ package com.techelevator.fitness.model;
 
 import org.springframework.stereotype.Component;
 
+import com.techelevator.fitness.security.PasswordHasher;
+
 @Component
 public class User {
 	
 	private Long userId;
 	private String email;
 	private String password;
+	private String hashedPassword;
 	private String confirmPassword;
 	private String name;
 	private Integer height; //Height and Weight stored in metric
@@ -24,11 +27,9 @@ public class User {
 		Integer totalInches = inches + feet*12;
 		return (int) (totalInches * 2.54);
 	}
-	
 	public Double getWeightInKilograms(Integer weightInPounds) {
 		return (double) Math.round((weightInPounds * 0.45359237)*100)/100;
 	}
-	
 	public Long getUserId() {
 		return userId;
 	}
@@ -41,11 +42,17 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPassword() {
-		return password;
-	}
 	public void setPassword(String password) {
+		PasswordHasher pboy = new PasswordHasher();
+		this.salt = pboy.generateRandomSalt();
+		this.hashedPassword = pboy.computeHash(password, this.salt);
 		this.password = password;
+	}
+	public String getHashedPassword() {
+		return hashedPassword;
+	}
+	public void setHashedPassword(String hashedPassword) {
+		this.hashedPassword = hashedPassword;
 	}
 	public String getConfirmPassword() {
 		return confirmPassword;
@@ -104,7 +111,7 @@ public class User {
 	public String getSalt() {
 		return salt;
 	}
-	public void setSalt(String salt) {
-		this.salt = salt;
+	public void setSalt(String string) {
+		this.salt = string;
 	}
 }

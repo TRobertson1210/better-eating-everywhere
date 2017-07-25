@@ -44,7 +44,6 @@
 		<property name="url" value="jdbc:postgresql://localhost:5432/capstone" />
 		<property name="username" value="capstone_appuser" />
 		<property name="password" value="capstone_appuser1" />
-		<property name="defaultAutoCommit" value="false" />
 	</bean>
 
 
