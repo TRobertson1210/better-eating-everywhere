@@ -1,18 +1,18 @@
 <userRegistration>
-		<div class="content-blocker">
-		</div>
+	<div class="content-blocker">
+	</div>
 		<div class="registration">
 			<h3>{ title }</h3>
 			<form onsubmit={register}>
 				<span id="email"></span>
 				<label>Email Address: </label>
-				<input id="email" type="email" name="email" placeholder="Email Address" /><br>
+				<input id="email" type="text" name="email" placeholder="Email Address" required /><br>
 				<span id="password"></span>
 				<label for="password">Password: </label>
-				<input id="password" type="password" name="password" /><br>
+				<input id="password" type="password" name="password" required /><br>
 				<span id="confirmPassword"></span>
 				<label for="confirmPassword">Confirm Password: </label>
-				<input id="confirmPassword" type="password" name="confirmPassword" /><br>
+				<input id="confirmPassword" type="password" name="confirmPassword" required /><br>
 				<span id="name"></span>
 				<label for="name">Name: </label>
 				<input id="name" type="text" name="name" /><br>
@@ -48,6 +48,7 @@
 	
 	
 	<script>
+		var self = this;
 		this.title = opts.title;
 		var jsonResult = null;
 		
@@ -73,17 +74,17 @@
 				datatype: "json",
 			}).done(function (data) {
 				console.log(data);
-				this.validate(e);
+				self.validate(data);
 				jsonResult = data;
 			}).fail(function(xhr, status, error) {
 				console.log(error);
 			});
 		}
 		
-		validate(e) {
-			if(data[status] === "failure") {
-				if(value[email != null]) {
-					$('span#email').text(value[email]);
+		validate(jsonResult) {
+			if(jsonResult.status === "failure") {
+				if(jsonResult.value.email != null) {
+					$('span#email').text(jsonResult.value.email);
 				}
 			}
 		}

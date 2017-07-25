@@ -9,6 +9,7 @@
 </head>
 <body>
 
+	<homePage></homePage>
 	<userRegistration></userRegistration>
 	<userLogin></userLogin>
 	
@@ -22,7 +23,7 @@
 	window.CREATE_URL = "<c:url value="/users/register/"/>"
 	
 	riot.mount('userRegistration', {
-		title: 'Registration',
+		title: 'Register',
 	});
 	riot.mount('userLogin', {
 		title: 'Login',
