@@ -2,7 +2,7 @@
 	
 	<h3>{ title }</h3>
 	
-	<form onsubmit={register} method="GET">
+	<form onsubmit={register} method="POST">
 		<label for="email">Email Address</label>
 		<input type="text" name="email" placeholder="Email Address" /><br>
 		<label for="password">Password</label>
@@ -15,6 +15,7 @@
 		this.title = opts.title;
 		
 		register(e) {
+			e.preventDefault();
 			$.ajax({
 				url: "http://localhost:8080/capstone/users/register",
 				type: "PUT",
