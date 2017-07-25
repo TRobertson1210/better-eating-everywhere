@@ -1,5 +1,11 @@
 package com.techelevator.fitness.model;
 
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.stereotype.Component;
 
 import com.techelevator.fitness.security.PasswordHasher;
@@ -8,19 +14,35 @@ import com.techelevator.fitness.security.PasswordHasher;
 public class User {
 	
 	private Long userId;
+	@NotBlank @Email (message="Please enter a valid email")
 	private String email;
+	@NotBlank @Size(min=10, message="Your password must be at least 10 characters long")
 	private String password;
 	private String hashedPassword;
 	private String confirmPassword;
 	private String name;
+	@Min(1)
 	private Integer height; //Height and Weight stored in metric
+	@Min(1)
 	private Double weight;
 	private String sex;
+	@Min(1)
 	private Double targetWeight;
+	@Min(1)
 	private Double targetBMI;
 	private String phoneNumber;
 	private Integer permissionLevel;
 	private String salt;
+	
+	private boolean passwordMatching; // Dummy property to get matching vaildation working
+	@AssertTrue(message="Passwords must match")
+	public boolean isPasswordMatching() {
+		if(password != null) {
+			return password.equals(confirmPassword);
+		} else {
+			return false;
+		}
+	}
 	
 	//These methods allow for the user to input their information in imperial units
 	public Integer getHeightInCentimeters(Integer feet, Integer inches) {
