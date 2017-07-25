@@ -14,7 +14,7 @@ public class ValidationPojo {
 	
 	
 	public Map<String, List<FieldError>> generateErrorMessage(BindingResult result) {
-		errors.put("fieldName", result.getFieldErrors());
+		errors.put("fieldName", result.getFieldErrors().get(1));
 	}
 	
 }

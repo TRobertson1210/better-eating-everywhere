@@ -14,9 +14,9 @@ import com.techelevator.fitness.security.PasswordHasher;
 public class User {
 	
 	private Long userId;
-	@NotBlank @Email (message="Please enter a valid email")
+	@NotBlank(message="Please enter a valid email address") @Email (message="Please enter a valid email")
 	private String email;
-	@NotBlank @Size(min=10, message="Your password must be at least 10 characters long")
+	@NotBlank(message="Please enter a password") @Size(min=10, message="Your password must be at least 10 characters long")
 	private String password;
 	private String hashedPassword;
 	private String confirmPassword;

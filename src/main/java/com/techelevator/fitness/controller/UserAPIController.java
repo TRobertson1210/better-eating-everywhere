@@ -37,7 +37,7 @@ public class UserAPIController {
 	public JSONResponse createUser(@Valid @ModelAttribute User newUser,
 			BindingResult result) {
 		if(result.hasErrors()) {
-			return new JSONResponse("failure", result.getFieldErrors());
+			return new JSONResponse("failure", result.getFieldErrors().);
 		}
 		if(userDAO.getUserByEmail(newUser.getEmail()) == null) {
 			userDAO.addUser(newUser);
