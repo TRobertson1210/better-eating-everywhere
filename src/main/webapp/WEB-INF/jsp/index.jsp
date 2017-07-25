@@ -18,10 +18,14 @@
 		
 	<c:url value="/riotTags/userLogin.tag" var="userLoginLocation" />
 	<script src="${userLoginLocation}" type="riot/tag"></script>
+	
+	<c:url value="/riotTags/homePage.tag" var="homePageLocation" />
+	<script src="${homePageLocation}" type="riot/tag"></script>
 		
 	<script>
 	window.CREATE_URL = "<c:url value="/users/register/"/>"
 	
+	riot.mount('homePage');
 	riot.mount('userRegistration', {
 		title: 'Register',
 	});
