@@ -8,11 +8,7 @@ import java.util.Map;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
-public class ValidationPojo {
-
-	private String status;
-	private Map<String, List<FieldError>> errors;
-	
+public class ValidationPojo {	
 	
 
 	public List<Map<String, String>> generateErrorMessage(BindingResult result) {
