@@ -1,6 +1,7 @@
 <userRegistration>
-	<div class="content-blocker">
-		<div class="main-content">
+		<div class="content-blocker">
+		</div>
+		<div class="registration">
 			<h3>{ title }</h3>
 			<form onsubmit={register}>
 				<label>Email Address: </label>
@@ -32,7 +33,7 @@
 				<div class="submitButton"><input type="submit" value="Register"/></div>
 			</form>
 		</div>
-	</div>
+	
 	
 	<script>
 		this.title = opts.title;
