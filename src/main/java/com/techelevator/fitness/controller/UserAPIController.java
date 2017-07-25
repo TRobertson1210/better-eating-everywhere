@@ -16,7 +16,7 @@ import com.techelevator.fitness.model.JSONResponse;
 import com.techelevator.fitness.model.User;
 import com.techelevator.fitness.model.UserDAO;
 import com.techelevator.fitness.security.PasswordHasher;
-import com.techelevator.fitness.validation.ValidationPojo;
+import com.techelevator.fitness.validation.ErrorMessageGenerator;
 
 @RestController
 @SessionAttributes("loggedInUser")
@@ -36,9 +36,9 @@ public class UserAPIController {
 	@RequestMapping(path="/user/register", method=RequestMethod.POST)
 	public JSONResponse createUser(@Valid @ModelAttribute User newUser,
 			BindingResult result) {
-		ValidationPojo resultThing = new ValidationPojo();
+		ErrorMessageGenerator emg = new ErrorMessageGenerator();
 		if(result.hasErrors()) {
-			return new JSONResponse("failure", resultThing.generateErrorMessage(result));
+			return new JSONResponse("failure", emg.generateErrorMessage(result));
 		}
 		if(userDAO.getUserByEmail(newUser.getEmail()) == null) {
 			userDAO.addUser(newUser);
