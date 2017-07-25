@@ -1,0 +1,45 @@
+.content-blocker {
+	position: fixed;
+	background-color: rgba(0,0,0,0.4);
+	opacity: 0.3;
+	width: 100%;
+	height: 100%;
+}
+
+.main-content {
+	margin: auto;
+	width: 50%;
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+.main-content h3 {
+	text-align: center;
+}
+
+.main-content form {
+	display: grid;
+	grid-gap: 1.5px;
+	grid-template-columns: 1fr 2fr;
+}
+
+.main-content form label {
+	grid-column: 1 / 2;
+}
+
+.main-content form input {
+	margin: auto;
+	grid-column: 2 / 3;
+	width: 80%;
+}
+
+.main-content form select {
+	margin: auto;
+	grid-column: 2 / 3;
+	width: 83%;
+}
+
+.main-content form div.submitButton {
+	text-align: center;
+	grid-column: 1 / 3;
+}
