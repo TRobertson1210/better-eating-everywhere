@@ -26,7 +26,7 @@
 			}).always(function() {
 				console.log("Gun");
 			});
-		};
+		}
 	</script>
 
 </userRegistration>
