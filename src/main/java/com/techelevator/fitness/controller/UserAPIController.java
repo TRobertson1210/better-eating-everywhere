@@ -1,13 +1,13 @@
 package com.techelevator.fitness.controller;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -61,7 +61,7 @@ public class UserAPIController {
 
 		if(result.hasErrors()){
 			ErrorMessageGenerator emg = new ErrorMessageGenerator();
-			return new JSONResponse("errors", emg.generateErrorMessage(result));
+			return new JSONResponse("failure", emg.generateErrorMessage(result));
 		}
 		if(!model.containsAttribute("loggedInUser")){
 			User compareUser = userDAO.getUserByEmail(loginInfo.getEmail());
@@ -70,11 +70,14 @@ public class UserAPIController {
 				if(compareUser.getHashedPassword().equals(pboy.computeHash(loginInfo.getPassword(), compareUser.getSalt()))){
 					model.addAttribute("loggedInUser", compareUser);
 					return new JSONResponse("success", compareUser);
+				}else{
+					Map<String, String> errorMap = new HashMap<>();
+					errorMap.put("confirmPassword", "You must enter an identical password");
+					return new JSONResponse("failure", errorMap);
 				}
 			}
 		}
-		ErrorMessageGenerator emg = new ErrorMessageGenerator();
-		return new JSONResponse("failure", emg.generateErrorMessage(result));
+		return new JSONResponse("failure", null);
 	}
 
 }
