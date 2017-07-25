@@ -1,10 +1,14 @@
 package com.techelevator.fitness.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.techelevator.fitness.model.JSONResponse;
 import com.techelevator.fitness.model.User;
@@ -25,7 +29,11 @@ public class UserAPIController {
 	}
 
 	@RequestMapping(path="/user/register", method=RequestMethod.POST)
-	public JSONResponse createUser(@ModelAttribute User newUser){
+	public JSONResponse createUser(@Valid @ModelAttribute User newUser,
+			BindingResult result) {
+		if(result.hasErrors()) {
+			return new JSONResponse("failure", result.getFieldErrors());
+		}
 		if(userDAO.getUserByEmail(newUser.getEmail()) == null) {
 			userDAO.addUser(newUser);
 			return new JSONResponse("success", newUser);
