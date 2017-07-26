@@ -4,6 +4,7 @@ body {
 
 .content-blocker {
 	position: fixed;
+	display: grid;
 	top:0px;
 	bottom:0px;
 	right: 0px;
@@ -12,6 +13,8 @@ body {
 	width: 100vw;
 	height: 100vh;
 	z-index: 2;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
 }
 
 /* Homepage Element CSS */
@@ -47,13 +50,13 @@ userRegistration {
 	background-color: white;
 	border-radius: 2%;
 	padding: 15px;
-	width: 30%;
-	max-width: 300px;
-	min-width: 250px;
+	width: 90%;
 	z-index: 5;
 	-webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
 	box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+	grid-column: 2 / 3;
+	grid-row: 2 / 3;
 }
 
 .registration h3 {
@@ -149,16 +152,16 @@ userLogin {
 	background-color: white;
 	border-radius: 2%;
 	padding: 15px;
-	margin: auto;
-	width: 30%;
-	max-width: 300px;
-	min-width: 250px;
+	width: 100%;
+	height: 60%;
 	display: grid;
 	grid-template-columns: 1fr;
 	z-index: 5;
 	-webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
 	box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+	grid-column: 2 / 3;
+	grid-row: 2 / 3;
 }
 
 .login h3 {

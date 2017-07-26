@@ -1,24 +1,29 @@
 <userLogin>
-	<div class="content-blocker">
-	</div>
+<div class="content-blocker">
+
 
 	<div class="login">
-	<h3>{title}</h3>
-	
-	
-	<form onsubmit={login}>
-		<span id="loginEmail-error"></span>
-		<label for="loginEmail">Email Address: </label>
-		<div><input id="loginEmail" type="text" name="email" placeholder="example@mail.com" /></div><br>
-		<span id="loginPassword-error"></span>
-		<label for="loginPassword">Password: </label>
-		<input id="loginPassword" type="password" name="password" /><br>
-		<div class="loginButton"><input type="submit" value="Login"/></div>
-	</form>
-	
+		<h3><i class="em em-clap"></i><i class="em em-clap"></i><i class="em em-clap"></i></h3>
+
+
+		<form onsubmit={login}>
+			<span id="loginEmail-error"></span> <label for="loginEmail">Email
+				Address: </label>
+			<div>
+				<input id="loginEmail" type="text" name="email"
+					placeholder="example@mail.com" />
+			</div>
+			<br> <span id="loginPassword-error"></span> <label
+				for="loginPassword">Password: </label> <input id="loginPassword"
+				type="password" name="password" /><br>
+			<div class="loginButton">
+				<input type="submit" value="Login" />
+			</div>
+		</form>
 	</div>
-	
-	<script>
+</div>
+
+<script>
 		this.title = opts.title;
 		var self = this;
 		var jsonResult;
