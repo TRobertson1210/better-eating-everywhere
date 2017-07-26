@@ -42,11 +42,8 @@
 		
 		$('button#homepage-logout').on('click', function(e) {
 			$.ajax({
-<<<<<<< HEAD
-				url: BASE_URL.base_url + "/user/logout",
-=======
+
 				url: BASE_URL + "user/logout",
->>>>>>> 2e4825423f003b8c2e13f99e8df627a44baf2abe
 				type: "POST",
 				datatype: "json",
 			}).done(function (data) {
