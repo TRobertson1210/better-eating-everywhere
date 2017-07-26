@@ -52,7 +52,7 @@
 		register(e) {
 			e.preventDefault();
 			$.ajax({
-				url: BASE_URL + "/user/register",
+				url: BASE_URL.base_url + "/user/register",
 				type: "POST",
 				data: {
 					"email" : $('#email').val(),

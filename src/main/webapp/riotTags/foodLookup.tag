@@ -72,7 +72,7 @@
 				caloriesPer100G = foodJSON.report.food.nutrients[1].value;
 				var measures = foodJSON.report.food.nutrients[1].measures;
 				for(var j = 0; j < measures.length; j++){
-					$("#servingDad").append('<li>' + measures[j].qty + ' ' + measures[j].label + ' ' + measures[j].value + '</li>')
+					$("#servingDad").append('<li>' + measures[j].qty + ' ' + measures[j].label + ' is ' + measures[j].value + ' kcal' + '</li>')
 				}
 			});
 		}

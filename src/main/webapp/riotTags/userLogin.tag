@@ -26,7 +26,7 @@
 		login(e) {
 			e.preventDefault();
 			$.ajax({
-				url: BASE_URL + "/user/login",
+				url: BASE_URL.base_url + "/user/login",
 				type: "POST",
 				data: {
 					"email" : $('#loginEmail').val(),
