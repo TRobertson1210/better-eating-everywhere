@@ -30,7 +30,7 @@
 	
 		
 	<script>
-	window.BASE_URL = <c:url value="/" />
+	window.BASE_URL = "<c:url value="/" />";
 
 	riot.mount('homePage');
 	riot.mount('userRegistration', {
