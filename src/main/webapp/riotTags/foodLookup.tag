@@ -1,6 +1,6 @@
 <foodLookup>
 
-	<button id="homepage">Home</button>
+	<button id="homepage" onclick={backToHome}>Home</button>
 
 	<h3>{title}</h3>
 	
@@ -84,11 +84,11 @@
 				$("#servingDad").append('<li>' + measures[i].label + measures[i].value + '</li>')
 			}
 		}
-		
-		$('button#homepage').on('click', function(e) {
+
+		backToHome(e) {
 			$('homePage').show();
 			$('foodLookup').hide();
-		});
+		}
 		
 		
 	</script>
