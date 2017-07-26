@@ -17,7 +17,6 @@ CREATE TABLE users (
     sex CHAR(1),
     target_weight DECIMAL(5,2),
     target_BMI DECIMAL(3,1),
-    phone_number VARCHAR(255),
     permission_level INTEGER,
     salt VARCHAR(255)
 );

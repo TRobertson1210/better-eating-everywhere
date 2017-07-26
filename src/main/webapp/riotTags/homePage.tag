@@ -3,7 +3,7 @@
 		<div class="homepage-signup">
 			<div class="homepage-navbar">
 				<nav class="navbar">
-   					<img src="#" width="30" height="30" class="d-inline-block align-top" alt="">Tech Fitness Pal
+   					Tech Fitness Studio
 				</nav>		
 			</div>
 			<div class="signup-content">
@@ -12,6 +12,8 @@
 				<h6>Join now while it's free!</h6>
 				<button id="homepage-register">Register</button>
 				<button id="homepage-login">Login</button>
+				<button id="homepage-logout">Logout</button>
+				<button id="homepage-foodlookup">Food Look Up</button>
 			</div>
 		</div>
 	</div>
@@ -19,18 +21,41 @@
 	<script>
 	$(document).ready(function () {
 		$('button#homepage-register').on('click', function(e) {
-			$('homePage').after('<userRegistration class="userRegistration"></userRegistration>')
+			$('userRegistration').show();
 		});
 		
 		$('div.content-blocker').on('click', function(e) {
-			$('userRegistration.userRegistration').remove()
+			$('userRegistration').hide()
 		});
+		
 		$('button#homepage-login').on('click', function(e) {
-			$('homePage').after('<userLogin class="userLogin"></userLogin>')
+			$('userLogin').show();
 		});
 		
 		$('div.content-blocker').on('click', function(e) {
-			$('userLogin.userLogin').remove()
+			$('userLogin').hide()
+		});
+		$('button#homepage-foodlookup').on('click', function(e) {
+			$('homePage').hide();
+			$('foodLookup').show();
+		});
+		
+		$('button#homepage-logout').on('click', function(e) {
+			$.ajax({
+				url: BASE_URL + "/user/logout",
+				type: "POST",
+				datatype: "json",
+			}).done(function (data) {
+				if(data.status === "success") {
+					console.log("Logout successful");
+				} else {
+					console.log("No user in session");
+				}
+			}).fail(function(xhr, status, error) {
+				console.log(error);
+			}).always(function() {
+				console.log("Gun");
+			});
 		});
 	});
 	</script>
