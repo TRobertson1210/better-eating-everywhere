@@ -9,10 +9,10 @@
 				<div><input id="email" type="email" name="email" placeholder="example@mail.com" /></div><br>
 				<span id="password-error"></span>
 				<label for="password">Password: </label>
-				<input id="password" type="password" name="password" /><br>
+				<div><input id="password" type="password" name="password" /></div><br>
 				<span id="confirmPassword-error"></span>
 				<label for="confirmPassword">Confirm Password: </label>
-				<input id="confirmPassword" type="password" name="confirmPassword" /><br>
+				<div><input id="confirmPassword" type="password" name="confirmPassword" /></div><br>
 				<span id="name"></span>
 				<label for="name">Name: </label>
 				<input id="name" type="text" name="name" /><br>
