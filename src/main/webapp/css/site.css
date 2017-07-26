@@ -233,3 +233,9 @@ userLogin {
 	position:relative;
 	top:1px;
 }
+
+/* Food Lookup CSS */
+
+foodLookup {
+	display: none;
+}

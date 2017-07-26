@@ -13,6 +13,7 @@
 				<button id="homepage-register">Register</button>
 				<button id="homepage-login">Login</button>
 				<button id="homepage-logout">Logout</button>
+				<button id="homepage-foodlookup">Food Look Up</button>
 			</div>
 		</div>
 	</div>
@@ -33,6 +34,10 @@
 		
 		$('div.content-blocker').on('click', function(e) {
 			$('userLogin').hide()
+		});
+		$('button#homepage-foodlookup').on('click', function(e) {
+			$('homePage').hide();
+			$('foodLookup').show();
 		});
 		
 		$('button#homepage-logout').on('click', function(e) {

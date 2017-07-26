@@ -12,8 +12,9 @@
 
 
 	<homePage></homePage>
-	<userregistration class="userRegistration"></userregistration>
-	<userLogin class="userLogin"></userLogin>
+	<userregistration></userregistration>
+	<userLogin></userLogin>
+	<foodLookup></foodLookup>
 	
 	<c:url value="/riotTags/userRegistration.tag" var="userRegistrationLocation" />
 	<script src="${userRegistrationLocation}" type="riot/tag"></script>
