@@ -9,10 +9,10 @@
 				<div><input id="email" type="email" name="email" placeholder="example@mail.com" /></div><br>
 				<span id="password-error"></span>
 				<label for="password">Password: </label>
-				<input id="password" type="password" name="password" /><br>
+				<div><input id="password" type="password" name="password" /></div><br>
 				<span id="confirmPassword-error"></span>
 				<label for="confirmPassword">Confirm Password: </label>
-				<input id="confirmPassword" type="password" name="confirmPassword" /><br>
+				<div><input id="confirmPassword" type="password" name="confirmPassword" /></div><br>
 				<span id="name"></span>
 				<label for="name">Name: </label>
 				<input id="name" type="text" name="name" /><br>
@@ -52,7 +52,11 @@
 		register(e) {
 			e.preventDefault();
 			$.ajax({
+<<<<<<< HEAD
 				url: BASE_URL.base_url + "/user/register",
+=======
+				url: BASE_URL + "user/register",
+>>>>>>> 2e4825423f003b8c2e13f99e8df627a44baf2abe
 				type: "POST",
 				data: {
 					"email" : $('#email').val(),

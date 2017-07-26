@@ -19,4 +19,9 @@
     <url-pattern>*.gif</url-pattern>
     <url-pattern>*.tag</url-pattern>
   </servlet-mapping>
+  
+   <session-config>
+  	<session-timeout>20</session-timeout>
+  	<tracking-mode>COOKIE</tracking-mode>
+  </session-config>
 </web-app>
