@@ -31,8 +31,6 @@ public class User {
 	private Double targetWeight;
 	@Min(1)
 	private Double targetBMI;
-	@Pattern(regexp = "^\\(\\d{3}\\)\\d{3}-\\d{4}$", message="Please enter a valid phone number")
-	private String phoneNumber;
 	private Integer permissionLevel;
 	private String salt;
 	
@@ -119,12 +117,6 @@ public class User {
 	}
 	public void setTargetBMI(Double targetBMI) {
 		this.targetBMI = targetBMI;
-	}
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
 	}
 	public Integer getPermissionLevel() {
 		return permissionLevel;

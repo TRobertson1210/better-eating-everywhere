@@ -3,17 +3,16 @@
 	</div>
 		<div class="registration">
 			<h3>{ title }</h3>
-			<span class="glyphicon glyphicon-remove-circle x-out"></span>
 			<form onsubmit={register}>
-				<span id="email"></span>
+				<span id="email-error"></span>
 				<label>Email Address: </label>
-				<input id="email" type="email" name="email" placeholder="Email Address" required /><br>
-				<span id="password"></span>
+				<div><input id="email" type="email" name="email" placeholder="example@mail.com" /></div><br>
+				<span id="password-error"></span>
 				<label for="password">Password: </label>
-				<input id="password" type="password" name="password" required /><br>
-				<span id="confirmPassword"></span>
+				<input id="password" type="password" name="password" /><br>
+				<span id="confirmPassword-error"></span>
 				<label for="confirmPassword">Confirm Password: </label>
-				<input id="confirmPassword" type="password" name="confirmPassword" required /><br>
+				<input id="confirmPassword" type="password" name="confirmPassword" /><br>
 				<span id="name"></span>
 				<label for="name">Name: </label>
 				<input id="name" type="text" name="name" /><br>
@@ -22,10 +21,10 @@
 				<input id="isImperial" type="radio" name="" value="false">Metric<br> -->
 				<span id="height"></span>
 				<label for="height">Height: </label>
-				<input id="height" type="number" name="height" min="0"/><br>
+				<div><input id="height" type="number" name="height"/></div><br>
 				<span id="weight"></span>
 				<label for="weight">Current Weight: </label>
-				<input id="weight" type="number" name="weight" min="0"/><br>
+				<div><input id="weight" type="number" name="weight"/></div><br>
 				<span id="sex"></span>
 				<label for="sex">Sex: </label>
 				<select id="sex" name="sex">
@@ -35,13 +34,10 @@
 				</select><br>
 				<span id="targetWeight"></span>
 				<label for="targetWeight">Target Weight: </label>
-				<input id="targetWeight" type="number" name="targetWeight" min="0"/><br>
+				<div><input id="targetWeight" type="number" name="targetWeight"/></div><br>
 				<span id="targetBMI"></span>
 				<label for="targetBMI">Target BMI: </label>
-				<input id="targetBMI" type="number" name="targetBMI" min="0" max="40"/><br>
-				<span id="phoneNumber"></span>
-				<label for="phoneNumber">Phone Number: </label>
-				<input id="phoneNumber" type="text" name="phoneNumber" /><br>
+				<div><input id="targetBMI" type="number" name="targetBMI"/></div><br>
 				<input id="permissionLevel" type="hidden" value="2" name="permissionLevel" />
 				<div class="submitButton"><input type="submit" value="Register"/></div>
 			</form>
@@ -49,27 +45,25 @@
 	
 	
 	<script>
-		var self = this;
 		this.title = opts.title;
+		var self = this;
 		var jsonResult = null;
 		
 		register(e) {
 			e.preventDefault();
 			$.ajax({
-				url: "http://localhost:8080/capstone/user/register",
+				url: BASE_URL + "/user/register",
 				type: "POST",
 				data: {
 					"email" : $('#email').val(),
 					"password" : $('#password').val(),
 					"confirmPassword" : $('#confirmPassword').val(),
 					"name" : $('#name').val(),
-					"isImperial" : $('#isImperial').val(),
 					"height" : $('#height').val(),
 					"weight" : $('#weight').val(),
 					"sex" : $('#sex').val(),
 					"targetWeight" : $('#targetWeight').val(),
 					"targetBMI" : $('#targetBMI').val(),
-					"phoneNumber" : $('#phoneNumber').val(),
 					"permissionLevel" : $('#permissionLevel').val(),
 				},
 				datatype: "json",
@@ -77,6 +71,7 @@
 				console.log(data);
 				self.validate(data);
 				jsonResult = data;
+				$('userRegistration').hide();
 			}).fail(function(xhr, status, error) {
 				console.log(error);
 			});
@@ -85,16 +80,16 @@
 		validate(jsonResult) {
 			if(jsonResult.status === "failure") {
 				if(jsonResult.value.email != null) {
-					$('span#email').text(jsonResult.value.email);
+					$('span#email-error').text(jsonResult.value.email);
 				}
 				if(jsonResult.value.password != null) {
-					$('span#password').text(jsonResult.value.password);
+					$('span#password-error').text(jsonResult.value.password);
 				}
 				if(jsonResult.value.confirmPassword != null) {
-					$('span#confirmPassword').text(jsonResult.value.confirmPassword);
+					$('span#confirmPassword-error').text(jsonResult.value.confirmPassword);
 				}
 				if(jsonResult.value.phoneNumber != null) {
-					$('span#phoneNumber').text(jsonResult.value.phoneNumber);
+					$('span#phoneNumber-error').text(jsonResult.value.phoneNumber);
 				}
 			}
 		}

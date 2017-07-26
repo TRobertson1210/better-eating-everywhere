@@ -14,14 +14,6 @@ body {
 	z-index: 2;
 }
 
-.x-out {
-	color: black;
-	position: absolute;
-	top: 1%;
-	right: 1%;
-	font-size: 10pt;
-}
-
 /* Homepage Element CSS */
 homePage {
 	visibility: visible;
@@ -30,7 +22,6 @@ homePage {
 .homepage-signup {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	background-image: url('../img/homepage-banner.jpeg');
 }
 
 .homepage-signup div.homepage-navbar {
@@ -44,19 +35,21 @@ homePage {
 
 /* Registration Element CSS */
 
+userRegistration {
+	display: none;
+}
+
 .registration {
+	position: relative;
+	margin: auto;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 10pt;
-	position: relative;
 	background-color: white;
 	border-radius: 2%;
 	padding: 15px;
-	margin: auto;
 	width: 30%;
 	max-width: 300px;
 	min-width: 250px;
-	display: grid;
-	grid-template-columns: 1fr;
 	z-index: 5;
 	-webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
@@ -69,24 +62,25 @@ homePage {
 }
 
 .registration form {
+ 	resize: none;
 	display: grid;
 	grid-gap: 3px;
 	grid-template-columns: 1fr 1fr;
 }
 
 .registration form label {
-	grid-column: 1 / 2;
+ 	grid-column: 1 / 2;
 }
 
 .registration form input {
 	margin: auto;
-	grid-column: 2 / 3;
+ 	grid-column: 2 / 3;
 	width: 95%;
 }
 
 .registration form select {
 	margin: auto;
-	grid-column: 2 / 3;
+ 	grid-column: 2 / 3;
 	width: 100%;
 }
 
@@ -143,6 +137,10 @@ homePage {
 }
 
 /* Login CSS */
+
+userLogin {
+	display: none;
+}
 
 .login {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

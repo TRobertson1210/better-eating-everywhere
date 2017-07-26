@@ -7,10 +7,10 @@
 	
 	
 	<form onsubmit={login}>
-		<span id="email"></span>
+		<span id="loginEmail-error"></span>
 		<label for="loginEmail">Email Address: </label>
-		<input id="loginEmail" type="text" name="email" placeholder="Email Address" /><br>
-		<span id="password"></span>
+		<div><input id="loginEmail" type="text" name="email" placeholder="example@mail.com" /></div><br>
+		<span id="loginPassword-error"></span>
 		<label for="loginPassword">Password: </label>
 		<input id="loginPassword" type="password" name="password" /><br>
 		<div class="loginButton"><input type="submit" value="Login"/></div>
@@ -21,12 +21,12 @@
 	<script>
 		this.title = opts.title;
 		var self = this;
-		var jsonResult = null;
+		var jsonResult;
 		
 		login(e) {
 			e.preventDefault();
 			$.ajax({
-				url: "http://localhost:8080/capstone/user/login",
+				url: BASE_URL + "/user/login",
 				type: "POST",
 				data: {
 					"email" : $('#loginEmail').val(),
@@ -37,6 +37,7 @@
 				console.log(data);
 				self.validate(data);
 				jsonResult = data;
+				$('userLogin').hide();
 			}).fail(function(xhr, status, error) {
 				console.log(error);
 			}).always(function() {
@@ -47,10 +48,10 @@
 		validate(jsonResult) {
 			if(jsonResult.status === "failure") {
 				if(jsonResult.value.email != null) {
-					$('span#email').text(jsonResult.value.email);
+					$('span#loginEmail-error').text(jsonResult.value.email);
 				}
 				if(jsonResult.value.password != null) {
-					$('span#password').text(jsonResult.value.password);
+					$('span#loginPassword-error').text(jsonResult.value.password);
 				}
 			}
 		}
