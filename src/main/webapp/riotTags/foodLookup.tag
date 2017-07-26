@@ -8,6 +8,10 @@
 		<input onchange={searchFoodName} id="foodSearch" type="text" name="foodSearch" placeholder="Enter Food Here" /><br>
 	</form>
 	
+	<ul id="servingInformation">
+		<span id="servingDad"></span>
+	</ul>
+	
 	<ul id="foodInformation">
 		<span id="foodDad"></span>
 	</ul>
@@ -19,7 +23,7 @@
 	<!-- dO8HHi951iNchZApEmVrvxdDyMrVLuGo1xpZQktf -->
 	
 	<script>
-		self = this;
+		var self = this;
 		this.title = opts.title;
 		
 		var searchJSON;
@@ -44,7 +48,7 @@
 				searchResults = searchJSON.list.item;
 				var listDad = $("#listDad");
 				for(var i = 0; i < 10; i++){
-					listDad.append('<li onclick="foodName(this)">' + searchResults[i].name + '</li>').append('<span style="visibility: hidden">' + i + '</span>')
+					listDad.append('<li onclick="$(\'foodLookup\')[0]._tag.foodName(this, ' + i + ')">' + searchResults[i].name + '</li>')
 				}				
 				console.log(data);
 			}).fail(function(xhr, status, error) {
@@ -55,9 +59,8 @@
 		
 		var caloriesPer100G;
 		
-		foodName = function(element){
-			var index = $(element).next().html();
-			var number = searchResults[index].ndbno;
+		foodName(element, i){
+			var number = searchResults[i].ndbno;
  			$.ajax({
 				url: "https://api.nal.usda.gov/ndb/reports/?ndbno=" + number + "&type=b&format=json&api_key=dO8HHi951iNchZApEmVrvxdDyMrVLuGo1xpZQktf",
 				type: "GET",
@@ -65,21 +68,19 @@
 			}).done(function (data) {
 				foodJSON = data;
 				caloriesPer100G = foodJSON.report.food.nutrients[1].value;
-				$("#foodDad").append('<li>' + caloriesPer100G + '</li>');
-			})
-		};
+				var measures = foodJSON.report.food.nutrients[1].measures;
+				for(var j = 0; j < measures.length; j++){
+					$("#servingDad").append('<li>' + measures[j].qty + ' ' + measures[j].label + ' ' + measures[j].value + '</li>')
+				}
+			});
+		}
+
 		
-		getFoodInfo() {
-			var nbdno = searchResults.nbdno;
-			$.ajax({
-				url: "https://api.nal.usda.gov/ndb/reports/?ndbno=" + nbdno + "&type=b&format=json&api_key=dO8HHi951iNchZApEmVrvxdDyMrVLuGo1xpZQktf",
-				type: "GET",
-				datatype: "json",
-			}).done(function (data) {
-				foodJSON = data;
-				caloriesPer100G = foodJSON.report.food.nutrients[1].value;
-				$("#foodDad").append('<li>' + caloriesPer100G + '</li>');
-			})
+		getServingOptions() {
+			var measures = foodJSON.report.food.nutrients[1].measures;
+			for(var j = 0; j < servings.length; j++){
+				$("#servingDad").append('<li>' + measures[i].label + measures[i].value + '</li>')
+			}
 		}
 		
 		
