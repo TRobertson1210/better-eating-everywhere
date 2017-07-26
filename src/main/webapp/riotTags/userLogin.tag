@@ -26,6 +26,7 @@
 		login(e) {
 			e.preventDefault();
 			$.ajax({
+
 				url: BASE_URL + "user/login",
 				type: "POST",
 				data: {

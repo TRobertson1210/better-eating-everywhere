@@ -27,10 +27,11 @@
 	
 	<c:url value="/riotTags/homePage.tag" var="homePageLocation" />
 	<script src="${homePageLocation}" type="riot/tag"></script>
+	
 		
 	<script>
-	window.BASE_URL = "<c:url value='/' />";
-	
+	window.BASE_URL = "<c:url value="/" />";
+
 	riot.mount('homePage');
 	riot.mount('userRegistration', {
 		title: 'Register',
