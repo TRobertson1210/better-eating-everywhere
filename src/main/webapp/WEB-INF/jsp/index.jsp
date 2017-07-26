@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="<c:url value="/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet"/>
 	<link href="<c:url value="/css/site.css" />" rel="stylesheet"/>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/riot@3.6.1/riot+compiler.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
