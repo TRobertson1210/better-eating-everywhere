@@ -51,7 +51,7 @@ public class UserAPIController {
 	}
 
 
-	@RequestMapping(path="/users/updateUser", method=RequestMethod.POST)
+	@RequestMapping(path="/user/updateUser", method=RequestMethod.POST)
 	public JSONResponse updateUser(@ModelAttribute User currentUser){
 		return new JSONResponse("success", currentUser);
 	}

@@ -12,15 +12,7 @@ public class FoodEvent {
 	private Double amountOfServings;
 	private Date dateEaten;
 	
-	public FoodEvent(Long id, Long userId, String name, Double calories, Double amountOfServings, Date dateEaten) {
-		this.id = id;
-		this.userId = userId;
-		this.name = name;
-		this.calories = calories;
-		this.eventCalories = calories * amountOfServings;
-		this.amountOfServings = amountOfServings;
-		this.dateEaten = dateEaten;
-	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -47,6 +39,9 @@ public class FoodEvent {
 	}
 	public Double getEventCalories() {
 		return eventCalories;
+	}
+	public void setEventCalories(Double eventCalories) {
+		this.eventCalories = eventCalories;
 	}
 	public Double getAmountOfServings() {
 		return amountOfServings;
