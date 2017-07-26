@@ -2,11 +2,13 @@
 	<div class="homepage-content">
 		<div class="homepage-signup">
 			<div class="homepage-navbar">
+				<div class="logo"><img src="img/tfs-logo.png" /></div>
 				<nav class="navbar">
    					Tech Fitness Studio
 				</nav>		
 			</div>
 			<div class="signup-content">
+				
 				<h2>Join the fastest growing weight loss app around!</h2>
 				<h4>With 100% growth in user base in the past 5 minutes, Tech Fitness Studio is sure to be on all the top companies' radars.</h4>
 				<h6>Join now while it's free!</h6>
