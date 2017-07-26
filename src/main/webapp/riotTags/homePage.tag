@@ -41,7 +41,11 @@
 				type: "POST",
 				datatype: "json",
 			}).done(function (data) {
-				console.log("Logout successful");
+				if(data.status === "success") {
+					console.log("Logout successful");
+				} else {
+					console.log("No user in session");
+				}
 			}).fail(function(xhr, status, error) {
 				console.log(error);
 			}).always(function() {

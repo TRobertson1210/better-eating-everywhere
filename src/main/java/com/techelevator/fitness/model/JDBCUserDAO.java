@@ -41,7 +41,7 @@ public class JDBCUserDAO implements UserDAO {
 	@Override
 	public void addUser(User newUser) {
 		String sqlStatement = "INSERT INTO users (email, hashed_password, name, height, weight, sex, target_weight, target_bmi, permission_level, salt) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		jdbc.update(sqlStatement, newUser.getEmail(), newUser.getHashedPassword(), newUser.getName(), newUser.getHeight(), newUser.getWeight(), newUser.getSex(), newUser.getTargetWeight(), newUser.getTargetBMI(), newUser.getPermissionLevel(), newUser.getSalt());
 	}
 	
