@@ -3,6 +3,7 @@ package com.techelevator.fitness.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.techelevator.fitness.model.JSONResponse;
 import com.techelevator.fitness.model.LoginInfo;
@@ -78,6 +80,16 @@ public class UserAPIController {
 			}
 		}
 		return new JSONResponse("failure", null);
+	}
+	
+	@RequestMapping(path="/user/logout", method=RequestMethod.POST)
+	public JSONResponse logout(ModelMap model, HttpSession session, SessionStatus status){
+		if(model.containsAttribute("loggedInUser")){
+			status.setComplete();
+			return new JSONResponse("success", "logged out");
+		}else{
+			return new JSONResponse("failure", "you are not logged in");
+		}
 	}
 
 }
