@@ -40,6 +40,9 @@
 	<c:url value="/riotTags/dashboard.tag" var="dashboardLocation" />
 	<script src="${dashboardLocation}" type="riot/tag"></script>
 	
+	<c:url value="/riotTags/progressGraph.tag" var="graphLocation" />
+	<script src="${graphLocation}" type="riot/tag"></script>
+	
 		
 	<script>
 	window.BASE_URL = "<c:url value="/" />";

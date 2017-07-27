@@ -1,9 +1,22 @@
 body {
 	margin: 0px;
 }
+
+.banner {
+	height: 40vh;
+	/* overflow: hidden;
+	content-align: center;
+	text-align: center; */
+	background-image: url("../img/food-banner.jpg");
+	background-size: 100%;
+	background-position: right top;
+}
 	
 .banner img{
-	max-width: 100%;
+	position: relative;
+	top: 0;
+	left:0;
+	max-width: 300px;
 }
 	
 * {
@@ -14,6 +27,7 @@ body {
 
 
 /* Food Lookup CSS */
+
 foodLookup {
 	display: none;
 }

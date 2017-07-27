@@ -1,11 +1,11 @@
-<graph>
+<progressGraph>
 	<div class="donut-chart">
-		<div onload={render} id="container"></div>
+		<div id="container">{render}</div>
 	</div>
-</graph>
+</progressGraph>
 
 <script>
-
+	$(document).ready(function () {
 	render(e) {
 		doughnutWidget.options = {
 				    container: $('#container'),
@@ -45,5 +45,6 @@
 		  return data;
 		}
 	}
+)};
 
 </script>
