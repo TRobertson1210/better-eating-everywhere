@@ -3,7 +3,7 @@
 
 
 	<div onclick = {noPropagate} class="login">
-		<h3><i class="em em-clap"></i><i class="em em-clap"></i><i class="em em-clap"></i></h3>
+		<div><i class="em em-clap"></i><i class="em em-clap"></i><i class="em em-clap"></i></div>
 		<i onclick= { close } class="em em-x window-close"></i>
 
 		<form onsubmit={login}>

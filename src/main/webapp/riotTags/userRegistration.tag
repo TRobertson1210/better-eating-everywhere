@@ -2,7 +2,7 @@
 	<div class="content-blocker">
 	
 		<div onclick = {noPropagate} class="registration">
-			<h3>{ title }</h3> <i onclick= { close } class="em em-x window-close"></i>
+			<h3>Registration</h3> <i onclick= { close } class="em em-x window-close"></i>
 			<form onsubmit={register}>
 				<span id="email-error"></span>
 				<label>Email Address: </label>

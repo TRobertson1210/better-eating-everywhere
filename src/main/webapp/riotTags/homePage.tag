@@ -2,7 +2,7 @@
 	<div class="homepage-content">
 		<div class="homepage-signup">
 			<div class="homepage-navbar">
-				<div class="logo"><img src="img/tfs-logo.png" /></div>
+				<div class="banner"><img src="img/food-banner.jpg" /></div>
 				<nav class="navbar">
    					Tech Fitness Studio
 				</nav>		

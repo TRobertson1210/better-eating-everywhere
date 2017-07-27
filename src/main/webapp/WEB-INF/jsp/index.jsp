@@ -39,16 +39,6 @@
 	window.BASE_URL = "<c:url value="/" />";
 
 	riot.mount('*');
-	riot.mount('homePage');
-	riot.mount('userRegistration', {
-		title: 'Register',
-	});
-	riot.mount('userLogin', {
-		title: 'Login',
-	});
-	riot.mount('foodLookup',{
-		title: 'Food Lookup',
-	});
 	</script>
 </body>
 </html>
