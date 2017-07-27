@@ -48,6 +48,8 @@
 		}).done(function (data) {
 			if(data.status === "success") {
 				console.log("Logout successful");
+				$('dashboard').hide();
+				$('homePage').show();
 			} else {
 				console.log("No user in session");
 			}

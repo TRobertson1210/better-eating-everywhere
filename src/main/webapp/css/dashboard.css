@@ -2,6 +2,10 @@ dashboard {
 	display: none;
 }
 
+dashboard div {
+	border-radius: 2px;
+}
+
 .dashboard {
 	display: grid;
 	grid-template-columns: 1fr 4fr 1fr;
@@ -23,6 +27,10 @@ dashboard {
 .dashboard-welcome {
 	grid-area: welcome;
 	text-align: center;
+	background: -webkit-linear-gradient(red, yellow);
+    background: -o-linear-gradient(red, yellow);
+    background: -moz-linear-gradient(red, yellow);
+    background: linear-gradient(red, yellow);
 }
 
 .dashboard-gold-star {
