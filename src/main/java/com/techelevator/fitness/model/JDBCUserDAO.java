@@ -45,6 +45,21 @@ public class JDBCUserDAO implements UserDAO {
 		jdbc.update(sqlStatement, newUser.getEmail(), newUser.getHashedPassword(), newUser.getName(), newUser.getHeight(), newUser.getWeight(), newUser.getSex(), newUser.getTargetWeight(), newUser.getTargetBMI(), newUser.getPermissionLevel(), newUser.getSalt());
 	}
 	
+	@Override
+	public void updateUser(User user) {
+		String sqlStatement = "UPDATE users SET name = ?, height = ?,"
+				+ "weight = ?, sex = ?, target_weight = ?, target_bmi = ?"
+				+ "WHERE user_id = ?";
+		jdbc.update(sqlStatement, user.getName(), user.getHeight(), user.getWeight(),
+				user.getSex(), user.getTargetWeight(), user.getTargetBMI(), user.getUserId());
+	}
+	
+	@Override
+	public void updatePassword(User user){
+		String sqlStatement = "UPDATE users SET hashed_password = ? WHERE user_id = ?";
+		jdbc.update(sqlStatement, user.getHashedPassword(), user.getUserId());
+	}
+	
 	private User mapRowToUser(SqlRowSet results){
 		User user = new User();
 		
@@ -62,5 +77,6 @@ public class JDBCUserDAO implements UserDAO {
 		
 		return user;
 	}
+
 
 }

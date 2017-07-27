@@ -22,7 +22,8 @@
 		<span id="listDad"></span>
 	</ul>
 	
-	<!-- dO8HHi951iNchZApEmVrvxdDyMrVLuGo1xpZQktf -->
+	<!-- API KEY 
+	dO8HHi951iNchZApEmVrvxdDyMrVLuGo1xpZQktf -->
 	
 	<script>
 		var self = this;
@@ -59,7 +60,6 @@
 			});
 		}
 		
-		var caloriesPer100G;
 		
 		foodName(element, i){
 			var number = searchResults[i].ndbno;
@@ -69,7 +69,6 @@
 				datatype: "json",
 			}).done(function (data) {
 				foodJSON = data;
-				caloriesPer100G = foodJSON.report.food.nutrients[1].value;
 				var measures = foodJSON.report.food.nutrients[1].measures;
 				for(var j = 0; j < measures.length; j++){
 					$("#servingDad").append('<li>' + measures[j].qty + ' ' + measures[j].label + ' is ' + measures[j].value + ' kcal' + '</li>')
@@ -77,13 +76,6 @@
 			});
 		}
 
-		
-		getServingOptions() {
-			var measures = foodJSON.report.food.nutrients[1].measures;
-			for(var j = 0; j < servings.length; j++){
-				$("#servingDad").append('<li>' + measures[i].label + measures[i].value + '</li>')
-			}
-		}
 
 		backToHome(e) {
 			$('homePage').show();
