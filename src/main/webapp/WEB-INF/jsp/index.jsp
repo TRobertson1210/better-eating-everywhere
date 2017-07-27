@@ -8,6 +8,8 @@
 	<link href="<c:url value="/css/dashboard.css" />" rel="stylesheet"/>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/riot@3.6.1/riot+compiler.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="pretty-doughtnut.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
 </head>
 <body>
 
@@ -18,6 +20,7 @@
 	<userLogin></userLogin>
 	<foodLookup></foodLookup>
 	<dashboard></dashboard>
+	<progressGraph></progressGraph>
 	
 	<c:url value="/riotTags/userRegistration.tag" var="userRegistrationLocation" />
 	<script src="${userRegistrationLocation}" type="riot/tag"></script>
