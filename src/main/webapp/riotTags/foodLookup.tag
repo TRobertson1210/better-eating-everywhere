@@ -58,7 +58,7 @@
 				console.log(error);
 			}).always(function() {
 			});
-		}
+		};
 		
 		
 		foodName(element, i){
@@ -74,13 +74,13 @@
 					$("#servingDad").append('<li>' + measures[j].qty + ' ' + measures[j].label + ' is ' + measures[j].value + ' kcal' + '</li>')
 				}
 			});
-		}
+		};
 
 
 		backToHome(e) {
 			$('homePage').show();
 			$('foodLookup').hide();
-		}
+		};
 		
 		
 	</script>

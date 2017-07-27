@@ -19,7 +19,7 @@
 
 
 	<script>
-	displayWelcomeMessage() {
+	window.displayWelcomeMessage() {
 		$.ajax({
 			url: BASE_URL + "user/getProfile",
 			type: "GET",

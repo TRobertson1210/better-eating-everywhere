@@ -41,23 +41,23 @@
 			$('homePage').hide();
 			$('foodLookup').show();
 		});
-		
-		logout() {
-			$.ajax({
-				url: BASE_URL + "user/logout",
-				type: "POST",
-				datatype: "json",
-			}).done(function (data) {
-				if(data.status === "success") {
-					console.log("Logout successful");
-				} else {
-					console.log("No user in session");
-				}
-			}).fail(function(xhr, status, error) {
-				console.log(error);
-			});
-		}
 	});
+	
+	logout(e) {
+		$.ajax({
+			url: BASE_URL + "user/logout",
+			type: "POST",
+			datatype: "json",
+		}).done(function (data) {
+			if(data.status === "success") {
+				console.log("Logout successful");
+			} else {
+				console.log("No user in session");
+			}
+		}).fail(function(xhr, status, error) {
+			console.log(error);
+		});
+	};
 	</script>
 
 </homePage>
