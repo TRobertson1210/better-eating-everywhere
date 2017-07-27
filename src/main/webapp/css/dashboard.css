@@ -1,8 +1,58 @@
+dashboard {
+	display: none;
+}
+
 .dashboard {
 	display: grid;
-	grid-template-column: 1fr 4fr 1fr;
+	grid-template-columns: 1fr 4fr 1fr;
+	grid-template-areas: "logo welcome prof-settings"
+						"navigation targets prof-settings"
+						". daily-prog ."
+						". food-history .";
 }
 
 .dashboard-logo {
+	grid-area: logo;
+}
+
+.dashboard-logo img {
 	width: 100%;
+	grid-column: 1 / 2;
+}
+
+.dashboard-welcome {
+	grid-area: welcome;
+	text-align: center;
+}
+
+.dashboard-gold-star {
+	display: inline;
+}
+
+.dashboard-navigation {
+	grid-area: navigation;
+}
+
+.dashboard-profile-settings {
+	grid-area: prof-settings;
+}
+
+.dashboard-set-targets {
+	grid-area: targets
+}
+
+.dashboard-daily-progress {
+	grid-area: daily-prog;
+}
+
+.dashboard-lifetime-progress {
+	grid-area: life-prog;
+}
+
+.dashboard-food-history {
+	grid-area: food-history;
+}
+
+.dashboard-food-history-lifetime {
+	grid-area: food-life;
 }
