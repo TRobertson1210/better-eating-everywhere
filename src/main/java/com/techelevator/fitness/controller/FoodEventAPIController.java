@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,7 +34,11 @@ public class FoodEventAPIController {
 		if(model.containsAttribute("loggedInUser")){
 			User user = (User) model.get("loggedInUser");
 			newFoodEvent.setUserId(user.getUserId());
+			try{
 			foodEventDAO.addFoodEvent(newFoodEvent);
+			}catch(DataAccessException exception){
+				return new JSONResponse("failure", exception.getMessage());
+			}
 			return new JSONResponse("success", newFoodEvent);
 		}else{
 			return new JSONResponse("failure", "no user in session");
@@ -43,7 +48,11 @@ public class FoodEventAPIController {
 	@RequestMapping(path="foodEvent/delete", method=RequestMethod.DELETE)
 	public JSONResponse deleteFoodEvent(@RequestParam Long foodEventId, ModelMap model) {
 		if(model.containsAttribute("loggedInUser")){
+			try{
 			foodEventDAO.removeFoodEvent(foodEventId);
+			}catch(DataAccessException exception){
+				return new JSONResponse("failure", exception.getMessage());
+			}
 			return new JSONResponse("success", foodEventId);
 		}else{
 			return new JSONResponse("failure", "no user in session");
@@ -55,23 +64,16 @@ public class FoodEventAPIController {
 		List<FoodEvent> foodEventList = new ArrayList<>();
 		if(model.containsAttribute("loggedInUser")) {
 			User user = (User) model.get("loggedInUser");
+			try{
 			foodEventList = foodEventDAO.getAllUserFoodEvents(user.getUserId());
+			}catch(DataAccessException exception){
+				return new JSONResponse("failure", exception.getMessage());
+			}
 			return new JSONResponse("success", foodEventList);
 		} else {
 			return new JSONResponse("failure", "no user in session");
 		}
 	}
 	
-	@RequestMapping(path="foodEvent/getEvents/day", method=RequestMethod.GET)
-	public JSONResponse getFoodEventsByDay(ModelMap model){
-		List<FoodEvent> foodEventList = new ArrayList<>();
-		if(model.containsAttribute("loggedInUser")){
-			User user = (User) model.get("loggedInUser");
-			
-			return new JSONResponse("success", foodEventList);
-		}else{
-			return new JSONResponse("failure", "no user in session");
-		}
-	}
 }
 

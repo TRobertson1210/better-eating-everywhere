@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -25,6 +26,8 @@ import com.techelevator.fitness.model.User;
 import com.techelevator.fitness.model.UserDAO;
 import com.techelevator.fitness.security.PasswordHasher;
 import com.techelevator.fitness.validation.ErrorMessageGenerator;
+
+import java.sql.SQLException;
 
 @RestController
 @SessionAttributes("loggedInUser")
@@ -48,9 +51,14 @@ public class UserAPIController {
 			ErrorMessageGenerator emg = new ErrorMessageGenerator();
 			return new JSONResponse("failure", emg.generateErrorMessage(result));
 		}
-		if(userDAO.getUserByEmail(newUser.getEmail()) == null) {
-			userDAO.addUser(newUser);
-			return new JSONResponse("success", newUser);
+
+		try{
+			if(userDAO.getUserByEmail(newUser.getEmail()) == null) {
+				userDAO.addUser(newUser);
+				return new JSONResponse("success", newUser);
+			}
+		}catch(DataAccessException exception){
+			return new JSONResponse("failure", exception.getMessage());
 		}
 		return new JSONResponse("failure", null);
 	}
@@ -66,20 +74,28 @@ public class UserAPIController {
 			loggedInUser.setTargetWeight(updateUser.getTargetWeight());
 			loggedInUser.setSex(updateUser.getSex());
 			loggedInUser.setName(updateUser.getName());
-			userDAO.updateUser(loggedInUser);
+			try{
+				userDAO.updateUser(loggedInUser);
+			}catch(DataAccessException exception){
+				return new JSONResponse("failure", exception.getMessage());
+			}
 			return new JSONResponse("success", loggedInUser);
 		}else{
 			return new JSONResponse("failure", "there is no user in the session");
 		}
 	}
-	
+
 	@RequestMapping(path="/user/updateGoals", method=RequestMethod.POST)
 	public JSONResponse updateGoals(@ModelAttribute GoalInfo goalInfo, ModelMap model){
 		if(model.containsAttribute("loggedInUser")){
 			User loggedInUser = (User) model.get("loggedInUser");
 			loggedInUser.setTargetWeight(goalInfo.getTargetWeight());
 			loggedInUser.setTargetBMI(goalInfo.getTargetBMI());
-			userDAO.updateGoals(loggedInUser);
+			try{
+				userDAO.updateGoals(loggedInUser);
+			}catch(DataAccessException exception){
+				return new JSONResponse("failure", exception.getMessage());
+			}
 			return new JSONResponse("success", goalInfo);
 		}else{
 			return new JSONResponse("failure", "no user in session");
@@ -93,7 +109,11 @@ public class UserAPIController {
 			PasswordHasher pboy = new PasswordHasher();
 			String newHashedPassword = pboy.computeHash(password, loggedInUser.getSalt());
 			loggedInUser.setHashedPassword(newHashedPassword);
-			userDAO.updatePassword(loggedInUser);
+			try{
+				userDAO.updatePassword(loggedInUser);
+			}catch(DataAccessException exception){
+				return new JSONResponse("failure", exception.getMessage());
+			}
 			return new JSONResponse("success", loggedInUser);
 		}else{
 			return new JSONResponse("failure", "there is no user in the session");
@@ -133,7 +153,7 @@ public class UserAPIController {
 			return new JSONResponse("failure", "you are not logged in");
 		}
 	}
-	
+
 	@RequestMapping(path="/user/getProfile", method=RequestMethod.GET)
 	public JSONResponse logout(ModelMap model){
 		if(model.containsAttribute("loggedInUser")){
@@ -149,7 +169,7 @@ public class UserAPIController {
 		}
 		return new JSONResponse("failure", "there is no user in the session");
 	}
-	
+
 	@RequestMapping(path="/user/getGoals", method=RequestMethod.GET)
 	public JSONResponse getGoals(ModelMap model){
 		if(model.containsAttribute("loggedInUser")){
