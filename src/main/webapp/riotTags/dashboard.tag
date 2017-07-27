@@ -19,7 +19,7 @@
 
 
 	<script>
-	window.displayWelcomeMessage() {
+	bus.on('loginComplete', function() {
 		$.ajax({
 			url: BASE_URL + "user/getProfile",
 			type: "GET",
@@ -36,7 +36,7 @@
 		}).fail(function(xhr, status, error) {
 			console.log(error);
 		});
-	}
+	});
 		
 	</script>
 
