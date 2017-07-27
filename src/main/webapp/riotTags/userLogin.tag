@@ -51,7 +51,12 @@
 				console.log(data);
 				self.validate(data);
 				jsonResult = data;
-				$('userLogin').hide();
+				if(data.status === "success") {
+					$('userLogin').hide();
+					$('homePage').hide();
+					$('dashboard').show();
+					displayWelcomeMessage();
+				}
 			}).fail(function(xhr, status, error) {
 				console.log(error);
 			}).always(function() {

@@ -1,0 +1,239 @@
+/* Homepage Element CSS */
+	homePage {
+		visibility: visible;
+	}
+	
+		.content-blocker {
+		position: fixed;
+		display: grid;
+		top: 0px;
+		bottom: 0px;
+		right: 0px;
+		left: 0px;
+		background-color: rgba(0, 0, 0, 0.6);
+		width: 100vw;
+		height: 100vh;
+		z-index: 2;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+	}
+	
+
+/* Registration Element CSS */
+
+	userRegistration {
+		display:none;
+	}
+	
+	.window-close {
+		position: absolute;
+		right: 2%;
+		top: 2%;
+	}
+	.registration {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		margin: auto;
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 10pt;
+		background-color: white;
+		border-radius: 2%;
+		padding: 15px;
+		width: 90vw;
+		height: 100vh;
+		z-index: 5;
+		-webkit-box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.75);
+		-moz-box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.75);
+		box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.75);
+		
+	}
+	.registration h3 {
+		margin-top: 0px;
+		text-align: center;
+	}
+	.registration form {
+		resize: none;
+		display: grid;
+		grid-gap: 3px;
+		grid-template-columns: 1fr;
+	}
+	.registration form label {
+		grid-column: 1/2;
+	}
+	.registration form input {
+		margin: auto;
+		grid-column: 1/2;
+		width: 95%;
+	}
+	.registration form select {
+		margin: auto;
+		grid-column: 1/2;
+		width: 95%;
+	}
+	.registration form span {
+		font-size: 9pt;
+		color: red;
+	}
+	.registration div.submitButton {
+		padding-top: 20px;
+		text-align: center;
+	}
+	.registration div.submitButton input {
+		color: #ffffff;
+		font-size: 12px;
+		font-weight: bold;
+		padding: 8px 15px;
+		text-decoration: none;
+		text-shadow: 0px 1px 0px #154682;
+		border: 0px solid black;
+		-moz-box-shadow: 0px 10px 14px -7px #54a3f7;
+		-webkit-box-shadow: 0px 10px 14px -7px #54a3f7;
+		box-shadow: 0px 10px 14px -7px #54a3f7;
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #007dc1
+			), color-stop(1, #0061a7));
+		background: -moz-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+		background: -webkit-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+		background: -o-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+		background: -ms-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+		background: linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#007dc1',
+			endColorstr='#0061a7', GradientType=0);
+		background-color: #007dc1;
+		-moz-border-radius: 8px;
+		-webkit-border-radius: 8px;
+		border-radius: 8px;
+	}
+	.registration div.submitButton input:hover {
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7
+			), color-stop(1, #007dc1));
+		background: -moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: -webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: -o-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: -ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7',
+			endColorstr='#007dc1', GradientType=0);
+		background-color: #0061a7;
+	}
+	.registration div.submitButton input:active {
+		position: relative;
+		top: 1px;
+	}
+	
+@media only screen and (min-width: 768px) {
+	
+	/* Homepage Element CSS */
+	.homepage-signup {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+	.homepage-signup div.homepage-navbar {
+		text-align: center;
+		grid-column: 1/3;
+	}
+	.homepage-signup div.signup-content {
+		grid-column: 1/2;
+	}
+
+	/* Registration Element CSS */
+	
+	.window-close {
+		position: absolute;
+		right: 2%;
+		top: 2%;
+	}
+	.registration {
+		position: relative;
+		margin: auto;
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 10pt;
+		background-color: white;
+		border-radius: 2%;
+		padding: 15px;
+		width: 90%;
+		height: 100%;
+		z-index: 5;
+		-webkit-box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.75);
+		-moz-box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.75);
+		box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.75);
+		grid-column: 2/3;
+		grid-row: 2/3;
+	}
+	.registration h3 {
+		margin-top: 0px;
+		text-align: center;
+	}
+	.registration form {
+		resize: none;
+		display: grid;
+		grid-gap: 3px;
+		grid-template-columns: 1fr 1fr;
+	}
+	.registration form label {
+		grid-column: 1/2;
+	}
+	.registration form input {
+		margin: auto;
+		grid-column: 2/3;
+		width: 95%;
+	}
+	.registration form select {
+		margin: auto;
+		grid-column: 2/3;
+		width: 95%;
+	}
+	.registration form span {
+		font-size: 9pt;
+		color: red;
+		grid-column: 2/3;
+	}
+	.registration div.submitButton {
+		padding-top: 20px;
+		text-align: center;
+		grid-column: 1/3;
+	}
+	.registration div.submitButton input {
+		color: #ffffff;
+		font-size: 12px;
+		font-weight: bold;
+		padding: 8px 15px;
+		text-decoration: none;
+		text-shadow: 0px 1px 0px #154682;
+		border: 0px solid black;
+		-moz-box-shadow: 0px 10px 14px -7px #54a3f7;
+		-webkit-box-shadow: 0px 10px 14px -7px #54a3f7;
+		box-shadow: 0px 10px 14px -7px #54a3f7;
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #007dc1
+			), color-stop(1, #0061a7));
+		background: -moz-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+		background: -webkit-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+		background: -o-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+		background: -ms-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+		background: linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#007dc1',
+			endColorstr='#0061a7', GradientType=0);
+		background-color: #007dc1;
+		-moz-border-radius: 8px;
+		-webkit-border-radius: 8px;
+		border-radius: 8px;
+	}
+	.registration div.submitButton input:hover {
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7
+			), color-stop(1, #007dc1));
+		background: -moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: -webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: -o-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: -ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7',
+			endColorstr='#007dc1', GradientType=0);
+		background-color: #0061a7;
+	}
+	.registration div.submitButton input:active {
+		position: relative;
+		top: 1px;
+	}
+}
