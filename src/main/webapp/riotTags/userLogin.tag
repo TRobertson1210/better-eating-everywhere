@@ -2,9 +2,9 @@
 <div class="content-blocker">
 
 
-	<div class="login">
+	<div onclick = {noPropagate} class="login">
 		<h3><i class="em em-clap"></i><i class="em em-clap"></i><i class="em em-clap"></i></h3>
-
+		<i onclick= { close } class="em em-x window-close"></i>
 
 		<form onsubmit={login}>
 			<span id="loginEmail-error"></span> <label for="loginEmail">Email
@@ -14,8 +14,8 @@
 					placeholder="example@mail.com" />
 			</div>
 			<br> <span id="loginPassword-error"></span> <label
-				for="loginPassword">Password: </label> <input id="loginPassword"
-				type="password" name="password" /><br>
+				for="loginPassword">Password: </label> <div><input id="loginPassword"
+				type="password" name="password" /></div><br>
 			<div class="loginButton">
 				<input type="submit" value="Login" />
 			</div>
@@ -27,6 +27,14 @@
 		this.title = opts.title;
 		var self = this;
 		var jsonResult;
+		
+		close(e) {
+			$('userLogin').hide();
+		}
+		
+		noPropagate(e) {
+			e.stopPropagation();
+		}
 		
 		login(e) {
 			e.preventDefault();

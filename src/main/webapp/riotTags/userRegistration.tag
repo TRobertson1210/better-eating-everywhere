@@ -1,8 +1,8 @@
 <userRegistration>
 	<div class="content-blocker">
-
-		<div class="registration">
-			<h3>{ title }</h3>
+	
+		<div onclick = {noPropagate} class="registration">
+			<h3>{ title }</h3> <i onclick= { close } class="em em-x window-close"></i>
 			<form onsubmit={register}>
 				<span id="email-error"></span>
 				<label>Email Address: </label>
@@ -15,7 +15,7 @@
 				<div><input id="confirmPassword" type="password" name="confirmPassword" /></div><br>
 				<span id="name"></span>
 				<label for="name">Name: </label>
-				<input id="name" type="text" name="name" /><br>
+				<div><input id="name" type="text" name="name" /></div><br>
 		<!-- 		<label for="isImperial">Measurement System: </label>
 				<input id="isImperial" type="radio" name="" value="true">Imperial
 				<input id="isImperial" type="radio" name="" value="false">Metric<br> -->
@@ -27,11 +27,11 @@
 				<div><input id="weight" type="number" name="weight"/></div><br>
 				<span id="sex"></span>
 				<label for="sex">Sex: </label>
-				<select id="sex" name="sex">
+				<div><select id="sex" name="sex">
 					<option value="M">Male</option>
 					<option value="F">Female</option>
 					<option value="O">Best</option>
-				</select><br>
+				</select></div><br>
 				<span id="targetWeight"></span>
 				<label for="targetWeight">Target Weight: </label>
 				<div><input id="targetWeight" type="number" name="targetWeight"/></div><br>
@@ -42,18 +42,25 @@
 				<div class="submitButton"><input type="submit" value="Register"/></div>
 			</form>
 		</div>
-		</div>
+	</div>
 	
 	<script>
 		this.title = opts.title;
 		var self = this;
 		var jsonResult = null;
 		
+		close(e) {
+			$('userRegistration').hide();
+		}
+		
+		noPropagate(e) {
+			e.stopPropagation();
+		}
+		
 		register(e) {
 			e.preventDefault();
 			$.ajax({
-
-				url: BASE_URL + "user/register",
+				url: BASE_URL + "/user/register",
 				type: "POST",
 				data: {
 					"email" : $('#email').val(),
