@@ -62,7 +62,7 @@ public class UserAPIController {
 			loggedInUser.setHeight(updateUser.getHeight());
 			loggedInUser.setWeight(updateUser.getWeight());
 			loggedInUser.setTargetBMI(updateUser.getTargetBMI());
-			loggedInUser.setTargetWeight(updateUser.getWeight());
+			loggedInUser.setTargetWeight(updateUser.getTargetWeight());
 			loggedInUser.setSex(updateUser.getSex());
 			loggedInUser.setName(updateUser.getName());
 			userDAO.updateUser(loggedInUser);
