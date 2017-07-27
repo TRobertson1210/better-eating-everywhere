@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.techelevator.fitness.model.GoalInfo;
 import com.techelevator.fitness.model.JSONResponse;
 import com.techelevator.fitness.model.LoginInfo;
 import com.techelevator.fitness.model.ProfileInfo;
@@ -69,6 +70,19 @@ public class UserAPIController {
 			return new JSONResponse("success", loggedInUser);
 		}else{
 			return new JSONResponse("failure", "there is no user in the session");
+		}
+	}
+	
+	@RequestMapping(path="/user/updateGoals", method=RequestMethod.POST)
+	public JSONResponse updateGoals(@ModelAttribute GoalInfo goalInfo, ModelMap model){
+		if(model.containsAttribute("loggedInUser")){
+			User loggedInUser = (User) model.get("loggedInUser");
+			loggedInUser.setTargetWeight(goalInfo.getTargetWeight());
+			loggedInUser.setTargetBMI(goalInfo.getTargetBMI());
+			userDAO.updateGoals(loggedInUser);
+			return new JSONResponse("success", goalInfo);
+		}else{
+			return new JSONResponse("failure", "no user in session");
 		}
 	}
 
@@ -134,6 +148,19 @@ public class UserAPIController {
 			return new JSONResponse("success", profileInfo);
 		}
 		return new JSONResponse("failure", "there is no user in the session");
+	}
+	
+	@RequestMapping(path="/user/getGoals", method=RequestMethod.GET)
+	public JSONResponse getGoals(ModelMap model){
+		if(model.containsAttribute("loggedInUser")){
+			User user = (User) model.get("loggedInUser");
+			GoalInfo goalInfo = new GoalInfo();
+			goalInfo.setTargetWeight(user.getTargetWeight());
+			goalInfo.setTargetBMI(user.getTargetBMI());
+			return new JSONResponse("success", goalInfo);
+		}else{
+			return new JSONResponse("failure", "there is no user in the session");
+		}
 	}
 
 }

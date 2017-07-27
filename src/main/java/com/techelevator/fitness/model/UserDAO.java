@@ -11,4 +11,6 @@ public interface UserDAO {
 	public void updateUser(User user);
 	
 	public void updatePassword(User user);
+	
+	public void updateGoals(User user);
 }
