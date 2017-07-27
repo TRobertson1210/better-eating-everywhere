@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -27,19 +28,29 @@ public class FoodEventAPIController {
 		this.foodEventDAO = foodEventDAO;
 	}
 
-	@RequestMapping(path="foodevent/add", method=RequestMethod.POST)
-	public JSONResponse addFoodEvent(@ModelAttribute FoodEvent newFoodEvent) {
-		foodEventDAO.addFoodEvent(newFoodEvent);
-		return new JSONResponse("success", newFoodEvent);
+	@RequestMapping(path="foodEvent/add", method=RequestMethod.POST)
+	public JSONResponse addFoodEvent(@ModelAttribute FoodEvent newFoodEvent, ModelMap model) {
+		if(model.containsAttribute("loggedInUser")){
+			User user = (User) model.get("loggedInUser");
+			newFoodEvent.setUserId(user.getUserId());
+			foodEventDAO.addFoodEvent(newFoodEvent);
+			return new JSONResponse("success", newFoodEvent);
+		}else{
+			return new JSONResponse("failure", "no user in session");
+		}
 	}
 
-	@RequestMapping(path="foodevent/delete", method=RequestMethod.DELETE)
-	public JSONResponse deleteFoodEvent(@ModelAttribute FoodEvent foodEvent) {
-		foodEventDAO.removeFoodEvent(foodEvent.getId());
-		return new JSONResponse("success", foodEvent);
+	@RequestMapping(path="foodEvent/delete", method=RequestMethod.DELETE)
+	public JSONResponse deleteFoodEvent(@RequestParam Long foodEventId, ModelMap model) {
+		if(model.containsAttribute("loggedInUser")){
+			foodEventDAO.removeFoodEvent(foodEventId);
+			return new JSONResponse("success", foodEventId);
+		}else{
+			return new JSONResponse("failure", "no user in session");
+		}
 	}
 
-	@RequestMapping(path="foodevent/getevents", method=RequestMethod.GET)
+	@RequestMapping(path="foodEvent/getEvents", method=RequestMethod.GET)
 	public JSONResponse getAllUserFoodEvents(ModelMap model) {
 		List<FoodEvent> foodEventList = new ArrayList<>();
 		if(model.containsAttribute("loggedInUser")) {
@@ -47,9 +58,20 @@ public class FoodEventAPIController {
 			foodEventList = foodEventDAO.getAllUserFoodEvents(user.getUserId());
 			return new JSONResponse("success", foodEventList);
 		} else {
-			return new JSONResponse("failure", "You must be logged in");
+			return new JSONResponse("failure", "no user in session");
 		}
-
+	}
+	
+	@RequestMapping(path="foodEvent/getEvents/day", method=RequestMethod.GET)
+	public JSONResponse getFoodEventsByDay(ModelMap model){
+		List<FoodEvent> foodEventList = new ArrayList<>();
+		if(model.containsAttribute("loggedInUser")){
+			User user = (User) model.get("loggedInUser");
+			
+			return new JSONResponse("success", foodEventList);
+		}else{
+			return new JSONResponse("failure", "no user in session");
+		}
 	}
 }
 
