@@ -1,15 +1,22 @@
 body {
 	margin: 0px;
+	font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .banner {
 	height: 40vh;
-	/* overflow: hidden;
-	content-align: center;
-	text-align: center; */
 	background-image: url("../img/food-banner.jpg");
 	background-size: 100%;
 	background-position: right top;
+	display: grid;
+	grid-template-columns: 40% 1fr;
+	grid-template-rows: 40% 1fr;
 }
 	
 .banner img{
@@ -19,12 +26,18 @@ body {
 	max-width: 300px;
 }
 	
-* {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+.banner-content {
+	text-align: left;
+	padding-left: 15px;
+	padding-bottom: 25px;
+	grid-column: 1 / 2;
+	grid-row: 2 / 3;
 }
 
+.banner button {
+	grid-column: 1 / 2;
+	grid-row: 2 / 3;
+}
 
 /* Food Lookup CSS */
 
