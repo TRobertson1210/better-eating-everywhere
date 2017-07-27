@@ -60,6 +60,13 @@ public class JDBCUserDAO implements UserDAO {
 		jdbc.update(sqlStatement, user.getHashedPassword(), user.getUserId());
 	}
 	
+	@Override
+	public void updateGoals(User user){
+		String sqlStatement = "UPDATE users SET target_weight = ?, target_bmi = ?"
+				+ "WHERE user_id = ?";
+		jdbc.update(sqlStatement,  user.getTargetWeight(), user.getTargetBMI(), user.getUserId());
+	}
+	
 	private User mapRowToUser(SqlRowSet results){
 		User user = new User();
 		
