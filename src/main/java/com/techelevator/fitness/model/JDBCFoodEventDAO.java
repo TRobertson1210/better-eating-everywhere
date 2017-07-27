@@ -1,6 +1,7 @@
 package com.techelevator.fitness.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -36,9 +37,9 @@ public class JDBCFoodEventDAO implements FoodEventDAO{
 	}
 
 	@Override
-	public List<FoodEvent> getAllUserFoodEvents(Long id) {
+	public List<FoodEvent> getAllUserFoodEvents(Long userId) {
 		String sqlStatement = "SELECT * FROM food_events WHERE user_id = ? ORDER BY date_eaten DESC";
-		SqlRowSet results = jdbc.queryForRowSet(sqlStatement, id);
+		SqlRowSet results = jdbc.queryForRowSet(sqlStatement, userId);
 		List<FoodEvent> userFoodEvents = new ArrayList<>();
 		while(results.next()) {
 			userFoodEvents.add(mapRowToFoodEvent(results));
@@ -46,11 +47,12 @@ public class JDBCFoodEventDAO implements FoodEventDAO{
 		return userFoodEvents;
 	}
 	
+	
 	private FoodEvent mapRowToFoodEvent(SqlRowSet results){
 		FoodEvent foodEvent = new FoodEvent();
-	
+		foodEvent.setId(results.getLong("food_event_id"));
 		foodEvent.setUserId(results.getLong("user_id"));
-		foodEvent.setName(results.getString("name"));
+		foodEvent.setName(results.getString("food_name"));
 		foodEvent.setCalories(results.getDouble("food_calories"));
 		foodEvent.setEventCalories(results.getDouble("event_calories"));
 		foodEvent.setAmountOfServings(results.getDouble("amount_of_servings"));
