@@ -12,12 +12,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.techelevator.fitness.model.JSONResponse;
 import com.techelevator.fitness.model.LoginInfo;
+import com.techelevator.fitness.model.ProfileInfo;
 import com.techelevator.fitness.model.User;
 import com.techelevator.fitness.model.UserDAO;
 import com.techelevator.fitness.security.PasswordHasher;
@@ -54,8 +56,34 @@ public class UserAPIController {
 
 
 	@RequestMapping(path="/user/updateUser", method=RequestMethod.POST)
-	public JSONResponse updateUser(@ModelAttribute User currentUser){
-		return new JSONResponse("success", currentUser);
+	public JSONResponse updateUser(@ModelAttribute User updateUser, ModelMap model){
+		if(model.containsAttribute("loggedInUser")){
+			User loggedInUser = (User) model.get("loggedInUser");
+			loggedInUser.setHeight(updateUser.getHeight());
+			loggedInUser.setWeight(updateUser.getWeight());
+			loggedInUser.setTargetBMI(updateUser.getTargetBMI());
+			loggedInUser.setTargetWeight(updateUser.getWeight());
+			loggedInUser.setSex(updateUser.getSex());
+			loggedInUser.setName(updateUser.getName());
+			userDAO.updateUser(loggedInUser);
+			return new JSONResponse("success", loggedInUser);
+		}else{
+			return new JSONResponse("failure", "there is no user in the session");
+		}
+	}
+
+	@RequestMapping(path="/user/changePassword", method=RequestMethod.POST)
+	public JSONResponse changePassword(@RequestParam String password, ModelMap model){
+		if(model.containsAttribute("loggedInUser")){
+			User loggedInUser = (User) model.get("loggedInUser");
+			PasswordHasher pboy = new PasswordHasher();
+			String newHashedPassword = pboy.computeHash(password, loggedInUser.getSalt());
+			loggedInUser.setHashedPassword(newHashedPassword);
+			userDAO.updatePassword(loggedInUser);
+			return new JSONResponse("success", loggedInUser);
+		}else{
+			return new JSONResponse("failure", "there is no user in the session");
+		}
 	}
 
 	@RequestMapping(path="/user/login", method=RequestMethod.POST)
@@ -74,14 +102,14 @@ public class UserAPIController {
 					return new JSONResponse("success", compareUser);
 				}else{
 					Map<String, String> errorMap = new HashMap<>();
-					errorMap.put("confirmPassword", "You must enter an identical password");
+					errorMap.put("password", "your email/password is incorrect");
 					return new JSONResponse("failure", errorMap);
 				}
 			}
 		}
 		return new JSONResponse("failure", null);
 	}
-	
+
 	@RequestMapping(path="/user/logout", method=RequestMethod.POST)
 	public JSONResponse logout(ModelMap model, HttpSession session, SessionStatus status){
 		if(model.containsAttribute("loggedInUser")){
@@ -90,6 +118,22 @@ public class UserAPIController {
 		}else{
 			return new JSONResponse("failure", "you are not logged in");
 		}
+	}
+	
+	@RequestMapping(path="/user/getProfile", method=RequestMethod.GET)
+	public JSONResponse logout(ModelMap model){
+		if(model.containsAttribute("loggedInUser")){
+			User user = (User) model.get("loggedInUser");
+			ProfileInfo profileInfo = new ProfileInfo();
+			profileInfo.setName(user.getName());
+			profileInfo.setHeight(user.getHeight());
+			profileInfo.setWeight(user.getWeight());
+			profileInfo.setSex(user.getSex());
+			profileInfo.setTargetBMI(user.getTargetBMI());
+			profileInfo.setTargetWeight(user.getWeight());
+			return new JSONResponse("success", profileInfo);
+		}
+		return new JSONResponse("failure", "there is no user in the session");
 	}
 
 }

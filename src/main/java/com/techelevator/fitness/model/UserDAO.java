@@ -7,4 +7,8 @@ public interface UserDAO {
 	public User getUserById(Long userId);
 
 	public void addUser(User newUser);
+	
+	public void updateUser(User user);
+	
+	public void updatePassword(User user);
 }
