@@ -11,7 +11,6 @@
 				<h6>Join now while it's free!</h6>
 				<button id="homepage-register">Register</button>
 				<button id="homepage-login">Login</button>
-				<button id="homepage-logout" onclick={logout}>Logout</button>
 				<button id="homepage-foodlookup">Food Look Up</button>
 			</div>
 		</div>
@@ -39,22 +38,6 @@
 			$('foodLookup').show();
 		});
 	});
-	
-	logout(e) {
-		$.ajax({
-			url: BASE_URL + "user/logout",
-			type: "POST",
-			datatype: "json",
-		}).done(function (data) {
-			if(data.status === "success") {
-				console.log("Logout successful");
-			} else {
-				console.log("No user in session");
-			}
-		}).fail(function(xhr, status, error) {
-			console.log(error);
-		});
-	};
 	</script>
 
 </homePage>

@@ -6,7 +6,7 @@ dashboard {
 	display: grid;
 	grid-template-columns: 1fr 4fr 1fr;
 	grid-template-areas: "logo welcome prof-settings"
-						"navigation targets prof-settings"
+						"navigation daily-prog prof-settings"
 						". daily-prog ."
 						". food-history .";
 }
@@ -37,12 +37,14 @@ dashboard {
 	grid-area: prof-settings;
 }
 
-.dashboard-set-targets {
-	grid-area: targets
-}
-
 .dashboard-daily-progress {
 	grid-area: daily-prog;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.dashboard-set-targets {
+	grid-area: targets
 }
 
 .dashboard-lifetime-progress {
