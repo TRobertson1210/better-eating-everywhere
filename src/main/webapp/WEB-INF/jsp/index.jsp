@@ -6,6 +6,9 @@
 	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet" />
 	<link href="<c:url value="/css/site.css" />" rel="stylesheet"/>
 	<link href="<c:url value="/css/dashboard.css" />" rel="stylesheet"/>
+	<link href="<c:url value="/css/login.css" />" rel="stylesheet"/>
+	<link href="<c:url value="/css/registration.css" />" rel="stylesheet"/>
+	<link href="<c:url value="/css/progressGraph.css" />" rel="stylesheet"/>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/riot@3.6.1/riot+compiler.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
