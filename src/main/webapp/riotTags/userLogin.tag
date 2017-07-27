@@ -55,7 +55,7 @@
 					$('userLogin').hide();
 					$('homePage').hide();
 					$('dashboard').show();
-					displayWelcomeMessage();
+					bus.trigger('loginComplete');
 				}
 			}).fail(function(xhr, status, error) {
 				console.log(error);

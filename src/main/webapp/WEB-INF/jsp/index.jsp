@@ -46,6 +46,13 @@
 		
 	<script>
 	window.BASE_URL = "<c:url value="/" />";
+	
+	function Bus() {
+		var self = this;
+		riot.observable(self);
+	}
+	
+	var bus = new Bus();
 
 	riot.mount('*');
 	</script>
