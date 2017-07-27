@@ -1,0 +1,8 @@
+.dashboard {
+	display: grid;
+	grid-template-column: 1fr 4fr 1fr;
+}
+
+.dashboard-logo {
+	width: 100%;
+}

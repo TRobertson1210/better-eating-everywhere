@@ -13,29 +13,23 @@
 				<span id="confirmPassword-error"></span>
 				<label for="confirmPassword">Confirm Password: </label>
 				<div><input id="confirmPassword" type="password" name="confirmPassword" /></div><br>
-				<span id="name"></span>
 				<label for="name">Name: </label>
 				<div><input id="name" type="text" name="name" /></div><br>
 		<!-- 		<label for="isImperial">Measurement System: </label>
 				<input id="isImperial" type="radio" name="" value="true">Imperial
 				<input id="isImperial" type="radio" name="" value="false">Metric<br> -->
-				<span id="height"></span>
 				<label for="height">Height: </label>
 				<div><input id="height" type="number" name="height"/></div><br>
-				<span id="weight"></span>
 				<label for="weight">Current Weight: </label>
 				<div><input id="weight" type="number" name="weight"/></div><br>
-				<span id="sex"></span>
 				<label for="sex">Sex: </label>
 				<div><select id="sex" name="sex">
 					<option value="M">Male</option>
 					<option value="F">Female</option>
 					<option value="O">Best</option>
 				</select></div><br>
-				<span id="targetWeight"></span>
 				<label for="targetWeight">Target Weight: </label>
 				<div><input id="targetWeight" type="number" name="targetWeight"/></div><br>
-				<span id="targetBMI"></span>
 				<label for="targetBMI">Target BMI: </label>
 				<div><input id="targetBMI" type="number" name="targetBMI"/></div><br>
 				<input id="permissionLevel" type="hidden" value="2" name="permissionLevel" />

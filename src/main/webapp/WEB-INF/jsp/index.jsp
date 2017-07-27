@@ -17,6 +17,7 @@
 	<userregistration></userregistration>
 	<userLogin></userLogin>
 	<foodLookup></foodLookup>
+	<dashboard></dashboard>
 	
 	<c:url value="/riotTags/userRegistration.tag" var="userRegistrationLocation" />
 	<script src="${userRegistrationLocation}" type="riot/tag"></script>
@@ -30,10 +31,14 @@
 	<c:url value="/riotTags/homePage.tag" var="homePageLocation" />
 	<script src="${homePageLocation}" type="riot/tag"></script>
 	
+	<c:url value="/riotTags/dashboard.tag" var="dashboardLocation" />
+	<script src="${dashboardLocation}" type="riot/tag"></script>
+	
 		
 	<script>
 	window.BASE_URL = "<c:url value="/" />";
 
+	riot.mount('*');
 	riot.mount('homePage');
 	riot.mount('userRegistration', {
 		title: 'Register',
