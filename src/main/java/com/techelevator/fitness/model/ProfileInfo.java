@@ -8,6 +8,7 @@ public class ProfileInfo {
 	private Integer height; //Height and Weight stored in metric
 	private Double weight;
 	private String gender;
+	private boolean isImperial;
 	
 	public String getName() {
 		return name;
@@ -32,6 +33,12 @@ public class ProfileInfo {
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+	public boolean isImperial() {
+		return isImperial;
+	}
+	public void setImperial(boolean isImperial) {
+		this.isImperial = isImperial;
 	}
 	
 }

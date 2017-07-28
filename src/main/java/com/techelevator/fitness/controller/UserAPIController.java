@@ -70,6 +70,7 @@ public class UserAPIController {
 			loggedInUser.setWeight(profileInfo.getWeight());
 			loggedInUser.setGender(profileInfo.getGender());
 			loggedInUser.setName(profileInfo.getName());
+			loggedInUser.setImperial(profileInfo.isImperial());
 			try{
 				userDAO.updateUser(loggedInUser);
 			}catch(DataAccessException exception){
@@ -99,13 +100,14 @@ public class UserAPIController {
 	}
 
 	@RequestMapping(path="/user/changePassword", method=RequestMethod.POST)
-	public JSONResponse changePassword(@Valid @ModelAttribute ChangePassInfo changePassInfo, 
-			ModelMap model, BindingResult result){
+	public JSONResponse changePassword(@ModelAttribute ChangePassInfo changePassInfo, 
+			ModelMap model){
 		
-		if(result.hasErrors()) {
-			ErrorMessageGenerator emg = new ErrorMessageGenerator();
-			return new JSONResponse("failure", emg.generateErrorMessage(result));
-		}
+		
+//		if(result.hasErrors()) {
+//			ErrorMessageGenerator emg = new ErrorMessageGenerator();
+//			return new JSONResponse("failure", emg.generateErrorMessage(result));
+//		}
 		
 		if(model.containsAttribute("loggedInUser")){
 			User loggedInUser = (User) model.get("loggedInUser");

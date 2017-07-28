@@ -41,18 +41,18 @@ public class JDBCUserDAO implements UserDAO {
 	@Override
 	public void addUser(User newUser) {
 		String sqlStatement = "INSERT INTO users (email, hashed_password, name, height, weight, gender, "
-				+ "target_weight, target_calories, permission_level, salt) "
+				+ "target_weight, target_calories, is_imperial, permission_level, salt) "
 				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		jdbc.update(sqlStatement, newUser.getEmail(), newUser.getHashedPassword(), newUser.getName(), newUser.getHeight(), newUser.getWeight(), newUser.getGender(), newUser.getTargetWeight(), newUser.getTargetCalories(), newUser.getPermissionLevel(), newUser.getSalt());
+		jdbc.update(sqlStatement, newUser.getEmail(), newUser.getHashedPassword(), newUser.getName(), newUser.getHeight(), newUser.getWeight(), newUser.getGender(), newUser.getTargetWeight(), newUser.getTargetCalories(), newUser.isImperial(), newUser.getPermissionLevel(), newUser.getSalt());
 	}
 	
 	@Override
 	public void updateUser(User user) {
 		String sqlStatement = "UPDATE users SET name = ?, height = ?, "
-				+ "weight = ?, gender = ? "
+				+ "weight = ?, gender = ?, is_imperial = ? "
 				+ "WHERE user_id = ?";
 		jdbc.update(sqlStatement, user.getName(), user.getHeight(), user.getWeight(),
-				user.getGender(), user.getUserId());
+				user.getGender(), user.isImperial(), user.getUserId());
 	}
 	
 	@Override
@@ -80,6 +80,7 @@ public class JDBCUserDAO implements UserDAO {
 		user.setGender(results.getString("gender"));
 		user.setTargetWeight(results.getDouble("target_weight"));
 		user.setTargetCalories(results.getInt("target_calories"));
+		user.setImperial(results.getBoolean("is_imperial"));
 		user.setPermissionLevel(results.getInt("permission_level"));
 		user.setSalt(results.getString("salt"));
 		

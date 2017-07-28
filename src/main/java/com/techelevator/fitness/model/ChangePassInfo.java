@@ -4,7 +4,9 @@ import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ChangePassInfo {
 
 	@NotBlank(message="You must enter your current password")

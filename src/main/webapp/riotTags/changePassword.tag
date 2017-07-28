@@ -4,9 +4,10 @@
 		<div onclick = {noPropagate} class="edit-password">
 			<h3>Change Password</h3> <i onclick= { close } class="em em-x window-close"></i>
 			<form onsubmit={editPassword}>
-				<label for="password">Password: </label>
-				<label for="password">New Password: </label>
-				<div><input id="edit-new-password" type="password" name="password" /></div><br>
+				<label for="currentPassword">Password: </label>
+				<div><input id="edit-current-password" type="password" name="currentPassword"/></div><br/>
+				<label for="newPassword">New Password: </label>
+				<div><input id="edit-new-password" type="password" name="newPassword" /></div><br>
 				<label for="confirmPassword">Confirm New Password: </label>
 				<div><input id="edit-confirm-new-password" type="password" name="confirmPassword" /></div><br>
 				<div class="submitButton"><input type="submit" value="Change Password"/></div>
@@ -33,8 +34,9 @@
 				url: BASE_URL + "user/changePassword",
 				type: "POST",
 				data: {
-					"name" : $('#edit-password').val(),
-					"height" : $('#edit-confirmPassword').val(),
+					"currentPassword" : $('#edit-current-password').val(),
+					"newPassword" : $('#edit-password').val(),
+					"confirmNewPassword" : $('#edit-confirmPassword').val(),
 				},
 				datatype: "json",
 			}).done(function (data) {
