@@ -37,10 +37,10 @@
 				datatype: "json",
 			}).done(function(data){
 				if(data.status === "success"){
-					$("#edit-name").html("value=" + data.value.name);
-					$("#edit-height").html("value=" + data.value.height);
-					$("#edit-weight").html("value=" + data.value.weight);
-			/* 		$("#edit-sex").html("value=" + data.value.sex); */
+					$("#edit-name").val(data.value.name);
+					$("#edit-height").val(data.value.height);
+					$("#edit-weight").val(data.value.weight);
+			/* 		$("#edit-sex").val(data.value.sex); */
 				}
 			}).fail(function(xhr, status, error){
 				console.log(error);
