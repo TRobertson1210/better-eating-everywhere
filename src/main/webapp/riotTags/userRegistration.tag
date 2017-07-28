@@ -39,12 +39,28 @@
 	</div>
 	
 	<script>
-		this.title = opts.title;
 		var self = this;
 		var jsonResult = null;
 		
 		close(e) {
+			removeRegisterInfo();
 			$('userRegistration').hide();
+		}
+		
+		function removeRegisterInfo() {
+			$('#email').val(null);
+			$('#password').val(null);
+			$('#confirmPassword').val(null);
+			$('#name').val(null);
+			$('#height').val(null);
+			$('#weight').val(null);
+			$('#sex').val(null);
+			$('#targetWeight').val(null);
+			$('#targetBMI').val(null);
+			$('#permissionLevel').val(null);
+			$('#email-error').text(null);
+			$('#password-error').text(null);
+			$('#confirmPassword-error').text(null);
 		}
 		
 		noPropagate(e) {
@@ -75,6 +91,20 @@
 				jsonResult = data;
 				if(data.status === "success") {
 					$('userRegistration').hide();
+					$('#email').val(null);
+					$('#password').val(null);
+					$('#confirmPassword').val(null);
+					$('#name').val(null);
+					$('#height').val(null);
+					$('#weight').val(null);
+					$('#sex').val(null);
+					$('#targetWeight').val(null);
+					$('#targetBMI').val(null);
+					$('#permissionLevel').val(null);
+					$('#email-error').text(null);
+					$('#password-error').text(null);
+					$('#confirmPassword-error').text(null);
+					$('userLogin').show();
 				}
 			}).fail(function(xhr, status, error) {
 				console.log(error);
