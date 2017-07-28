@@ -12,7 +12,7 @@ CREATE TABLE users (
     email VARCHAR(255) NOT NULL,
     hashed_password VARCHAR(255) NOT NULL,
     name VARCHAR(255),
-    is_imperial BOOLEAN DEFAULT false,
+    is_imperial VARCHAR(255) DEFAULT 'T',
     height INTEGER,
     weight DECIMAL(5,2),
     gender VARCHAR(255),
