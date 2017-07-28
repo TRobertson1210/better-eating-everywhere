@@ -28,19 +28,23 @@
 		var self = this;
 		var jsonResult;
 		
+		bus.on('removeLoginInfo', function() {
+			removeLoginInfo();
+		});
+		
 		close(e) {
 			$('userLogin').hide();
-		}
+		};
 		
 		function removeLoginInfo() {
 			$('#login-error').text(null);
 			$('#loginEmail').val(null);
 			$('#loginPassword').val(null);
-		}
+		};
 		
 		noPropagate(e) {
 			e.stopPropagation();
-		}
+		};
 		
 		login(e) {
 			e.preventDefault();
@@ -69,7 +73,7 @@
 			}).always(function() {
 				console.log("Gun");
 			});
-		}
+		};
 		
 		validate(jsonResult) {
 			if(jsonResult.status === "failure") {
@@ -80,7 +84,7 @@
 					$('span#login-error').text(jsonResult.value.password);
 				}
 			}
-		}
+		};
 	</script>
 
 </userLogin>

@@ -42,10 +42,14 @@
 		var self = this;
 		var jsonResult = null;
 		
+		bus.on('removeRegForm', function() {
+			removeRegisterInfo();
+		});
+		
 		close(e) {
 			removeRegisterInfo();
 			$('userRegistration').hide();
-		}
+		};
 		
 		function removeRegisterInfo() {
 			$('#email').val(null);
@@ -61,11 +65,11 @@
 			$('#email-error').text(null);
 			$('#password-error').text(null);
 			$('#confirmPassword-error').text(null);
-		}
+		};
 		
 		noPropagate(e) {
 			e.stopPropagation();
-		}
+		};
 		
 		register(e) {
 			e.preventDefault();
@@ -109,7 +113,7 @@
 			}).fail(function(xhr, status, error) {
 				console.log(error);
 			});
-		}
+		};
 		
 		validate(jsonResult) {
 			if(jsonResult.status === "failure") {
@@ -126,7 +130,7 @@
 					$('span#phoneNumber-error').text(jsonResult.value.phoneNumber);
 				}
 			}
-		}
+		};
 		
 		
 	</script>
