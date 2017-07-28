@@ -8,8 +8,6 @@ public class ProfileInfo {
 	private Integer height; //Height and Weight stored in metric
 	private Double weight;
 	private String sex;
-	private Double targetWeight;
-	private Double targetBMI;
 	
 	public String getName() {
 		return name;
@@ -35,18 +33,5 @@ public class ProfileInfo {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public Double getTargetWeight() {
-		return targetWeight;
-	}
-	public void setTargetWeight(Double targetWeight) {
-		this.targetWeight = targetWeight;
-	}
-	public Double getTargetBMI() {
-		return targetBMI;
-	}
-	public void setTargetBMI(Double targetBMI) {
-		this.targetBMI = targetBMI;
-	}
-	
 	
 }
