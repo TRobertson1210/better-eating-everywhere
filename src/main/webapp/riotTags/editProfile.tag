@@ -26,26 +26,29 @@
 		var self = this;
 		var jsonResult = null;
 		
-		$(document).ready(function(){
-			
-			getProfile(e) {
-				e.preventDefault();
-				$.ajax({
-					url: BASE_URL + "user/getProfile",
-					type: "GET",
-					datatype: "json",
-				}).done(function(data){
-					jsonResult = data;
-				}).fail(function(xhr, status, error){
-					console.log(error);
-				})
-			}
-			
-			$("#edit-name").html("value=" + jsonResult.value.name);
-			$("#edit-height").html("value=" + jsonResult.value.height);
-			$("#edit-weight").html("value=" + jsonResult.value.weight);
-	/* 		$("#edit-sex").html("value=" + jsonResult.value.sex); */	
+		bus.on("loginComplete", function(){
+			getProfile();
 		})
+			
+		function getProfile() {
+			$.ajax({
+				url: BASE_URL + "user/getProfile",
+				type: "GET",
+				datatype: "json",
+			}).done(function(data){
+				console.log(data);
+				if(data.status === "success"){
+					$("#edit-name").val(data.value.name);
+					$("#edit-height").val(data.value.height);
+					$("#edit-weight").val(data.value.weight);
+			/* 		$("#edit-sex").val(data.value.sex); */
+				}
+			}).fail(function(xhr, status, error){
+				console.log(error);
+			});
+		}
+	
+		
 
 		close(e) {
 			$('editProfile').hide();
