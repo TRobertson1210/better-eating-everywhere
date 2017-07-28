@@ -14,33 +14,29 @@ body {
 	background-image: none;
 }
 
+.banner-content h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+
 
 @media only screen and (min-width: 801px) {  /* Media query for laptops and smaller monitors */
 
 }
 
 @media only screen and (min-width: 1025px) {  /* Media query for larger monitors */
-
-}
-
-@media only screen and (min-width: 1281px) {
-	.banner-content h1, h2, h3, h4, h5, h6 {
-	font-weight: normal;
-}
-
-.banner-content h6 {
-	font-size: 0.9em;
-}
-
-.banner-content h4 {
-	font-size: 1.2em;
-}
-
-.banner-content h2 {
-	font-size: 1.8em;
-}
-
-.banner {
+	.banner-content h6 {
+		font-size: 0.5em;
+	}
+	
+	.banner-content h4 {
+		font-size: .8em;
+	}
+	
+	.banner-content h2 {
+		font-size: 1em;
+	}
+	
+	.banner {
 	height: 33.75em;
 	background-image: url("../img/food-banner.jpg");
 	background-size: 100%;
@@ -52,64 +48,170 @@ body {
 	display: grid;
 	grid-template-columns: 40% 1fr;
 	grid-template-rows: 40% 1fr;
-}
+	}
+		
+	.banner img{
+		position: absolute;
+		top: 0;
+		left:0;
+		max-width: 15em;
+		padding-bottom: .5em;
+	}
+		
+	.banner-content {
+		text-align: left;
+		color: #f5f5f5;
+		padding-left: 15px;
+		padding-bottom: 25px;
+		grid-column: 1 / 2;
+		grid-row: 2 / 3;
+		z-index: 2;
+		-webkit-filter: brightness(110%);
+		-moz-filter: brightness(110%);
+		filter: brightness(110%);
+	}
 	
-.banner img{
-	position: absolute;
-	top: 0;
-	left:0;
-	max-width: 20%;
-}
+	.banner button {
+		grid-column: 1 / 2;
+		grid-row: 2 / 3;
+		color: #454445;
+		font-size: 0.9em;
+		padding: 0.72em 1.44em;
+		margin-right: 0.72em;
+		text-decoration: none;
+		border: 0px solid black;
+		background-color: #ffffff;
+		-moz-box-shadow: 0px 8px 12px -9px #000000;
+		-webkit-box-shadow: 0px 8px 12px -9px #000000;
+		box-shadow: 0px 8px 12px -9px #000000;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+	}
 	
-.banner-content {
-	text-align: left;
-	color: #f5f5f5;
-	padding-left: 15px;
-	padding-bottom: 25px;
-	grid-column: 1 / 2;
-	grid-row: 2 / 3;
-	z-index: 2;
-	-webkit-filter: brightness(110%);
-	-moz-filter: brightness(110%);
-	filter: brightness(110%);
-}
-
-
-
-.banner button {
-	grid-column: 1 / 2;
-	grid-row: 2 / 3;
-	color: #454445;
-	font-size: 0.9em;
-	padding: 0.72em 1.44em;
-	margin-right: 0.72em;
-	text-decoration: none;
-	border: 0px solid black;
-	background-color: #ffffff;
-	-moz-box-shadow: 0px 8px 12px -9px #000000;
-	-webkit-box-shadow: 0px 8px 12px -9px #000000;
-	box-shadow: 0px 8px 12px -9px #000000;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-}
-
-.banner-content button input:hover {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7
-		), color-stop(1, #007dc1));
-	background: -moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);
-	background: -webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);
-	background: -o-linear-gradient(top, #0061a7 5%, #007dc1 100%);
-	background: -ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);
-	background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7',
-		endColorstr='#007dc1', GradientType=0);
-	background-color: #0061a7;
-}
-
-.banner-content button input:active {
-	position: relative;
-	top: 1px;
-}
+	.banner-content button input:hover {
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7
+			), color-stop(1, #007dc1));
+		background: -moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: -webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: -o-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: -ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7',
+			endColorstr='#007dc1', GradientType=0);
+		background-color: #0061a7;
+	}
 	
+	.banner-content button input:active {
+		position: relative;
+		top: 1px;
+	}
+}
+
+@media only screen and (min-width: 1281px) {
+
+	.banner-content h6 {
+		font-size: 0.9em;
+	}
+	
+	.banner-content h4 {
+		font-size: 1.2em;
+	}
+	
+	.banner-content h2 {
+		font-size: 1.8em;
+	}
+	
+	.banner {
+		height: 33.75em;
+		background-image: url("../img/food-banner.jpg");
+		background-size: 100%;
+		background-position: right top;
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+		overflow: hidden;
+		-webkit-filter: brightness(90%);
+		-moz-filter: brightness(90%);
+		filter: brightness(90%);
+		display: grid;
+		grid-template-columns: 40% 1fr;
+		grid-template-rows: 40% 1fr;
+	}
+		
+	.banner img{
+		position: absolute;
+		top: 0;
+		left:0;
+		max-width: 15em;
+		padding-bottom: .5em;
+	}
+		
+	.banner-content {
+		text-align: left;
+		color: #f5f5f5;
+		padding-left: 15px;
+		padding-bottom: 25px;
+		grid-column: 1 / 2;
+		grid-row: 2 / 3;
+		z-index: 2;
+		-webkit-filter: brightness(110%);
+		-moz-filter: brightness(110%);
+		filter: brightness(110%);
+	}
+	
+	
+	
+	.banner button {
+		grid-column: 1 / 2;
+		grid-row: 2 / 3;
+		color: #454445;
+		font-size: 0.9em;
+		padding: 0.72em 1.44em;
+		margin-right: 0.72em;
+		text-decoration: none;
+		border: 0px solid black;
+		background-color: #ffffff;
+		-moz-box-shadow: 0px 8px 12px -9px #000000;
+		-webkit-box-shadow: 0px 8px 12px -9px #000000;
+		box-shadow: 0px 8px 12px -9px #000000;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+	}
+	
+	.banner-content button input:hover {
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7
+			), color-stop(1, #007dc1));
+		background: -moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: -webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: -o-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: -ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7',
+			endColorstr='#007dc1', GradientType=0);
+		background-color: #0061a7;
+	}
+	
+	.banner-content button input:active {
+		position: relative;
+		top: 1px;
+	}
+	
+}
+
+@media only screen and (min-width=1520px) {
+	
+	.banner {
+		height: 33.75em;
+		background-image: url("../img/food-banner.jpg");
+		background-size: 100%;
+		background-position: right top;
+		background-repeat: no-repeat;
+		-webkit-filter: brightness(90%);
+		-moz-filter: brightness(90%);
+		filter: brightness(90%);
+		display: grid;
+		grid-template-columns: 40% 1fr;
+		grid-template-rows: 40% 1fr;
+	}
 }
