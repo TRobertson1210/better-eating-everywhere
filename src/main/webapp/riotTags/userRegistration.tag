@@ -17,8 +17,8 @@
 				<div><input id="name" type="text" name="name" /></div><br>
 		 		<label for="isImperial">Measurement Units: </label>
 		 		<div><select id="isImperial" name="isImperial" onchange={changeImperial}>
-		 			<option value="true" selected>Imperial</option>
-		 			<option value="false">Metric</option>
+		 			<option value="T" selected>Imperial</option>
+		 			<option value="F">Metric</option>
 		 		</select></div><br>
 		 		<div class="height-input">
 					<label class="height-feet-label">Height: </label>
@@ -54,7 +54,7 @@
 		};
 		
 		changeImperial() {
-			if($('#isImperial').val() === "true") {
+			if($('#isImperial').val() === "T") {
 				$('.height-input').html('<label class="height-feet-label">Height: </label><div class="height-input-field-feet"><input id="height-feet" type="number"/> Ft.</div><div class="height-input-field-inches"><input id="height-inches" type="number"/> In.</div>');
 			} else {
 				$('.height-input').html('<label class="height-cm-label" for="height-cm">Height:</label><div class="height-input-field-cm"><input id="height-cm" type="number"/> cm</div>');
@@ -66,7 +66,7 @@
 			$('#password').val(null);
 			$('#confirmPassword').val(null);
 			$('#name').val(null);
-			$('#isImperial').val("true");
+			$('#isImperial').val("T");
 			$('#height-feet').val(null);
 			$('#height-inches').val(null);
 			$('#height-cm').val(null);
@@ -86,7 +86,7 @@
 		
 		
 		function convertToImperial() {
-			if($('#isImperial').val() === "true") {
+			if($('#isImperial').val() === "T") {
 				var feet = $('#height-feet').val();
 				var inches = $('#height-inches').val();
 				height = (((+feet * 12) + +inches) * 2.54).toFixed();
@@ -94,6 +94,8 @@
 				height = $('#height-cm').val();
 			}
 		}
+		
+		
 		
 		register(e) {
 			e.preventDefault();

@@ -28,7 +28,6 @@
 	<userLogin></userLogin>
 	<foodLookup></foodLookup>
 	<dashboard></dashboard>
-<!-- 	<progressGraph></progressGraph> -->	
 	<editProfile></editProfile>
 	
 	<c:url value="/riotTags/userRegistration.tag" var="userRegistrationLocation" />
@@ -45,9 +44,6 @@
 	
 	<c:url value="/riotTags/dashboard.tag" var="dashboardLocation" />
 	<script src="${dashboardLocation}" type="riot/tag"></script>
-	
-	<c:url value="/riotTags/progressGraph.tag" var="graphLocation" />
-	<script src="${graphLocation}" type="riot/tag"></script>
 	
 	<c:url value="/riotTags/editProfile.tag" var="editProfileLocation" />
 	<script src="${editProfileLocation}" type="riot/tag"></script>

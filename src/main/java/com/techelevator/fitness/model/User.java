@@ -22,7 +22,7 @@ public class User {
 	private String hashedPassword;
 	private String confirmPassword;
 	private String name;
-	private boolean isImperial;
+	private String isImperial;
 	@Min(1)
 	private Integer height; //Height and Weight stored in metric
 	@Min(1)
@@ -89,21 +89,16 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public boolean isImperial() {
+	public String isImperial() {
 		return isImperial;
 	}
-
-	public void setImperial(boolean isImperial) {
+	public void setImperial(String isImperial) {
 		this.isImperial = isImperial;
 	}
-
 	public Integer getHeight() {
 		return height;
 	}
 	public void setHeight(Integer height) {
-		if(this.isImperial) {
-			
-		}
 		this.height = height;
 	}
 	public Double getWeight() {

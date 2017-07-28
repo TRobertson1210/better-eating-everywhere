@@ -42,7 +42,7 @@ public class JDBCUserDAO implements UserDAO {
 	public void addUser(User newUser) {
 		String sqlStatement = "INSERT INTO users (email, hashed_password, name, height, weight, gender, "
 				+ "target_weight, target_calories, is_imperial, permission_level, salt) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		jdbc.update(sqlStatement, newUser.getEmail(), newUser.getHashedPassword(), newUser.getName(), newUser.getHeight(), newUser.getWeight(), newUser.getGender(), newUser.getTargetWeight(), newUser.getTargetCalories(), newUser.isImperial(), newUser.getPermissionLevel(), newUser.getSalt());
 	}
 	
@@ -80,7 +80,7 @@ public class JDBCUserDAO implements UserDAO {
 		user.setGender(results.getString("gender"));
 		user.setTargetWeight(results.getDouble("target_weight"));
 		user.setTargetCalories(results.getInt("target_calories"));
-		user.setImperial(results.getBoolean("is_imperial"));
+		user.setImperial(results.getString("is_imperial"));
 		user.setPermissionLevel(results.getInt("permission_level"));
 		user.setSalt(results.getString("salt"));
 		
