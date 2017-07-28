@@ -69,7 +69,7 @@ public class UserAPIController {
 			User loggedInUser = (User) model.get("loggedInUser");
 			loggedInUser.setHeight(profileInfo.getHeight());
 			loggedInUser.setWeight(profileInfo.getWeight());
-			loggedInUser.setSex(profileInfo.getSex());
+			loggedInUser.setGender(profileInfo.getGender());
 			loggedInUser.setName(profileInfo.getName());
 			try{
 				userDAO.updateUser(loggedInUser);

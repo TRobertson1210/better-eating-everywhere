@@ -15,23 +15,25 @@
 				<div><input id="confirmPassword" type="password" name="confirmPassword" /></div><br>
 				<label for="name">Name: </label>
 				<div><input id="name" type="text" name="name" /></div><br>
-		<!-- 		<label for="isImperial">Measurement System: </label>
-				<input id="isImperial" type="radio" name="" value="true">Imperial
-				<input id="isImperial" type="radio" name="" value="false">Metric<br> -->
-				<label for="height">Height: </label>
-				<div><input id="height" type="number" name="height"/></div><br>
-				<label for="weight">Current Weight: </label>
+		 		<label for="isImperial">Measurement Units: </label>
+		 		<div><select id="isImperial" name="isImperial" onchange={changeImperial}>
+		 			<option value="true" selected>Imperial</option>
+		 			<option value="false">Metric</option>
+		 		</select></div>
+		 		<div class="height-input">
+					<label class="height-feet-label" for="height-feet">Feet: </label>
+					<div><input id="height-feet" type="number"/></div>
+					<label class="height-inches-label" for="height-inches">Inches: </label>
+					<div><input id="height-inches" type="number"/></div>
+				</div><br>
+				<label class="weight-label" for="weight">Current Weight (lbs): </label>
 				<div><input id="weight" type="number" name="weight"/></div><br>
-				<label for="sex">Sex: </label>
-				<div><select id="sex" name="sex">
-					<option value="M">Male</option>
-					<option value="F">Female</option>
-					<option value="O">Best</option>
-				</select></div><br>
-				<label for="targetWeight">Target Weight: </label>
+				<label for="gender">Sex: </label>
+				<div><input id="gender" type="text" name="gender"></div><br>
+				<label class="targetWeight-label" for="targetWeight">Target Weight (lbs): </label>
 				<div><input id="targetWeight" type="number" name="targetWeight"/></div><br>
-				<label for="targetBMI">Target BMI: </label>
-				<div><input id="targetBMI" type="number" name="targetBMI"/></div><br>
+				<label for="targetCalories">Target Daily Calories: </label>
+				<div><input id="targetCalories" type="number" name="targetCalories"/></div><br>
 				<input id="permissionLevel" type="hidden" value="2" name="permissionLevel" />
 				<div class="submitButton"><input type="submit" value="Register"/></div>
 			</form>
@@ -41,6 +43,7 @@
 	<script>
 		var self = this;
 		var jsonResult = null;
+		var height = 0;
 		
 		bus.on('removeRegForm', function() {
 			removeRegisterInfo();
@@ -51,16 +54,27 @@
 			$('userRegistration').hide();
 		};
 		
+		changeImperial() {
+			if($('#isImperial').val() === "true") {
+				$('.height-input').html('<label class="height-feet-label" for="height-feet">Feet: </label><div><input id="height-feet" type="number"/></div><label class="height-inches-label" for="heigh-inches">Inches: </label><div><input id="height-inches" type="number"/></div>');
+			} else {
+				$('.height-input').html('<label class="height-cm-label" for="height-cm">Height (cm): </label><div><input id="height-cm" type="number"/></div>');
+			}
+		}
+		
 		function removeRegisterInfo() {
 			$('#email').val(null);
 			$('#password').val(null);
 			$('#confirmPassword').val(null);
 			$('#name').val(null);
-			$('#height').val(null);
+			$('#isImperial').val(true);
+			$('#height-feet').val(null);
+			$('#height-inches').val(null);
+			$('#height-cm').val(null);
 			$('#weight').val(null);
-			$('#sex').val(null);
+			$('#gender').val(null);
 			$('#targetWeight').val(null);
-			$('#targetBMI').val(null);
+			$('#targetCalories').val(null);
 			$('#permissionLevel').val(null);
 			$('#email-error').text(null);
 			$('#password-error').text(null);
@@ -71,8 +85,18 @@
 			e.stopPropagation();
 		};
 		
+		
+		function convertToImperial() {
+			if($('#isImperial').val() === "true") {
+				height = ($('#height-feet').val() * 12 + $('#height-inches').val()) * 2.54;
+			} else {
+				height = $('#height-cm').val();
+			}
+		}
+		
 		register(e) {
 			e.preventDefault();
+			convertToImperial();
 			$.ajax({
 				url: BASE_URL + "user/register",
 				type: "POST",
@@ -81,11 +105,12 @@
 					"password" : $('#password').val(),
 					"confirmPassword" : $('#confirmPassword').val(),
 					"name" : $('#name').val(),
-					"height" : $('#height').val(),
+					"isImperial" : $('#isImperial').val(),
+					"height" : height,
 					"weight" : $('#weight').val(),
-					"sex" : $('#sex').val(),
+					"gender" : $('#gender').val(),
 					"targetWeight" : $('#targetWeight').val(),
-					"targetBMI" : $('#targetBMI').val(),
+					"targetCalories" : $('#targetCalories').val(),
 					"permissionLevel" : $('#permissionLevel').val(),
 				},
 				datatype: "json",
@@ -99,11 +124,12 @@
 					$('#password').val(null);
 					$('#confirmPassword').val(null);
 					$('#name').val(null);
+					$('#isImperial').val("true");
 					$('#height').val(null);
 					$('#weight').val(null);
-					$('#sex').val(null);
+					$('#gender').val(null);
 					$('#targetWeight').val(null);
-					$('#targetBMI').val(null);
+					$('#targetCalories').val(null);
 					$('#permissionLevel').val(null);
 					$('#email-error').text(null);
 					$('#password-error').text(null);
@@ -125,9 +151,6 @@
 				}
 				if(jsonResult.value.confirmPassword != null) {
 					$('span#confirmPassword-error').text(jsonResult.value.confirmPassword);
-				}
-				if(jsonResult.value.phoneNumber != null) {
-					$('span#phoneNumber-error').text(jsonResult.value.phoneNumber);
 				}
 			}
 		};
