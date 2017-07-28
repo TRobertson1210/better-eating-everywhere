@@ -116,6 +116,7 @@ body {
 		grid-template-columns: 1fr 20% 1fr 1fr; */
 		grid-template-areas: "blog . news";
 		padding: 1em;
+		font-size: .8em;
 	}
 	
 	.dummy-content h2 {
@@ -240,6 +241,7 @@ body {
 		grid-template-columns: 1fr 20% 1fr 1fr; */
 		grid-template-areas: "blog . news";
 		padding: 1em;
+		font-size: 1em;
 	}
 	
 	.dummy-content h2 {
@@ -251,7 +253,7 @@ body {
 		grid-column: 1 / 2;
 		float: left;
 		max-width: 42em;
-		padding-left: 15em;
+		padding-left: 10%;
 	}
 	
 	.news-page {
@@ -259,7 +261,7 @@ body {
 		grid-column: 4 / 5;
 		float: right;
 		max-width: 42em;
-		padding-right: 15em;
+		padding-right: 10%;
 	}
 
 }
