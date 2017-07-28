@@ -11,14 +11,13 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.techelevator.fitness.model.ChangePassInfo;
 import com.techelevator.fitness.model.GoalInfo;
 import com.techelevator.fitness.model.JSONResponse;
 import com.techelevator.fitness.model.LoginInfo;
@@ -100,13 +99,18 @@ public class UserAPIController {
 	}
 
 	@RequestMapping(path="/user/changePassword", method=RequestMethod.POST)
-	public JSONResponse changePassword(@RequestParam String newPassword, @RequestParam String password, @RequestParam String confirmPassword, 
-			ModelMap model){
+	public JSONResponse changePassword(@Valid @ModelAttribute ChangePassInfo changePassInfo, 
+			ModelMap model, BindingResult result){
+		
+		if(result.hasErrors()) {
+			ErrorMessageGenerator emg = new ErrorMessageGenerator();
+			return new JSONResponse("failure", emg.generateErrorMessage(result));
+		}
 		
 		if(model.containsAttribute("loggedInUser")){
 			User loggedInUser = (User) model.get("loggedInUser");
 			PasswordHasher pboy = new PasswordHasher();
-			String newHashedPassword = pboy.computeHash(newPassword, loggedInUser.getSalt());
+			String newHashedPassword = pboy.computeHash(changePassInfo.getNewPassword(), loggedInUser.getSalt());
 			loggedInUser.setHashedPassword(newHashedPassword);
 			try{
 				userDAO.updatePassword(loggedInUser);
