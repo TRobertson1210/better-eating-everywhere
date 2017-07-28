@@ -209,12 +209,32 @@
 		grid-column: 3 / 4;
 	}
 	
+	.height-input-field-cm {
+		grid-column: 2 / 4;
+	}
+	
 	.height-input-field-feet input {
 		display: inline;
 	}
 	
 	.height-input-field-inches input {
 		display: inline;
+	}
+	
+	.height-input-field-cm input {
+		display: inline;
+	}
+	
+	input#height-feet  {
+		width: 72%;
+	}
+	
+	input#height-inches  {
+		width: 72%;
+	}
+	
+	input#height-cm {
+		width: 83%;
 	}
 	
 	.registration div.submitButton {
