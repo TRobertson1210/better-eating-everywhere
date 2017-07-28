@@ -7,7 +7,7 @@ public class ProfileInfo {
 	private String name;
 	private Integer height; //Height and Weight stored in metric
 	private Double weight;
-	private String sex;
+	private String gender;
 	
 	public String getName() {
 		return name;
@@ -27,11 +27,11 @@ public class ProfileInfo {
 	public void setWeight(Double weight) {
 		this.weight = weight;
 	}
-	public String getSex() {
-		return sex;
+	public String getGender() {
+		return gender;
 	}
-	public void setSex(String sex) {
-		this.sex = sex;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 	
 }

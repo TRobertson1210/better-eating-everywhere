@@ -5,9 +5,10 @@
 			<h3>Change Password</h3> <i onclick= { close } class="em em-x window-close"></i>
 			<form onsubmit={editPassword}>
 				<label for="password">Password: </label>
-				<div><input id="edit-password" type="password" name="password" /></div><br>
-				<label for="confirmPassword">Confirm Password: </label>
-				<div><input id="edit-confirmPassword" type="password" name="confirmPassword" /></div><br>
+				<label for="password">New Password: </label>
+				<div><input id="edit-new-password" type="password" name="password" /></div><br>
+				<label for="confirmPassword">Confirm New Password: </label>
+				<div><input id="edit-confirm-new-password" type="password" name="confirmPassword" /></div><br>
 				<div class="submitButton"><input type="submit" value="Change Password"/></div>
 			</form>
 		</div>
