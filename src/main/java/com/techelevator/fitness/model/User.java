@@ -22,15 +22,16 @@ public class User {
 	private String hashedPassword;
 	private String confirmPassword;
 	private String name;
+	private boolean isImperial;
 	@Min(1)
 	private Integer height; //Height and Weight stored in metric
 	@Min(1)
 	private Double weight;
-	private String sex;
+	private String gender;
 	@Min(1)
 	private Double targetWeight;
 	@Min(1)
-	private Double targetBMI;
+	private Integer targetCalories;
 	private Integer permissionLevel;
 	private String salt;
 	
@@ -88,10 +89,21 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public boolean isImperial() {
+		return isImperial;
+	}
+
+	public void setImperial(boolean isImperial) {
+		this.isImperial = isImperial;
+	}
+
 	public Integer getHeight() {
 		return height;
 	}
 	public void setHeight(Integer height) {
+		if(this.isImperial) {
+			
+		}
 		this.height = height;
 	}
 	public Double getWeight() {
@@ -100,11 +112,11 @@ public class User {
 	public void setWeight(Double weight) {
 		this.weight = weight;
 	}
-	public String getSex() {
-		return sex;
+	public String getGender() {
+		return gender;
 	}
-	public void setSex(String sex) {
-		this.sex = sex;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 	public Double getTargetWeight() {
 		return targetWeight;
@@ -112,11 +124,11 @@ public class User {
 	public void setTargetWeight(Double targetWeight) {
 		this.targetWeight = targetWeight;
 	}
-	public Double getTargetBMI() {
-		return targetBMI;
+	public Integer getTargetCalories() {
+		return targetCalories;
 	}
-	public void setTargetBMI(Double targetBMI) {
-		this.targetBMI = targetBMI;
+	public void setTargetCalories(Integer targetCalories) {
+		this.targetCalories = targetCalories;
 	}
 	public Integer getPermissionLevel() {
 		return permissionLevel;

@@ -96,6 +96,7 @@
 			if(data.status === "success") {
 				console.log("Logout successful");
 				$('dashboard').hide();
+				$('.dashboard-welcome').html('<h1>Welcome!</h1>');
 				$('homePage').show();
 			} else {
 				console.log("No user in session");
