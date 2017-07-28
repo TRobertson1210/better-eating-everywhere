@@ -26,8 +26,8 @@ body {
 }
 
 .banner {
-	height: 50vh;
-	background-image: url("../img/food-banner.jpg");
+	height: 33.75em;
+	background-image: url("../img/food-banner-1.jpg");
 	background-size: 100%;
 	background-position: right top;
 	-webkit-filter: brightness(90%);
@@ -102,9 +102,6 @@ body {
 	position: relative;
 	top: 1px;
 }
+@media only screen and (min-width: 801px) {  /* Media query for laptops and smaller monitors */
 
-/* Food Lookup CSS */
-
-foodLookup {
-	display: none;
-}
+@media only screen and (min-width: 1025px) {  /* Media query for larger monitors */

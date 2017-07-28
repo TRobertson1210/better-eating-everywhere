@@ -2,7 +2,7 @@
 	<div class="homepage-content">
 		<div class="homepage-signup">
 			<div class="homepage-navbar">
-				<div class="banner"><img src="img/tfs-logo.png" />
+				<div class="banner"><img src="img/vert-tfs-logo.png" />
 				
 				<div class="blur"></div>
 				
@@ -27,7 +27,8 @@
 		});
 		
 		$('div.content-blocker').on('click', function(e) {
-			$('userRegistration').hide()
+			bus.trigger('removeRegForm');
+			$('userRegistration').hide();
 		});
 		
 		$('button#homepage-login').on('click', function(e) {
@@ -35,7 +36,8 @@
 		});
 		
 		$('div.content-blocker').on('click', function(e) {
-			$('userLogin').hide()
+			bus.trigger('removeLoginInfo');
+			$('userLogin').hide();
 		});
 		$('button#homepage-foodlookup').on('click', function(e) {
 			$('homePage').hide();
