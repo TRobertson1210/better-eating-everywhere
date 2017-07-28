@@ -27,7 +27,7 @@
 				</div><br>
 				<label class="weight-label" for="weight">Current Weight (lbs): </label>
 				<div><input id="weight" type="number" name="weight"/></div><br>
-				<label for="gender">Sex: </label>
+				<label for="gender">Gender: </label>
 				<div><input id="gender" type="text" name="gender"></div><br>
 				<label class="targetWeight-label" for="targetWeight">Target Weight (lbs): </label>
 				<div><input id="targetWeight" type="number" name="targetWeight"/></div><br>
