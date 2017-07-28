@@ -190,6 +190,33 @@
 		color: red;
 		grid-column: 2/3;
 	}
+	
+	.registration .height-input {
+		display: grid;
+		grid-template-columns: 2fr 1fr 1fr;
+		grid-column: 1 / 3;
+	}
+	
+	.height-input label {
+		grid-column: 1 / 2;
+	}
+	
+	.height-input-field-feet {
+		grid-column: 2 / 3;
+	}
+	
+	.height-input-field-inches {
+		grid-column: 3 / 4;
+	}
+	
+	.height-input-field-feet input {
+		display: inline;
+	}
+	
+	.height-input-field-inches input {
+		display: inline;
+	}
+	
 	.registration div.submitButton {
 		padding-top: 20px;
 		text-align: center;

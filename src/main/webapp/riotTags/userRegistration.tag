@@ -21,10 +21,9 @@
 		 			<option value="false">Metric</option>
 		 		</select></div>
 		 		<div class="height-input">
-					<label class="height-feet-label" for="height-feet">Feet: </label>
-					<div><input id="height-feet" type="number"/></div>
-					<label class="height-inches-label" for="height-inches">Inches: </label>
-					<div><input id="height-inches" type="number"/></div>
+					<label class="height-feet-label">Height: </label>
+					<div class="height-input-field"><input id="height-feet" type="number"/> Ft.</div>
+					<div class="height-input-field"><input id="height-inches" type="number"/> In.</div>
 				</div><br>
 				<label class="weight-label" for="weight">Current Weight (lbs): </label>
 				<div><input id="weight" type="number" name="weight"/></div><br>

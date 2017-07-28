@@ -98,6 +98,7 @@
 				$('dashboard').hide();
 				$('.dashboard-welcome').html('<h1>Welcome!</h1>');
 				$('homePage').show();
+				$('.dummy-content').show();
 			} else {
 				console.log("No user in session");
 			}
