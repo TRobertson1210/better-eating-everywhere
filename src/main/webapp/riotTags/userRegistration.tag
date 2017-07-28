@@ -19,15 +19,15 @@
 		 		<div><select id="isImperial" name="isImperial" onchange={changeImperial}>
 		 			<option value="true" selected>Imperial</option>
 		 			<option value="false">Metric</option>
-		 		</select></div>
+		 		</select></div><br>
 		 		<div class="height-input">
 					<label class="height-feet-label">Height: </label>
-					<div class="height-input-field"><input id="height-feet" type="number"/> Ft.</div>
-					<div class="height-input-field"><input id="height-inches" type="number"/> In.</div>
+					<div class="height-input-field-feet"><input id="height-feet" type="number"/> Ft.</div>
+					<div class="height-input-field-inches"><input id="height-inches" type="number"/> In.</div>
 				</div><br>
 				<label class="weight-label" for="weight">Current Weight (lbs): </label>
 				<div><input id="weight" type="number" name="weight"/></div><br>
-				<label for="gender">Sex: </label>
+				<label for="gender">Gender: </label>
 				<div><input id="gender" type="text" name="gender"></div><br>
 				<label class="targetWeight-label" for="targetWeight">Target Weight (lbs): </label>
 				<div><input id="targetWeight" type="number" name="targetWeight"/></div><br>
@@ -55,9 +55,9 @@
 		
 		changeImperial() {
 			if($('#isImperial').val() === "true") {
-				$('.height-input').html('<label class="height-feet-label" for="height-feet">Feet: </label><div><input id="height-feet" type="number"/></div><label class="height-inches-label" for="heigh-inches">Inches: </label><div><input id="height-inches" type="number"/></div>');
+				$('.height-input').html('<label class="height-feet-label">Height: </label><div class="height-input-field-feet"><input id="height-feet" type="number"/> Ft.</div><div class="height-input-field-inches"><input id="height-inches" type="number"/> In.</div>');
 			} else {
-				$('.height-input').html('<label class="height-cm-label" for="height-cm">Height (cm): </label><div><input id="height-cm" type="number"/></div>');
+				$('.height-input').html('<label class="height-cm-label" for="height-cm">Height:</label><div class="height-input-field-cm"><input id="height-cm" type="number"/> cm</div>');
 			}
 		}
 		
@@ -87,7 +87,9 @@
 		
 		function convertToImperial() {
 			if($('#isImperial').val() === "true") {
-				height = ($('#height-feet').val() * 12 + $('#height-inches').val()) * 2.54;
+				var feet = $('#height-feet').val();
+				var inches = $('#height-inches').val();
+				height = (((+feet * 12) + +inches) * 2.54).toFixed();
 			} else {
 				height = $('#height-cm').val();
 			}
