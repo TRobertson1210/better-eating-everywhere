@@ -22,6 +22,10 @@
 
 
 	<homePage></homePage>
+	<div class = "dummy-content">
+		<blogPage></blogPage>
+		<newsPage></newsPage>
+	</div>
 	<userregistration></userregistration>
 	<userLogin></userLogin>
 	<foodLookup></foodLookup>
@@ -49,6 +53,12 @@
 	
 	<c:url value="/riotTags/editProfile.tag" var="editProfileLocation" />
 	<script src="${editProfileLocation}" type="riot/tag"></script>
+	
+	<c:url value="/riotTags/blogPage.tag" var="blogPageLocation" />
+	<script src="${blogPageLocation}" type="riot/tag"></script>
+	
+	<c:url value="/riotTags/newsPage.tag" var="newsPageLocation" />
+	<script src="${newsPageLocation}" type="riot/tag"></script>
 	
 	
 		

@@ -64,6 +64,8 @@
 				if(data.status === "success") {
 					$('userLogin').hide();
 					$('homePage').hide();
+					$('blogPage').hide();
+					$('newsPage').hide();
 					$('dashboard').show();
 					removeLoginInfo();
 					bus.trigger('loginComplete');
