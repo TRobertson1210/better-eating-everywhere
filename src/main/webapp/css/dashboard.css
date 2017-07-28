@@ -30,13 +30,17 @@ dashboard {
 }
 
 .dashboard-welcome {
-	font-family: 'Cabin Sketch', 'Roboto', Helvetica, sans-serif;
+	font-family: 'Finger Paint', 'Roboto', Helvetica, sans-serif;
 	grid-column: 2 / 3;
 	text-align: center;
 	color: white;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	margin: 10px 10% 10px 10%;
+}
+
+.dashboard-welcome h1 {
+	font-size: 1.5em;
 }
 
 .dashboard-gold-star {

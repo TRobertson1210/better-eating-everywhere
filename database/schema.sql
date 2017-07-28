@@ -12,11 +12,12 @@ CREATE TABLE users (
     email VARCHAR(255) NOT NULL,
     hashed_password VARCHAR(255) NOT NULL,
     name VARCHAR(255),
+    is_imperial BOOLEAN DEFAULT false,
     height INTEGER,
     weight DECIMAL(5,2),
-    sex CHAR(1),
+    gender VARCHAR(255),
     target_weight DECIMAL(5,2),
-    target_BMI DECIMAL(3,1),
+    target_calories INTEGER,
     permission_level INTEGER,
     salt VARCHAR(255)
 );

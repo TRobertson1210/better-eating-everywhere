@@ -40,19 +40,19 @@ public class JDBCUserDAO implements UserDAO {
 
 	@Override
 	public void addUser(User newUser) {
-		String sqlStatement = "INSERT INTO users (email, hashed_password, name, height, weight, sex, "
-				+ "target_weight, target_bmi, permission_level, salt) "
+		String sqlStatement = "INSERT INTO users (email, hashed_password, name, height, weight, gender, "
+				+ "target_weight, target_calories, permission_level, salt) "
 				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		jdbc.update(sqlStatement, newUser.getEmail(), newUser.getHashedPassword(), newUser.getName(), newUser.getHeight(), newUser.getWeight(), newUser.getSex(), newUser.getTargetWeight(), newUser.getTargetBMI(), newUser.getPermissionLevel(), newUser.getSalt());
+		jdbc.update(sqlStatement, newUser.getEmail(), newUser.getHashedPassword(), newUser.getName(), newUser.getHeight(), newUser.getWeight(), newUser.getGender(), newUser.getTargetWeight(), newUser.getTargetCalories(), newUser.getPermissionLevel(), newUser.getSalt());
 	}
 	
 	@Override
 	public void updateUser(User user) {
 		String sqlStatement = "UPDATE users SET name = ?, height = ?, "
-				+ "weight = ?, sex = ? "
+				+ "weight = ?, gender = ? "
 				+ "WHERE user_id = ?";
 		jdbc.update(sqlStatement, user.getName(), user.getHeight(), user.getWeight(),
-				user.getSex(), user.getUserId());
+				user.getGender(), user.getUserId());
 	}
 	
 	@Override
@@ -63,9 +63,9 @@ public class JDBCUserDAO implements UserDAO {
 	
 	@Override
 	public void updateGoals(User user){
-		String sqlStatement = "UPDATE users SET target_weight = ?, target_bmi = ?"
+		String sqlStatement = "UPDATE users SET target_weight = ?, target_calories = ?"
 				+ "WHERE user_id = ?";
-		jdbc.update(sqlStatement,  user.getTargetWeight(), user.getTargetBMI(), user.getUserId());
+		jdbc.update(sqlStatement,  user.getTargetWeight(), user.getTargetCalories(), user.getUserId());
 	}
 	
 	private User mapRowToUser(SqlRowSet results){
@@ -77,9 +77,9 @@ public class JDBCUserDAO implements UserDAO {
 		user.setName(results.getString("name"));
 		user.setHeight(results.getInt("height"));
 		user.setWeight(results.getDouble("weight"));
-		user.setSex(results.getString("sex"));
+		user.setGender(results.getString("gender"));
 		user.setTargetWeight(results.getDouble("target_weight"));
-		user.setTargetBMI(results.getDouble("target_BMI"));
+		user.setTargetCalories(results.getInt("target_calories"));
 		user.setPermissionLevel(results.getInt("permission_level"));
 		user.setSalt(results.getString("salt"));
 		
