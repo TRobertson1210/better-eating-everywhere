@@ -2,9 +2,9 @@
 	<div class="homepage-content">
 		<div class="homepage-signup">
 			<div class="homepage-navbar">
-				<div class="banner"><img src="img/vert-tfs-logo.png" />
+				<div class="banner"><img src="img/tfs-logo.png" />
 				
-				<div class="blur"></div>
+				
 				
 				<div class="banner-content">
 					<h2>Join the fastest growing weight loss app around!</h2>
