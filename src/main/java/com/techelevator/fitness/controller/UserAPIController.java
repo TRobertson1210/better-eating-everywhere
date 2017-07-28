@@ -27,8 +27,6 @@ import com.techelevator.fitness.model.UserDAO;
 import com.techelevator.fitness.security.PasswordHasher;
 import com.techelevator.fitness.validation.ErrorMessageGenerator;
 
-import java.sql.SQLException;
-
 @RestController
 @SessionAttributes("loggedInUser")
 public class UserAPIController {
@@ -64,14 +62,12 @@ public class UserAPIController {
 	}
 
 
-	@RequestMapping(path="/user/updateUser", method=RequestMethod.POST)
+	@RequestMapping(path="/user/updateProfile", method=RequestMethod.POST)
 	public JSONResponse updateUser(@ModelAttribute User updateUser, ModelMap model){
 		if(model.containsAttribute("loggedInUser")){
 			User loggedInUser = (User) model.get("loggedInUser");
 			loggedInUser.setHeight(updateUser.getHeight());
 			loggedInUser.setWeight(updateUser.getWeight());
-			loggedInUser.setTargetBMI(updateUser.getTargetBMI());
-			loggedInUser.setTargetWeight(updateUser.getTargetWeight());
 			loggedInUser.setSex(updateUser.getSex());
 			loggedInUser.setName(updateUser.getName());
 			try{
@@ -163,8 +159,6 @@ public class UserAPIController {
 			profileInfo.setHeight(user.getHeight());
 			profileInfo.setWeight(user.getWeight());
 			profileInfo.setSex(user.getSex());
-			profileInfo.setTargetBMI(user.getTargetBMI());
-			profileInfo.setTargetWeight(user.getWeight());
 			return new JSONResponse("success", profileInfo);
 		}
 		return new JSONResponse("failure", "there is no user in the session");
