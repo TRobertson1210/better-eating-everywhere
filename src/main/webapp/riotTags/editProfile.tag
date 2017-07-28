@@ -36,7 +36,9 @@
 				type: "GET",
 				datatype: "json",
 			}).done(function(data){
+				console.log("BEEP");
 				if(data.status === "success"){
+					console.log("BOOP");
 					$("#edit-name").val(data.value.name);
 					$("#edit-height").val(data.value.height);
 					$("#edit-weight").val(data.value.weight);
