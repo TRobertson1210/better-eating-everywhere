@@ -87,7 +87,7 @@ public class UserAPIController {
 		if(model.containsAttribute("loggedInUser")){
 			User loggedInUser = (User) model.get("loggedInUser");
 			loggedInUser.setTargetWeight(goalInfo.getTargetWeight());
-			loggedInUser.setTargetBMI(goalInfo.getTargetBMI());
+			loggedInUser.setTargetCalories(goalInfo.getTargetCalories());
 			try{
 				userDAO.updateGoals(loggedInUser);
 			}catch(DataAccessException exception){
@@ -100,11 +100,13 @@ public class UserAPIController {
 	}
 
 	@RequestMapping(path="/user/changePassword", method=RequestMethod.POST)
-	public JSONResponse changePassword(@RequestParam String password, ModelMap model){
+	public JSONResponse changePassword(@RequestParam String newPassword, @RequestParam String password, @RequestParam String confirmPassword, 
+			ModelMap model){
+		
 		if(model.containsAttribute("loggedInUser")){
 			User loggedInUser = (User) model.get("loggedInUser");
 			PasswordHasher pboy = new PasswordHasher();
-			String newHashedPassword = pboy.computeHash(password, loggedInUser.getSalt());
+			String newHashedPassword = pboy.computeHash(newPassword, loggedInUser.getSalt());
 			loggedInUser.setHashedPassword(newHashedPassword);
 			try{
 				userDAO.updatePassword(loggedInUser);
@@ -159,7 +161,7 @@ public class UserAPIController {
 			profileInfo.setName(user.getName());
 			profileInfo.setHeight(user.getHeight());
 			profileInfo.setWeight(user.getWeight());
-			profileInfo.setSex(user.getSex());
+			profileInfo.setGender(user.getGender());
 			return new JSONResponse("success", profileInfo);
 		}
 		return new JSONResponse("failure", "there is no user in the session");
@@ -171,7 +173,7 @@ public class UserAPIController {
 			User user = (User) model.get("loggedInUser");
 			GoalInfo goalInfo = new GoalInfo();
 			goalInfo.setTargetWeight(user.getTargetWeight());
-			goalInfo.setTargetBMI(user.getTargetBMI());
+			goalInfo.setTargetCalories(user.getTargetCalories());
 			return new JSONResponse("success", goalInfo);
 		}else{
 			return new JSONResponse("failure", "there is no user in the session");

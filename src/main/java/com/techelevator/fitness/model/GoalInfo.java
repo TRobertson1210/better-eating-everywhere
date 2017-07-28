@@ -5,7 +5,7 @@ import javax.validation.constraints.Min;
 public class GoalInfo {
 
 	private Double targetWeight;
-	private Double targetBMI;
+	private Integer targetCalories;
 	
 	public Double getTargetWeight() {
 		return targetWeight;
@@ -13,11 +13,11 @@ public class GoalInfo {
 	public void setTargetWeight(Double targetWeight) {
 		this.targetWeight = targetWeight;
 	}
-	public Double getTargetBMI() {
-		return targetBMI;
+	public Integer getTargetCalories() {
+		return targetCalories;
 	}
-	public void setTargetBMI(Double targetBMI) {
-		this.targetBMI = targetBMI;
+	public void setTargetCalories(Integer targetCalories) {
+		this.targetCalories = targetCalories;
 	}
 	
 	
