@@ -16,6 +16,7 @@ body {
 
 .banner-content h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
+	margin-top: 0px;
 }
 
 
@@ -25,29 +26,30 @@ body {
 
 @media only screen and (min-width: 1025px) {  /* Media query for larger monitors */
 	.banner-content h6 {
-		font-size: 0.5em;
+		font-size: 1em;
 	}
 	
 	.banner-content h4 {
-		font-size: .8em;
+		font-size: 1.3em;
 	}
 	
 	.banner-content h2 {
-		font-size: 1em;
+		font-size: 1.5em;
 	}
 	
 	.banner {
 	height: 33.75em;
 	background-image: url("../img/food-banner.jpg");
-	background-size: 100%;
-	background-position: right top;
+	background-size: 1520px;
+	background-position: left top;
 	background-repeat: no-repeat;
+	overflow: hidden;
 	-webkit-filter: brightness(90%);
 	-moz-filter: brightness(90%);
 	filter: brightness(90%);
 	display: grid;
 	grid-template-columns: 40% 1fr;
-	grid-template-rows: 40% 1fr;
+	grid-template-rows: 35% 1fr;
 	}
 		
 	.banner img{
@@ -75,8 +77,8 @@ body {
 		grid-column: 1 / 2;
 		grid-row: 2 / 3;
 		color: #454445;
-		font-size: 0.9em;
-		padding: 0.72em 1.44em;
+		font-size: 0.8em;
+		padding: 0.47em 1.25em;
 		margin-right: 0.72em;
 		text-decoration: none;
 		border: 0px solid black;
@@ -125,8 +127,8 @@ body {
 	.banner {
 		height: 33.75em;
 		background-image: url("../img/food-banner.jpg");
-		background-size: 100%;
-		background-position: right top;
+		background-size: 1520px;
+		background-position: left top;
 		background-attachment: fixed;
 		background-repeat: no-repeat;
 		overflow: hidden;
@@ -144,6 +146,7 @@ body {
 		left:0;
 		max-width: 15em;
 		padding-bottom: .5em;
+		margin-left: 1.75em;
 	}
 		
 	.banner-content {
@@ -164,7 +167,7 @@ body {
 	.banner button {
 		grid-column: 1 / 2;
 		grid-row: 2 / 3;
-		color: #454445;
+		color: #000000;
 		font-size: 0.9em;
 		padding: 0.72em 1.44em;
 		margin-right: 0.72em;
@@ -177,6 +180,12 @@ body {
 		-moz-border-radius: 5px;
 		-webkit-border-radius: 5px;
 		border-radius: 5px;
+	}
+	
+	.button-container {
+		position: absolute;
+		bottom: 1.75em;
+		left: 1.75em;
 	}
 	
 	.banner-content button input:hover {
@@ -199,7 +208,7 @@ body {
 	
 }
 
-@media only screen and (min-width=1520px) {
+@media only screen and (min-width: 1520px) {
 	
 	.banner {
 		height: 33.75em;
@@ -212,6 +221,6 @@ body {
 		filter: brightness(90%);
 		display: grid;
 		grid-template-columns: 40% 1fr;
-		grid-template-rows: 40% 1fr;
+		grid-template-rows: 35% 1fr;
 	}
 }

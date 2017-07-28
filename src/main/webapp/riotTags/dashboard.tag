@@ -3,7 +3,7 @@
 	<div class="dashboard">
 		<div class="dashboard-banner">
 			<div class="dashboard-logo">
-				<img src="img/tfs-logo.png" />
+				<img src="img/tfs-white.png" />
 			</div>
 			<div class="dashboard-welcome">
 				<h1 class="dashboard-title">Welcome!</h1>
