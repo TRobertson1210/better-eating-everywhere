@@ -74,14 +74,7 @@ body {
 	filter: brightness(110%);
 }
 
-.blur {
-	grid-column: 1 / 2;
-	grid-row: 2 / 3;
-	-webkit-filter: blur(30px);
-	-moz-filter: blur(30px);
-	filter: blur(30px);
-	background: linear-gradient(to left, rgba(174, 171, 158, 0.05) 0%, rgba(174, 171, 158, 0.4) 100%);
-}
+
 
 .banner button {
 	grid-column: 1 / 2;
