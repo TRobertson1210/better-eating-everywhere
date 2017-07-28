@@ -100,7 +100,13 @@ public class UserAPIController {
 	}
 
 	@RequestMapping(path="/user/changePassword", method=RequestMethod.POST)
-	public JSONResponse changePassword(@RequestParam String password, ModelMap model){
+	public JSONResponse changePassword(@RequestParam String password, @RequestParam String confirmPassword, 
+			ModelMap model, BindingResult result){
+		if(result.hasErrors()) {
+			ErrorMessageGenerator emg = new ErrorMessageGenerator();
+			return new JSONResponse("failure", emg.generateErrorMessage(result));
+		}
+		
 		if(model.containsAttribute("loggedInUser")){
 			User loggedInUser = (User) model.get("loggedInUser");
 			PasswordHasher pboy = new PasswordHasher();
