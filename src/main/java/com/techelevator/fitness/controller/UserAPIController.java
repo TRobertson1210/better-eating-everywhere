@@ -11,6 +11,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -63,19 +64,19 @@ public class UserAPIController {
 
 
 	@RequestMapping(path="/user/updateProfile", method=RequestMethod.POST)
-	public JSONResponse updateUser(@ModelAttribute User updateUser, ModelMap model){
+	public JSONResponse updateUser(@ModelAttribute ProfileInfo profileInfo, ModelMap model){
 		if(model.containsAttribute("loggedInUser")){
 			User loggedInUser = (User) model.get("loggedInUser");
-			loggedInUser.setHeight(updateUser.getHeight());
-			loggedInUser.setWeight(updateUser.getWeight());
-			loggedInUser.setSex(updateUser.getSex());
-			loggedInUser.setName(updateUser.getName());
+			loggedInUser.setHeight(profileInfo.getHeight());
+			loggedInUser.setWeight(profileInfo.getWeight());
+			loggedInUser.setSex(profileInfo.getSex());
+			loggedInUser.setName(profileInfo.getName());
 			try{
 				userDAO.updateUser(loggedInUser);
 			}catch(DataAccessException exception){
 				return new JSONResponse("failure", exception.getMessage());
 			}
-			return new JSONResponse("success", loggedInUser);
+			return new JSONResponse("success", profileInfo);
 		}else{
 			return new JSONResponse("failure", "there is no user in the session");
 		}

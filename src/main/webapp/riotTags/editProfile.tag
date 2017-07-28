@@ -61,10 +61,10 @@
 				url: BASE_URL + "user/updateProfile",
 				type: "POST",
 				data: {
-					"name" : $('#name').val(),
-					"height" : $('#height').val(),
-					"weight" : $('#weight').val(),
-					"sex" : $('#sex').val(),
+					"name" : $('#edit-name').val(),
+					"height" : $('#edit-height').val(),
+					"weight" : $('#edit-weight').val(),
+					"sex" : $('#edit-sex').val(),
 				},
 				datatype: "json",
 			}).done(function (data) {
