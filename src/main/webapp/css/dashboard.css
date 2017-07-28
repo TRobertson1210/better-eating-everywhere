@@ -39,6 +39,10 @@ dashboard {
 	margin: 10px 10% 10px 10%;
 }
 
+.dashboard-welcome  h1 {
+	font-size: 30px;
+}
+
 .dashboard-gold-star {
 	display: inline;
 }
