@@ -30,7 +30,7 @@
 			getProfile();
 		})
 			
-		getProfile() {
+		function getProfile() {
 			$.ajax({
 				url: BASE_URL + "user/getProfile",
 				type: "GET",
