@@ -30,6 +30,7 @@ dashboard {
 }
 
 .dashboard-welcome {
+	font-family: 'Cabin Sketch', 'Roboto', Helvetica, sans-serif;
 	grid-column: 2 / 3;
 	text-align: center;
 	color: white;

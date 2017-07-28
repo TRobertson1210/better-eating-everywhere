@@ -6,7 +6,7 @@
 				<img src="img/tfs-logo.png" />
 			</div>
 			<div class="dashboard-welcome">
-				<h1>Welcome!</h1>
+				<h1 class="dashboard-title">Welcome!</h1>
 				<div class="dashboard-gold-star">
 					Star
 				</div>
@@ -61,6 +61,14 @@
 
 	<script>
 	bus.on('loginComplete', function() {
+		updateWelcomeMessage();
+	});
+	
+	bus.on('editProfileComplete', function() {
+		updateWelcomeMessage();
+	});
+	
+	function updateWelcomeMessage() {
 		$.ajax({
 			url: BASE_URL + "user/getProfile",
 			type: "GET",
@@ -77,7 +85,7 @@
 		}).fail(function(xhr, status, error) {
 			console.log(error);
 		});
-	});
+	}
 	
 	logout(e) {
 		$.ajax({
