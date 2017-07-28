@@ -54,7 +54,7 @@
 		register(e) {
 			e.preventDefault();
 			$.ajax({
-				url: BASE_URL + "/user/register",
+				url: BASE_URL + "user/register",
 				type: "POST",
 				data: {
 					"email" : $('#email').val(),
@@ -76,7 +76,6 @@
 				if(data.status === "success") {
 					$('userRegistration').hide();
 				}
-
 			}).fail(function(xhr, status, error) {
 				console.log(error);
 			});
