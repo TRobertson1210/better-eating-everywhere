@@ -1,50 +1,27 @@
 <progressGraph>
-	<div class="donut-chart">
-		<div id="container">{render}</div>
-	</div>
+	<canvas id="myChart" width="400" height="400"></canvas>
+
+
+	<script>
+		new Chart(document.getElementById("myChart"), {
+		    type: 'doughnut',
+		    data: {
+		      labels: ["Eaten", "Remaining"],
+		      datasets: [
+		        {
+		          label: "Calories",
+		          backgroundColor: ["#FF0000", "#00FF00"],
+		          data: [50,50]
+		        }
+		      ]
+		    },
+		    options: {
+		      title: {
+		        display: true,
+		        text: "Today's calorie intake"
+		      }
+		    }
+		});
+
+	</script>
 </progressGraph>
-
-<script>
-	$(document).ready(function () {
-	render(e) {
-		doughnutWidget.options = {
-				    container: $('#container'),
-				    width: 100,
-				    height: 100,
-				    class: 'donut',
-				    cutout: 50
-				  };
-				
-				  doughnutWidget.render(data());
-				
-				  setInterval(init, 2000);
-				});
-				
-				function init() {
-					  doughnutWidget.render(data());
-					}
-				
-				function data() {
-				  var data = {
-					  pending: {
-					    val: Math.round(Math.random() * 100),
-					    color: '#57B4F2',
-					    click: function(e) {
-					    console.log('hi');
-					  },
-					  delivered: {
-					    val: Math.round(Math.random() * 100),
-					    color: '#6DED5C'
-					  },
-					  delayed: {
-					    val: Math.round(Math.random() * 100),
-					    color: '#E63329',
-					    link: 'http://www.google.com'
-					  }
-			  };
-		  return data;
-		}
-	}
-)};
-
-</script>
