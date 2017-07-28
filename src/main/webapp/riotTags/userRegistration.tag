@@ -67,7 +67,7 @@
 			$('#password').val(null);
 			$('#confirmPassword').val(null);
 			$('#name').val(null);
-			$('#isImperial').val(true);
+			$('#isImperial').val("true");
 			$('#height-feet').val(null);
 			$('#height-inches').val(null);
 			$('#height-cm').val(null);
@@ -119,21 +119,7 @@
 				self.validate(data);
 				jsonResult = data;
 				if(data.status === "success") {
-					$('userRegistration').hide();
-					$('#email').val(null);
-					$('#password').val(null);
-					$('#confirmPassword').val(null);
-					$('#name').val(null);
-					$('#isImperial').val("true");
-					$('#height').val(null);
-					$('#weight').val(null);
-					$('#gender').val(null);
-					$('#targetWeight').val(null);
-					$('#targetCalories').val(null);
-					$('#permissionLevel').val(null);
-					$('#email-error').text(null);
-					$('#password-error').text(null);
-					$('#confirmPassword-error').text(null);
+					removeRegisterInfo();
 					$('userLogin').show();
 				}
 			}).fail(function(xhr, status, error) {
