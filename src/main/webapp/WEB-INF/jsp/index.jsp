@@ -6,6 +6,7 @@
 	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Finger+Paint" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/blaze">
 	<link href="<c:url value="/css/site.css" />" rel="stylesheet"/>
 	<link href="<c:url value="/css/dashboard.css" />" rel="stylesheet"/>
 	<link href="<c:url value="/css/login.css" />" rel="stylesheet"/>
@@ -14,6 +15,7 @@
 	<link href="<c:url value="/css/edit-profile.css" />" rel="stylesheet"/>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/riot@3.6.1/riot+compiler.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 </head>
 <body>
 
@@ -29,6 +31,7 @@
 	<foodLookup></foodLookup>
 	<dashboard></dashboard>
 	<editProfile></editProfile>
+	<rg-chart></rg-chart>
 	
 	<c:url value="/riotTags/userRegistration.tag" var="userRegistrationLocation" />
 	<script src="${userRegistrationLocation}" type="riot/tag"></script>
@@ -53,6 +56,8 @@
 	
 	<c:url value="/riotTags/newsPage.tag" var="newsPageLocation" />
 	<script src="${newsPageLocation}" type="riot/tag"></script>
+	
+
 	
 	
 		

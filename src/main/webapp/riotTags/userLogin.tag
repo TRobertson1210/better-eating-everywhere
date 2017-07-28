@@ -66,6 +66,7 @@
 					$('homePage').hide();
 					$('.dummy-content').hide();
 					$('dashboard').show();
+					$('progressGraph').show();
 					removeLoginInfo();
 					bus.trigger('loginComplete');
 				}
