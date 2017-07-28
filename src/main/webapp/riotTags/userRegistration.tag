@@ -73,7 +73,10 @@
 				console.log(data);
 				self.validate(data);
 				jsonResult = data;
-				$('userRegistration').hide();
+				if(data.status === "success") {
+					$('userRegistration').hide();
+				}
+
 			}).fail(function(xhr, status, error) {
 				console.log(error);
 			});
