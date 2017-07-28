@@ -27,7 +27,8 @@
 		});
 		
 		$('div.content-blocker').on('click', function(e) {
-			$('userRegistration').hide()
+			bus.trigger('removeRegForm');
+			$('userRegistration').hide();
 		});
 		
 		$('button#homepage-login').on('click', function(e) {
@@ -35,7 +36,8 @@
 		});
 		
 		$('div.content-blocker').on('click', function(e) {
-			$('userLogin').hide()
+			bus.trigger('removeLoginInfo');
+			$('userLogin').hide();
 		});
 		$('button#homepage-foodlookup').on('click', function(e) {
 			$('homePage').hide();
