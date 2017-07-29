@@ -5,20 +5,27 @@ dashboard {
 }
 
 .dashboard {
-	display: block;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: "banner banner"
+							"navigation ."
+							"prof-settings ."
+							"daily-prog ."
+							"daily-prog ."
+							"food-history .";
 }
 
 .dashboard-banner {
 	grid-area: banner;
-	display: grid;
-	background-image: url("../img/mobile-dashboard-banner.jpeg");
+	grid-column: 1 / 3;
+	background-image: url("../img/dashboard-banner.jpeg");
 	background-repeat: no-repeat;
-	background-size: 110%;
+	background-size: 100%;
 	background-position: 0% 0%;
 }
 
 .dashboard-logo {
-	width: 50 vw;
+	grid-column: 1 / 2;
 }
 
 .dashboard-logo img {
@@ -48,16 +55,19 @@ dashboard {
 
 .dashboard-navigation {
 	grid-area: navigation;
+	grid-column: 1 / 3;
 	margin: 10px 10% 10px 10%;
 }
 
 .dashboard-profile-settings {
 	grid-area: prof-settings;
+	grid-column: 1 / 3;
 	margin: 10px 10% 10px 10%;
 }
 
 .dashboard-daily-progress {
 	grid-area: daily-prog;
+	grid-column: 1 / 3;
 	margin: 10px 10% 10px 10%;
 }
 
@@ -72,6 +82,7 @@ dashboard {
 
 .dashboard-food-history {
 	grid-area: food-history;
+	grid-column: 1 / 3;
 	margin: 10px 10% 10px 10%;
 }
 
@@ -91,6 +102,7 @@ dashboard {
 }
 
 .dashboard-content {
+	grid-column: 1 / 3;
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
 	color: black;
@@ -99,43 +111,217 @@ dashboard {
 	height: 100px;
 }
 
+
 /* Tablet/Small Screen Size */
 
-@media only screen and (min-width: 801) {
-	.dashboard {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
+@media only screen and (min-width: 640px) {
+	dashboard {
+	 	display: none;
+	 }
+	 
+	 .dashboard {
+	 	display: grid;
+	 	grid-template-columns: 1fr 4fr 1fr;
+	 	grid-template-areas: "banner banner banner"
+	 						"navigation daily-prog prof-settings"
+	 						". daily-prog ."
+	 						". food-history .";
+	 }
+	 
+	 .dashboard-banner {
+	 	grid-area: banner;
+	 	display: grid;
+	 	grid-template-columns: 1fr 4fr 1fr;
+	 	background-image: url("../img/dashboard-banner.jpg");
+	 	background-size: 110%;
+	 	background-position: 0% 65%;
+	 	min-height: 10vw;
+	 }
+	 
+	 .dashboard-logo {
+	 	grid-column: 1 / 2;
+	 }
+	 
+	 .dashboard-logo img {
+	 	width: 100%;
+	 }
+	 
+	 .dashboard-welcome {
+	 font-family: 'Finger Paint', 'Roboto', Helvetica, sans-serif;
+	 	grid-column: 2 / 3;
+	 	text-align: center;
+	 	color: white;
+	 	padding-top: 10px;
+	 	padding-bottom: 10px;
+	 	margin: 10px 10% 10px 10%;
+	 }
+	 
+	.dashboard h1 {
+		font-size: 1.5em;
 	}
 	
-	.dashboard-banner {
-		background-image: url("../img/dashboard-banner.jpg");
-	}
-	
-	.dashboard-welcome {
-		grid-column: 2 / 3;
-	}
+	 .dashboard-gold-star {
+	 	display: inline;
+	 }
+	 
+	 .dashboard-navigation {
+	 	grid-area: navigation;
+	 	margin: 10px 10% 10px 10%;
+	 }
+	 
+	 .dashboard-profile-settings {
+	 	grid-area: prof-settings;
+	 	margin: 10px 10% 10px 10%;
+	 }
+	 
+	 .dashboard-daily-progress {
+	 	grid-area: daily-prog;
+	 	margin: 10px 10% 10px 10%;
+	 }
+	 
+	 .dashboard-set-targets {
+	 	grid-area: targets;
+	 	margin-bottom: 20px;
+	 }
+	 
+	 .dashboard-lifetime-progress {
+	 	grid-area: life-prog;
+	 }
+	 
+	 .dashboard-food-history {
+	 	grid-area: food-history;
+	 	margin: 10px 10% 10px 10%;
+	 }
+	 
+	 .dashboard-food-history-lifetime {
+	 	grid-area: food-life;
+	 }
+	 
+	 .dashboard-content-head {
+	 	color: white;
+	 	padding: 7px;
+	 	border-top-left-radius: 4px;
+	 	border-top-right-radius: 4px;
+	 	background: -webkit-linear-gradient(#124d77, #154682);
+	     background: -o-linear-gradient(#124d77, #154682);
+	     background: -moz-linear-gradient(#124d77, #154682);
+	     background: linear-gradient(#124d77, #154682);
+	 }
+	 
+	 .dashboard-content {
+	 	border-bottom-left-radius: 4px;
+	 	border-bottom-right-radius: 4px;
+	 	color: black;
+	 	padding: 7px;
+	 	background: #f5f5f5;
+	 	height: 100px;
+	 }
 	
 }
 
 /* Large Screen Size */
 
-@media only screen and (min-width: 1025) {
-	.dashboard {
-		grid-template-columns:  1fr 4fr 1fr;
-		grid-template-areas: "banner banner banner"
-							"navigation daily-prog prof-settings"
-							". daily-prog ."
-							". food-history .";
+@media only screen and (min-width: 1025px) {
+	dashboard {
+	 	display: none;
+	 }
+	 
+	 .dashboard {
+	 	display: grid;
+	 	grid-template-columns: 1fr 4fr 1fr;
+	 	grid-template-areas: "banner banner banner"
+	 						"navigation daily-prog prof-settings"
+	 						". daily-prog ."
+	 						". food-history .";
+	 }
+	 
+	 .dashboard-banner {
+	 	grid-area: banner;
+	 	display: grid;
+	 	grid-template-columns: 1fr 4fr 1fr;
+	 	background-image: url("../img/dashboard-banner.jpg");
+	 	background-size: 110%;
+	 	background-position: 0% 65%;
+	 	min-height: 10vw;
+	 }
+	 
+	 .dashboard-logo {
+	 	grid-column: 1 / 2;
+	 }
+	 
+	 .dashboard-logo img {
+	 	width: 100%;
+	 }
+	 
+	 .dashboard-welcome {
+	 font-family: 'Finger Paint', 'Roboto', Helvetica, sans-serif;
+	 	grid-column: 2 / 3;
+	 	text-align: center;
+	 	color: white;
+	 	padding-top: 10px;
+	 	padding-bottom: 10px;
+	 	margin: 10px 10% 10px 10%;
+	 }
+	 
+	.dashboard h1 {
+		font-size: 1.5em;
 	}
 	
-	.dashboard-banner {
-		grid-template-columns: 1fr 4fr 1fr;
-		min-height: 10vw;
-		background-position: 0% 65%;
-	}
-	
-	.dashboard-welcome h1 {
-	font-size: 2em;
+	 .dashboard-gold-star {
+	 	display: inline;
+	 }
+	 
+	 .dashboard-navigation {
+	 	grid-area: navigation;
+	 	margin: 10px 10% 10px 10%;
+	 }
+	 
+	 .dashboard-profile-settings {
+	 	grid-area: prof-settings;
+	 	margin: 10px 10% 10px 10%;
+	 }
+	 
+	 .dashboard-daily-progress {
+	 	grid-area: daily-prog;
+	 	margin: 10px 10% 10px 10%;
+	 }
+	 
+	 .dashboard-set-targets {
+	 	grid-area: targets;
+	 	margin-bottom: 20px;
+	 }
+	 
+	 .dashboard-lifetime-progress {
+	 	grid-area: life-prog;
+	 }
+	 
+	 .dashboard-food-history {
+	 	grid-area: food-history;
+	 	margin: 10px 10% 10px 10%;
+	 }
+	 
+	 .dashboard-food-history-lifetime {
+	 	grid-area: food-life;
+	 }
+	 
+	 .dashboard-content-head {
+	 	color: white;
+	 	padding: 7px;
+	 	border-top-left-radius: 4px;
+	 	border-top-right-radius: 4px;
+	 	background: -webkit-linear-gradient(#124d77, #154682);
+	     background: -o-linear-gradient(#124d77, #154682);
+	     background: -moz-linear-gradient(#124d77, #154682);
+	     background: linear-gradient(#124d77, #154682);
+	 }
+	 
+	 .dashboard-content {
+	 	border-bottom-left-radius: 4px;
+	 	border-bottom-right-radius: 4px;
+	 	color: black;
+	 	padding: 7px;
+	 	background: #f5f5f5;
+	 	height: 100px;
+	 }
 }
 	
-}
