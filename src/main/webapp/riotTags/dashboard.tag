@@ -38,7 +38,6 @@
 			</div>
 			<div class="dashboard-content-head">
 				Daily Progress Chart
-				<canvas id="myChart" width="400" height="400"></canvas>
 			</div>
 			<div class="dashboard-content">
 				<div class="dashboard-lifetime-progress">
