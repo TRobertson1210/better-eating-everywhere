@@ -10,18 +10,101 @@ body {
 	box-sizing: border-box;
 }
 
+.homepage-content {
+	height: 100%;
+	text-align: center;
+}
+
 .banner {
-	background-image: none;
+	background-image: url("../img/mobile-banner.jpg");
+	background-size: 200% 60%;
+	background-repeat: no-repeat;
+}
+	
+.banner img{
+	
 }
 
 .banner-content h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
-	margin-top: 0px;
+	margin-top: 30px;
+	visibility: hidden;
 }
+
+.banner-content h6 {
+	font-size: 0em;
+}
+	
+.banner-content h4 {
+	font-size: 0em;
+}
+	
+.banner-content h2 {
+	font-size: 0em;
+}
+
+
+
+.banner button {
+		grid-column: 1 / 2;
+		grid-row: 2 / 3;
+		color: #FFFFFF;
+		font-size: 1em;
+		padding: .75em 1.5em;
+		margin-right: 0.72em;
+		text-decoration: none;
+		border: 0px solid black;
+		background-color: #124d77;
+		-moz-box-shadow: 0px 8px 12px -9px #000000;
+		-webkit-box-shadow: 0px 8px 12px -9px #000000;
+		box-shadow: 0px 8px 12px -9px #000000;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+	}
+	
+	.banner-content button input:hover {
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7
+			), color-stop(1, #007dc1));
+		background: -moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: -webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: -o-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: -ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+		background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7',
+			endColorstr='#007dc1', GradientType=0);
+		background-color: #0061a7;
+	}
+	
+	.banner-content button input:active {
+		position: relative;
+		top: 1px;
+	}
+	
+	.dummy-content {
+		font-size: 0px;
+	}
 
 
 @media only screen and (min-width: 801px) {  /* Media query for laptops and smaller monitors */
 
+	.banner-content h1, h2, h3, h4, h5, h6 {
+		font-weight: normal;
+		margin-top: 0px;
+		visibility: visible;
+	}
+	
+	.banner-content h6 {
+		font-size: 1.5em;
+	}
+	
+	.banner-content h4 {
+		font-size: 1.8em;
+	}
+	
+	.banner-content h2 {
+		font-size: 2em;
+	}
 }
 
 @media only screen and (min-width: 1025px) {  /* Media query for larger monitors */
