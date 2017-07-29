@@ -32,13 +32,26 @@ body {
 
 .banner {
 	background-image: url("../img/mobile-banner.jpg");
-	background-size: 200% 60%;
+	background-size: 150%;
 	background-repeat: no-repeat;
 }
 	
 .banner img{
-		
+	text-align: center;
+	margin-top: 20px;
 	}
+	
+#homepage-register {
+	position: absolute;
+	top: 70%;
+	left: 10%;
+}
+
+#homepage-login {
+	position: absolute;
+	top: 70%;
+	right: 10%;
+}
 
 .banner-content h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
@@ -62,7 +75,7 @@ body {
 	grid-row: 2 / 3;
 	color: #FFFFFF;
 	font-size: 1em;
-	padding: .75em 1.5em;
+	padding: 5% 10%;
 	margin-right: 0.72em;
 	text-decoration: none;
 	border: 0px solid black;
@@ -110,7 +123,7 @@ body {
 }
 
 
-@media only screen and (min-width: 801px) {  /* Media query for laptops and smaller monitors */
+@media only screen and (min-width: 640px) {  /* Media query for laptops and smaller monitors */
 
 	.banner-content h1, h2, h3, h4, h5, h6 {
 		font-weight: normal;
@@ -150,9 +163,18 @@ body {
 		position: absolute;
 		top: 0;
 		left:0;
-		max-width: 15em;
+		max-width: 20em;
 		padding-bottom: .5em;
 		margin-left: 1.75em;
+		margin-top: .5em;
+	}
+	
+	#homepage-register {
+		position: static;
+	}
+	
+	#homepage-login {
+		position: static;
 	}
 		
 	.banner-content {
@@ -220,16 +242,17 @@ body {
 	.blog-page {
 		grid-area: blog;
 		grid-column: 1 / 2;
-		max-width: 42em;
-		padding-left: 5em;
+		max-width: 40em;
+		padding-left: 3em;
+		display: inline-block;
 	}
 	
 	.news-page {
 		grid-area: news;
 		grid-column: 4 / 5;
-		max-width: 42em;
-		padding-left: 5em;
-		padding-top: 1em;
+		max-width: 40em;
+		padding-left: 3em;
+		display: inline-block;
 	}
 	
 	.button-container {
@@ -267,14 +290,6 @@ body {
 	display: grid;
 	grid-template-columns: 40% 1fr;
 	grid-template-rows: 35% 1fr;
-	}
-		
-	.banner img{
-		position: absolute;
-		top: 0;
-		left:0;
-		max-width: 15em;
-		padding-bottom: .5em;
 	}
 		
 	.banner-content {
@@ -344,7 +359,7 @@ body {
 		grid-column: 1 / 2;
 		float: left;
 		max-width: 42em;
-		padding-left: 7em;
+		padding-left: 3em;
 	}
 	
 	.news-page {
@@ -352,7 +367,7 @@ body {
 		grid-column: 4 / 5;
 		float: right;
 		max-width: 42em;
-		padding-right: 7em;
+		padding-right: 3em;
 	}
 }
 
