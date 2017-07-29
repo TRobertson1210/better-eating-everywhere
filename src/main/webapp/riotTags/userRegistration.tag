@@ -135,6 +135,7 @@
 				jsonResult = data;
 				if(data.status === "success") {
 					removeRegisterInfo();
+					$('userRegistration').hide();
 					$('userLogin').show();
 				}
 			}).fail(function(xhr, status, error) {
