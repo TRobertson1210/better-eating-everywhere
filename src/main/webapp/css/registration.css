@@ -1,19 +1,6 @@
 /* Homepage Element CSS */
 	
-.content-blocker {
-	position: fixed;
-	display: grid;
-	top: 0px;
-	bottom: 0px;
-	right: 0px;
-	left: 0px;
-	background-color: rgba(0, 0, 0, 0.6);
-	width: 100vw;
-	height: 100vh;
-	z-index: 2;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr;
-}
+
 	
 
 /* Phone and General Styling */
@@ -123,17 +110,7 @@ userRegistration {
 @media only screen and (min-width: 1025px) {  /* Media query for "desktops" */
 
 /* Homepage Element CSS */
-/* .homepage-signup {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-}
-.homepage-signup div.homepage-navbar {
-	text-align: center;
-	grid-column: 1/3;
-}
-.homepage-signup div.signup-content {
-	grid-column: 1/2;
-} */
+
 
 /* Registration Element CSS */
 	
