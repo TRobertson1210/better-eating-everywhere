@@ -11,7 +11,7 @@ dashboard {
 .dashboard-banner {
 	grid-area: banner;
 	display: grid;
-	background-image: url("../img/dashboard-banner.jpg");
+	background-image: url("../img/mobile-dashboard-banner.jpeg");
 	background-repeat: no-repeat;
 	background-size: 110%;
 	background-position: 0% 0%;
@@ -105,6 +105,10 @@ dashboard {
 	.dashboard {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
+	}
+	
+	.dashboard-banner {
+		background-image: url("../img/dashboard-banner.jpg");
 	}
 	
 	.dashboard-welcome {
