@@ -12,12 +12,17 @@
 				</div>
 			</div>
 		</div>
+		<button class="hamburger hamburger--collapse is-active" type="button">
+			  <span class="hamburger-box">
+				    <span class="hamburger-inner"></span>
+			  </span>
+		</button>
 		<div class="dashboard-navigation">
 			<div class="dashboard-content-head">
 				Nav List
 			</div>
 			<div class="dashboard-content">
-				links
+				<button id="homepage-foodlookup">Food Look Up</button>
 			</div>
 		</div>
 		<div class="dashboard-profile-settings">
@@ -106,6 +111,17 @@
 			console.log(error);
 		});
 	};
+	
+	$('button#homepage-foodlookup').on('click', function(e) {
+		$('dashboard').hide();
+		$('foodLookup').show();
+	});
+	
+	var $hamburger = $(".hamburger--collapse");
+	  $hamburger.on("click", function(e) {
+	    $hamburger.toggleClass("is-active");
+	    // Do something else, like open/close menu
+	  });
 		
 	</script>
 

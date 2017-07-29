@@ -13,7 +13,6 @@
 					<div class="button-container">
 					<button id="homepage-register">Register</button>
 					<button id="homepage-login">Login</button>
-					<button id="homepage-foodlookup">Food Look Up</button>
 					</div>
 				</div>
 				
@@ -41,10 +40,7 @@
 			bus.trigger('removeLoginInfo');
 			$('userLogin').hide();
 		});
-		$('button#homepage-foodlookup').on('click', function(e) {
-			$('homePage').hide();
-			$('foodLookup').show();
-		});
+		
 	});
 	</script>
 
