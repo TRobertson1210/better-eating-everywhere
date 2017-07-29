@@ -20,6 +20,18 @@ body {
 }
 
 
+.homepage-signup {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.homepage-signup div.homepage-navbar {
+	text-align: center;
+	grid-column: 1/3;
+}
+.homepage-signup div.signup-content {
+	grid-column: 1/2;
+}
+
 @media only screen and (min-width: 801px) {  /* Media query for laptops and smaller monitors */
 
 }
