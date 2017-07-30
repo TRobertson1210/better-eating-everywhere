@@ -13,7 +13,7 @@ Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil 
 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
 
 Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
-		</span><br><br>
+		</span><br /><br />
 		<span>
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis purus vitae sapien placerat aliquam sit amet eu lorem. Nulla malesuada pulvinar neque, sed malesuada erat dignissim non. Nam dignissim magna et sapien molestie, a aliquet tortor egestas. Nulla finibus odio vitae eros dictum dignissim. Vestibulum non velit vestibulum, tincidunt quam ac, laoreet nisi. Ut et auctor metus, in dignissim ante. Mauris vel leo id libero viverra imperdiet. Integer condimentum ornare leo, eget rutrum lorem sodales eget. Proin ac turpis nec arcu hendrerit tristique. Maecenas tincidunt ac lectus non tempor. Nulla id nisl eget risus volutpat euismod. Aliquam laoreet, mi eu ultricies accumsan, nibh lacus sollicitudin felis, a bibendum nibh turpis sit amet ex.
 

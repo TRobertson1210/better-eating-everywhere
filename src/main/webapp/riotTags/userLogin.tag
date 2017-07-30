@@ -11,11 +11,11 @@
 			<label for="loginEmail">Email Address: </label>
 			<div>
 				<input id="loginEmail" type="text" name="email" placeholder="example@mail.com" />
-			</div><br>
+			</div><br />
 			<label for="loginPassword">Password: </label>
 			<div>
 				<input id="loginPassword" type="password" name="password" />
-			</div><br>
+			</div><br />
 			<div class="loginButton">
 				<input type="submit" value="Login" />
 			</div>

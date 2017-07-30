@@ -2,7 +2,7 @@
 	
 	<div class="progress-graph">
 		<div class="progress-graph-progress">
-			<span id="current-calories"></span> / <span id="total-calories"></span><br>
+			<span id="current-calories"></span> / <span id="total-calories"></span><br />
 			<h3>calories</h3>
 		</div>
 		<div class="progress-graph-add-food">
@@ -64,15 +64,17 @@
 		}
 		
 		function loadFoodEventsDay(){
+			console.log(currentDate);
 			$.ajax({
 				url: BASE_URL + "foodEvent/getEvents/day",
 				type: "GET",
-				data : {
+				data: {
 					"searchDate" : currentDate,
 				},
 				datatype: "json",
 			}).done(function(data){
 				console.log(data);
+				console.log(currentDate);
 				if(data.status === "success"){
 					foodEventsByDay = data.value;
 					$('span#current-calories').text(data.value[0].eventCalories);
