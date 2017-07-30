@@ -24,10 +24,11 @@
 		</div>
 		<div class="dashboard-profile-settings">
 			<div class="dashboard-content-head">
-				Profile Settings<br />
+				Profile Settings
 			</div>
 			<div class="dashboard-content">
-				<button id="homepage-logout" onclick={logout}>Logout</button>
+				<button id="dashboard-edit-profile" onclick={showEditProfile}>Edit Profile</button><br />
+				<button id="dashboard-logout" onclick={logout}>Logout</button>
 			</div>
 		</div>
 		<div class="dashboard-daily-progress">
@@ -84,6 +85,10 @@
 		});
 	}
 	
+	showEditProfile() {
+		$('editProfile').show();
+	}
+	
 	logout(e) {
 		$.ajax({
 			url: BASE_URL + "user/logout",
@@ -114,7 +119,7 @@
 		$('button.hamburger').toggleClass('is-active');
 		console.log('hamboigahs');
 	    // Do something else, like open/close menu
-	  });
+	});
 		
 	</script>
 

@@ -1,5 +1,5 @@
 <editProfile>
-	<div class="content-blocker">
+	<div class="content-blocker" onclick={close}>
 	
 	
 		<div onclick = {noPropagate} class="edit-profile">
