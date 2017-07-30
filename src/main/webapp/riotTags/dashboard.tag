@@ -12,12 +12,17 @@
 				</div>
 			</div>
 		</div>
+		<button class="hamburger hamburger--collapse" type="button">
+			  <span class="hamburger-box">
+				    <span class="hamburger-inner"></span>
+			  </span>
+		</button>
 		<div class="dashboard-navigation">
 			<div class="dashboard-content-head">
 				Nav List
 			</div>
 			<div class="dashboard-content">
-				links
+				<button id="dashboard-foodlookup">Food Look Up</button>
 			</div>
 		</div>
 		<div class="dashboard-profile-settings">
@@ -38,14 +43,12 @@
 			</div>
 			<div class="dashboard-content-head">
 				Daily Progress Chart
-				<canvas id="myChart" width="400" height="400"></canvas>
 			</div>
 			<div class="dashboard-content">
 				<div class="dashboard-lifetime-progress">
 					Lifetime Progress
 				</div>
 			</div>
-
 		</div>
 		<div class="dashboard-food-history">
 			<div class="dashboard-content-head">
@@ -61,11 +64,7 @@
 
 
 	<script>
-	bus.on('loginComplete', function() {
-		updateWelcomeMessage();
-	});
-	
-	bus.on('editProfileComplete', function() {
+	bus.on('profileAcquired', function() {
 		updateWelcomeMessage();
 	});
 	
@@ -100,6 +99,7 @@
 				$('.dashboard-welcome').html('<h1>Welcome!</h1>');
 				$('homePage').show();
 				$('.dummy-content').show();
+				sessionStorage.setItem("loggedIn", null);
 			} else {
 				console.log("No user in session");
 			}
@@ -107,6 +107,17 @@
 			console.log(error);
 		});
 	};
+	
+	$('#dashboard-foodlookup').on('click', function(e) {
+		$('dashboard').hide();
+		$('foodLookup').show();
+	});
+	
+	$('button.hamburger').on('click', function(e) {
+		$('button.hamburger').toggleClass('is-active');
+		console.log('hamboigahs');
+	    // Do something else, like open/close menu
+	  });
 		
 	</script>
 

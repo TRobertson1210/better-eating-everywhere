@@ -22,15 +22,15 @@
 		 		</select></div><br>
 		 		<div class="height-input">
 					<label class="height-feet-label">Height: </label>
-					<div class="height-input-field-feet"><input id="height-feet" type="number"/> Ft.</div>
-					<div class="height-input-field-inches"><input id="height-inches" type="number"/> In.</div>
+					<div class="height-input-field-feet"><input id="height-feet" type="number"/> ft.</div>
+					<div class="height-input-field-inches"><input id="height-inches" type="number"/> in.</div>
 				</div><br>
-				<label class="weight-label" for="weight">Current Weight (lbs): </label>
-				<div><input id="weight" type="number" name="weight"/></div><br>
+				<label class="weight-label" for="weight">Current Weight: </label>
+				<div class="weight-input"><input id="weight" type="number" name="weight"/> lbs</div><br>
 				<label for="gender">Gender: </label>
 				<div><input id="gender" type="text" name="gender"></div><br>
-				<label class="targetWeight-label" for="targetWeight">Target Weight (lbs): </label>
-				<div><input id="targetWeight" type="number" name="targetWeight"/></div><br>
+				<label class="targetWeight-label" for="targetWeight">Target Weight: </label>
+				<div class="targetWeight-input"><input id="targetWeight" type="number" name="targetWeight"/> lbs</div><br>
 				<label for="targetCalories">Target Daily Calories: </label>
 				<div><input id="targetCalories" type="number" name="targetCalories"/></div><br>
 				<input id="permissionLevel" type="hidden" value="2" name="permissionLevel" />
@@ -42,7 +42,9 @@
 	<script>
 		var self = this;
 		var jsonResult = null;
-		var height = 0;
+		var height = null;
+		var weight = null;
+		var targetWeight = null;
 		
 		bus.on('removeRegForm', function() {
 			removeRegisterInfo();
@@ -55,9 +57,13 @@
 		
 		changeImperial() {
 			if($('#isImperial').val() === "T") {
-				$('.height-input').html('<label class="height-feet-label">Height: </label><div class="height-input-field-feet"><input id="height-feet" type="number"/> Ft.</div><div class="height-input-field-inches"><input id="height-inches" type="number"/> In.</div>');
+				$('.height-input').html('<label class="height-feet-label">Height: </label><div class="height-input-field-feet"><input id="height-feet" type="number"/> ft.</div><div class="height-input-field-inches"><input id="height-inches" type="number"/> in.</div>');
+				$('.weight-input').html('<input id="weight" type="number" name="weight"/> lbs');
+				$('.targetWeight-input').html('<input id="targetWeight" type="number" name="targetWeight"/> lbs');
 			} else {
 				$('.height-input').html('<label class="height-cm-label" for="height-cm">Height:</label><div class="height-input-field-cm"><input id="height-cm" type="number"/> cm</div>');
+				$('.weight-input').html('<input id="weight" type="number" name="weight"/> kg');
+				$('.targetWeight-input').html('<input id="targetWeight" type="number" name="targetWeight"/> kg');
 			}
 		}
 		
@@ -89,9 +95,15 @@
 			if($('#isImperial').val() === "T") {
 				var feet = $('#height-feet').val();
 				var inches = $('#height-inches').val();
+				var pounds = $('#weight').val();
+				var targetPounds = $('#targetWeight').val();
 				height = (((+feet * 12) + +inches) * 2.54).toFixed();
+				weight = (+pounds / 2.20462).toFixed(2);
+				targetWeight = (+targetPounds / 2.20462).toFixed(2);
 			} else {
 				height = $('#height-cm').val();
+				weight = $('#weight').val();
+				targetWeight = $('#targetWeight').val();
 			}
 		}
 		
@@ -110,9 +122,9 @@
 					"name" : $('#name').val(),
 					"isImperial" : $('#isImperial').val(),
 					"height" : height,
-					"weight" : $('#weight').val(),
+					"weight" : weight,
 					"gender" : $('#gender').val(),
-					"targetWeight" : $('#targetWeight').val(),
+					"targetWeight" : targetWeight,
 					"targetCalories" : $('#targetCalories').val(),
 					"permissionLevel" : $('#permissionLevel').val(),
 				},
@@ -123,6 +135,7 @@
 				jsonResult = data;
 				if(data.status === "success") {
 					removeRegisterInfo();
+					$('userRegistration').hide();
 					$('userLogin').show();
 				}
 			}).fail(function(xhr, status, error) {

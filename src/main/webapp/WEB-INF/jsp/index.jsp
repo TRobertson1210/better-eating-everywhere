@@ -13,6 +13,7 @@
 	<link href="<c:url value="/css/registration.css" />" rel="stylesheet"/>	
 	<link href="<c:url value="/css/food-lookup.css" />" rel="stylesheet"/>
 	<link href="<c:url value="/css/edit-profile.css" />" rel="stylesheet"/>
+	<link href="/css/hamburgers.css" rel="stylesheet">
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/riot@3.6.1/riot+compiler.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
@@ -70,6 +71,29 @@
 	}
 	
 	var bus = new Bus();
+	
+	$(document).ready(function(){
+		userCheck();
+	});
+	
+	function userCheck() {
+		$.ajax({
+			url: BASE_URL + "user/getProfile",
+			type: "GET",
+			datatype: "json",
+		}).done(function (data) {
+			if(data.status === "success") {
+				$('homePage').hide();
+				$('.dummy-content').hide();
+				$('dashboard').show();
+				bus.trigger('profileAcquired');
+			} else {
+				console.log("No user in session");
+			}
+		}).fail(function(xhr, status, error) {
+			console.log(error);
+		});
+	}
 
 	riot.mount('*');
 	</script>
