@@ -12,11 +12,11 @@
 				</div>
 			</div>
 		</div>
-		<button class="hamburger hamburger--collapse is-active" type="button">
+		<!-- <button class="hamburger hamburger--collapse is-active" type="button">
 			  <span class="hamburger-box">
 				    <span class="hamburger-inner"></span>
 			  </span>
-		</button>
+		</button> -->
 		<div class="dashboard-navigation">
 			<div class="dashboard-content-head">
 				Nav List
