@@ -68,10 +68,6 @@
 		updateWelcomeMessage();
 	});
 	
-	bus.on('editProfileComplete', function() {
-		updateWelcomeMessage();
-	});
-	
 	function updateWelcomeMessage() {
 		$.ajax({
 			url: BASE_URL + "user/getProfile",
