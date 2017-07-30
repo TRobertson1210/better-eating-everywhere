@@ -12,11 +12,11 @@
 				</div>
 			</div>
 		</div>
-		<!-- <button class="hamburger hamburger--collapse is-active" type="button">
+		<button class="hamburger hamburger--collapse" type="button">
 			  <span class="hamburger-box">
 				    <span class="hamburger-inner"></span>
 			  </span>
-		</button> -->
+		</button>
 		<div class="dashboard-navigation">
 			<div class="dashboard-content-head">
 				Nav List
@@ -113,9 +113,9 @@
 		$('foodLookup').show();
 	});
 	
-	var $hamburger = $(".hamburger--collapse");
-	  $hamburger.on("click", function(e) {
-	    $hamburger.toggleClass("is-active");
+	$('button.hamburger').on('click', function(e) {
+		$('button.hamburger').toggleClass('is-active');
+		console.log('hamboigahs');
 	    // Do something else, like open/close menu
 	  });
 		

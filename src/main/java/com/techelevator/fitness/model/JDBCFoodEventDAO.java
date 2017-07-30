@@ -1,7 +1,10 @@
 package com.techelevator.fitness.model;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -45,6 +48,88 @@ public class JDBCFoodEventDAO implements FoodEventDAO{
 			userFoodEvents.add(mapRowToFoodEvent(results));
 		}
 		return userFoodEvents;
+	}
+	
+	@Override
+	public List<FoodEvent> getUserFoodEventsByDay(Long userId, String date) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		java.util.Date searchDate = null;
+		try {
+			searchDate = sdf.parse(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		java.sql.Date searchSqlDate = new Date(searchDate.getTime());
+		String sqlStatement = "SELECT * FROM food_events WHERE user_id = ? AND date_eaten = ?";
+		SqlRowSet results = jdbc.queryForRowSet(sqlStatement, userId, searchSqlDate);
+		List<FoodEvent> userFoodEventsByDay = new ArrayList<>();
+		while(results.next()){
+			userFoodEventsByDay.add(mapRowToFoodEvent(results));
+		}
+		return userFoodEventsByDay;
+	}
+
+	@Override
+	public List<FoodEvent> getUserFoodEventsByWeek(Long userId, String date) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		java.util.Date searchDate = null;
+		try {
+			searchDate = sdf.parse(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		java.sql.Date searchSqlDate = new Date(searchDate.getTime());
+		String sqlStatement = "SELECT * FROM food_events WHERE user_id = ? AND "
+				+ "date_eaten BETWEEN (?::DATE + interval '-1 week') AND ? "
+				+ "ORDER BY date_eaten DESC";
+		SqlRowSet results = jdbc.queryForRowSet(sqlStatement, userId, searchSqlDate, searchSqlDate);
+		List<FoodEvent> userFoodEventsByWeek = new ArrayList<>();
+		while(results.next()){
+			userFoodEventsByWeek.add(mapRowToFoodEvent(results));
+		}
+		return userFoodEventsByWeek;
+	}
+
+	@Override
+	public List<FoodEvent> getUserFoodEventsByMonth(Long userId, String date) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		java.util.Date searchDate = null;
+		try {
+			searchDate = sdf.parse(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		java.sql.Date searchSqlDate = new Date(searchDate.getTime());
+		String sqlStatement = "SELECT * FROM food_events WHERE user_id = ? "
+				+ "AND date_eaten BETWEEN (?::DATE + interval '-1 month') AND ? "
+				+ "ORDER BY date_eaten DESC";
+		SqlRowSet results = jdbc.queryForRowSet(sqlStatement, userId, searchSqlDate, searchSqlDate);
+		List<FoodEvent> userFoodEventsByMonth = new ArrayList<>();
+		while(results.next()){
+			userFoodEventsByMonth.add(mapRowToFoodEvent(results));
+		}
+		return userFoodEventsByMonth;
+	}
+
+	@Override
+	public List<FoodEvent> getUserFoodEventsByYear(Long userId, String date) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		java.util.Date searchDate = null;
+		try {
+			searchDate = sdf.parse(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		java.sql.Date searchSqlDate = new Date(searchDate.getTime());
+		String sqlStatement = "SELECT * FROM food_events WHERE user_id = ? "
+				+ "AND date_eaten BETWEEN (?::DATE + interval '-1 year') AND ? "
+				+ "ORDER BY date_eaten DESC";
+		SqlRowSet results = jdbc.queryForRowSet(sqlStatement, userId, searchSqlDate, searchSqlDate);
+		List<FoodEvent> userFoodEventsByYear = new ArrayList<>();
+		while(results.next()){
+			userFoodEventsByYear.add(mapRowToFoodEvent(results));
+		}
+		return userFoodEventsByYear;
 	}
 	
 	
