@@ -64,7 +64,7 @@
 
 
 	<script>
-	bus.on('loginComplete', function() {
+	bus.on('profileAcquired', function() {
 		updateWelcomeMessage();
 	});
 	
@@ -103,6 +103,7 @@
 				$('.dashboard-welcome').html('<h1>Welcome!</h1>');
 				$('homePage').show();
 				$('.dummy-content').show();
+				sessionStorage.setItem("loggedIn", null);
 			} else {
 				console.log("No user in session");
 			}

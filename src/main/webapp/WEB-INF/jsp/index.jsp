@@ -71,6 +71,29 @@
 	}
 	
 	var bus = new Bus();
+	
+	$(document).ready(function(){
+		userCheck();
+	});
+	
+	function userCheck() {
+		$.ajax({
+			url: BASE_URL + "user/getProfile",
+			type: "GET",
+			datatype: "json",
+		}).done(function (data) {
+			if(data.status === "success") {
+				$('homePage').hide();
+				$('.dummy-content').hide();
+				$('dashboard').show();
+				bus.trigger('profileAcquired');
+			} else {
+				console.log("No user in session");
+			}
+		}).fail(function(xhr, status, error) {
+			console.log(error);
+		});
+	}
 
 	riot.mount('*');
 	</script>

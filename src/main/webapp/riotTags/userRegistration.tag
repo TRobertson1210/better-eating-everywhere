@@ -37,6 +37,7 @@
 				<div class="submitButton"><input type="submit" value="Register"/></div>
 			</form>
 		</div>
+		
 	</div>
 	
 	<script>
