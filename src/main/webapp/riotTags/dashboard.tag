@@ -7,9 +7,6 @@
 			</div>
 			<div class="dashboard-welcome">
 				<h1 class="dashboard-title">Welcome!</h1>
-				<div class="dashboard-gold-star">
-					Star
-				</div>
 			</div>
 		</div>
 		<button class="hamburger hamburger--collapse" type="button">
