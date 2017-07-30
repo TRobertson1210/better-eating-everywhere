@@ -16,7 +16,7 @@ dashboard {
 
 .dashboard-banner {
 	grid-area: banner;
-	grid-column: 1/3;
+	grid-column: 1 / 2;
 	background-image: url("../img/mobile-dashboard-banner.jpeg");
 	background-repeat: no-repeat;
 	background-size: 100%;
@@ -60,19 +60,19 @@ dashboard {
 
 .dashboard-navigation {
 	grid-area: navigation;
-	grid-column: 1/3;
+	grid-column: 1 / 2;
 	margin: 10px 10% 10px 10%;
 }
 
 .dashboard-profile-settings {
 	grid-area: prof-settings;
-	grid-column: 1/3;
+	grid-column: 1 / 2;
 	margin: 10px 10% 10px 10%;
 }
 
 .dashboard-daily-progress {
 	grid-area: daily-prog;
-	grid-column: 1/3;
+	grid-column: 1 / 2;
 	margin: 10px 10% 10px 10%;
 }
 
@@ -87,7 +87,7 @@ dashboard {
 
 .dashboard-food-history {
 	grid-area: food-history;
-	grid-column: 1/3;
+	grid-column: 1 / 2;
 	margin: 10px 10% 10px 10%;
 }
 
