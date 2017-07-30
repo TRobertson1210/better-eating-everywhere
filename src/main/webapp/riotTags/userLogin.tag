@@ -67,8 +67,9 @@
 					$('.dummy-content').hide();
 					$('dashboard').show();
 					$('progressGraph').show();
+					sessionStorage.setItem('loggedIn', 'true');
 					removeLoginInfo();
-					bus.trigger('loginComplete');
+					bus.trigger('profileAcquired');
 				}
 			}).fail(function(xhr, status, error) {
 				console.log(error);

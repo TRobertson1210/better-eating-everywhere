@@ -1,34 +1,41 @@
 <editProfile>
 	<div class="content-blocker">
 	
-		<div onclick = {noPropagate} class="edit-profile">
-			<h3>Edit Profile</h3> <i onclick= { close } class="em em-x window-close"></i>
+	
+		<div onclick = {noPropagate} class="registration">
+			<h3>Registration</h3> <i onclick= { close } class="em em-x window-close"></i>
 			<form onsubmit={editProfile}>
-				<label>Name: </label>
+				<label for="name">Name: </label>
 				<div><input id="edit-name" type="text" name="name" /></div><br>
-				<label for="height">Height: </label>
-				<div><input id="edit-height" type="number" name="height" /></div><br>
-				<label for="weight">Weight: </label>
-				<div><input id="edit-weight" type="number" name="weight" /></div><br>
-				<label for="sex">Sex: </label>
-				<div><select id="edit-sex" name="sex">
-					<option value="M">Male</option>
-					<option value="F">Female</option>
-					<option value="O">Best</option>
-				</select></div><br>
-				<div class="submitButton"><input type="submit" value="Edit Profile"/></div>
+		 		<label for="isImperial">Measurement Units: </label>
+		 		<div><select id="edit-isImperial" name="isImperial" onchange={changeImperial}>
+		 			<option value="T" selected>Imperial</option>
+		 			<option value="F">Metric</option>
+		 		</select></div><br>
+		 		<div class="height-input">
+					<label class="height-feet-label">Height: </label>
+					<div class="height-input-field-feet"><input id="edit-height-feet" type="number"/> ft.</div>
+					<div class="height-input-field-inches"><input id="edit-height-inches" type="number"/> in.</div>
+				</div><br>
+				<label class="weight-label" for="weight">Current Weight: </label>
+				<div class="weight-input"><input id="weight" type="number" name="weight"/> lbs</div><br>
+				<label for="gender">Gender: </label>
+				<div><input id="gender" type="text" name="gender"></div><br>
+				<div class="submitButton"><input type="submit" value="Register"/></div>
 			</form>
 		</div>
+		
 	</div>
 	
 	<script>
-		this.title = opts.title;
 		var self = this;
 		var jsonResult = null;
 		
-		bus.on("loginComplete", function(){
+		bus.on("profileAcquired", function(){
 			getProfile();
-		})
+		});
+		
+		
 			
 		function getProfile() {
 			$.ajax({
@@ -41,7 +48,7 @@
 					$("#edit-name").val(data.value.name);
 					$("#edit-height").val(data.value.height);
 					$("#edit-weight").val(data.value.weight);
-			/* 		$("#edit-sex").val(data.value.sex); */
+			 		$("#edit-gender").val(data.value.gender);
 				}
 			}).fail(function(xhr, status, error){
 				console.log(error);
