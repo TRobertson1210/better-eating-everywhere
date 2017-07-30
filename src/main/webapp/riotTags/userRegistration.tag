@@ -9,12 +9,12 @@
 				<div><input id="email" type="email" name="email" placeholder="example@mail.com" /></div><br>
 				<span id="password-error"></span>
 				<label for="password">Password: </label>
-				<div><input id="password" type="password" name="password" /></div><br>
+				<div><input id="password" type="password" name="password" /></div><br />
 				<span id="confirmPassword-error"></span>
 				<label for="confirmPassword">Confirm Password: </label>
-				<div><input id="confirmPassword" type="password" name="confirmPassword" /></div><br>
+				<div><input id="confirmPassword" type="password" name="confirmPassword" /></div><br />
 				<label for="name">Name: </label>
-				<div><input id="name" type="text" name="name" /></div><br>
+				<div><input id="name" type="text" name="name" /></div><br />
 		 		<label for="isImperial">Measurement Units: </label>
 		 		<div><select id="isImperial" name="isImperial" onchange={changeImperial}>
 		 			<option value="T" selected>Imperial</option>
@@ -24,15 +24,15 @@
 					<label class="height-feet-label">Height: </label>
 					<div class="height-input-field-feet"><input id="height-feet" type="number"/> ft.</div>
 					<div class="height-input-field-inches"><input id="height-inches" type="number"/> in.</div>
-				</div><br>
+				</div><br />
 				<label class="weight-label" for="weight">Current Weight: </label>
-				<div class="weight-input"><input id="weight" type="number" name="weight"/> lbs</div><br>
+				<div class="weight-input"><input id="weight" type="number" name="weight"/> lbs</div><br />
 				<label for="gender">Gender: </label>
-				<div><input id="gender" type="text" name="gender"></div><br>
+				<div><input id="gender" type="text" name="gender"></div><br />
 				<label class="targetWeight-label" for="targetWeight">Target Weight: </label>
-				<div class="targetWeight-input"><input id="targetWeight" type="number" name="targetWeight"/> lbs</div><br>
+				<div class="targetWeight-input"><input id="targetWeight" type="number" name="targetWeight"/> lbs</div><br />
 				<label for="targetCalories">Target Daily Calories: </label>
-				<div><input id="targetCalories" type="number" name="targetCalories"/></div><br>
+				<div><input id="targetCalories" type="number" name="targetCalories"/></div><br />
 				<input id="permissionLevel" type="hidden" value="2" name="permissionLevel" />
 				<div class="submitButton"><input type="submit" value="Register"/></div>
 			</form>

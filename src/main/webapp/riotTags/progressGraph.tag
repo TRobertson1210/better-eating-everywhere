@@ -1,32 +1,41 @@
 <progressGraph>
 	
-	<div id="progressNumbers">
-		<span id="currentNumber"></span>
-		<span id="targetNumber"></span>
+	<div class="progress-graph">
+		<div class="progress-graph-progress">
+			<span id="current-calories"></span> / <span id="total-calories"></span><br />
+			<h3>calories</h3>
+		</div>
+		<div class="progress-graph-add-food">
+			<button value="Add Food"></button>
+		</div>
 	</div>
 
-
 	<script>
-		bus.on('loginComplete', function(){
+		bus.on('profileAcquired', function(){
 			loadCalorieInfo();
 			loadProfileInfo();
+			loadFoodEventsDay();
 		})
 		
 		var today = new Date();
 		
-		function getMonth(date){
-			if(month < 10){
-				month = '0' + month;
+		function formatMonth(date){
+			if((date + 1) < 10){
+				return '0' + (date + 1);
+			} else {
+				return (date + 1);
 			}
 		}
 		
-		function getDate(date){
+		function formatDate(date){
 			if(date < 10){
-				date = '0' + day;
+				return '0' + date;
+			} else {
+				return date;
 			}
 		}
 		
-		var currentDate = today.getFullYear()+'-'+getMonth(today.getMonth())+'-'+getDate(today.getDate());
+		var currentDate = today.getFullYear()+'-'+formatMonth(today.getMonth())+'-'+formatDate(today.getDate());
 				
 		var userBMI;
 		var userCalories;
@@ -55,14 +64,20 @@
 		}
 		
 		function loadFoodEventsDay(){
+			console.log(currentDate);
 			$.ajax({
 				url: BASE_URL + "foodEvent/getEvents/day",
 				type: "GET",
+				data: {
+					"searchDate" : currentDate,
+				},
 				datatype: "json",
 			}).done(function(data){
 				console.log(data);
+				console.log(currentDate);
 				if(data.status === "success"){
 					foodEventsByDay = data.value;
+					$('span#current-calories').text(data.value[0].eventCalories);
 				}
 			}).fail(function(xhr, status, error){
 				console.log(error);
@@ -122,8 +137,10 @@
 			}).done(function (data) {
 				console.log(data);
 				if(data.status === "success") {
-					userTargetCalories = data.values.targetCalories;
-					userTargetWeight = data.values.targetWeight;
+					userTargetCalories = data.value.targetCalories;
+					$('span#total-calories').text(userTargetCalories);
+					userTargetWeight = data.value.targetWeight;
+					console.log(currentDate);
 				}
 			}).fail(function(xhr, status, error) {
 				console.log(error);
@@ -150,8 +167,6 @@
 		function calculateBMI(height, weight){
 			userBMI = weight / (height * height);
 		}
-	
- */	
 
 	</script>
 </progressGraph>

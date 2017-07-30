@@ -26,7 +26,7 @@
 		</div>
 		<div class="dashboard-profile-settings">
 			<div class="dashboard-content-head">
-				Profile Settings<br>
+				Profile Settings<br />
 			</div>
 			<div class="dashboard-content">
 				<button id="homepage-logout" onclick={logout}>Logout</button>

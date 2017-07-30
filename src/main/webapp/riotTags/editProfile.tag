@@ -6,21 +6,21 @@
 			<h3>Update Profile</h3> <i onclick= { close } class="em em-x window-close"></i>
 			<form onsubmit={editProfile}>
 				<label for="name">Name: </label>
-				<div><input id="edit-name" type="text" name="name" /></div><br>
+				<div><input id="edit-name" type="text" name="name" /></div><br />
 		 		<label for="isImperial">Measurement Units: </label>
 		 		<div><select id="edit-isImperial" name="isImperial" onchange={changeImperialEdit}>
 		 			<option value="T">Imperial</option>
 		 			<option value="F">Metric</option>
-		 		</select></div><br>
+		 		</select></div><br />
 		 		<div class="height-input-edit">
 					<label class="height-feet-label">Height: </label>
 					<div class="height-input-field-feet"><input id="edit-height-feet" type="text"/> ft.</div>
 					<div class="height-input-field-inches"><input id="edit-height-inches" type="text"/> in.</div>
-				</div><br>
+				</div><br />
 				<label class="weight-label" for="edit-weight">Current Weight: </label>
-				<div class="weight-input-edit"><input id="edit-weight" type="text" name="weight"/> lbs</div><br>
+				<div class="weight-input-edit"><input id="edit-weight" type="text" name="weight"/> lbs</div><br />
 				<label for="edit-gender">Gender: </label>
-				<div><input id="edit-gender" type="text" name="gender"></div><br>
+				<div><input id="edit-gender" type="text" name="gender"></div><br />
 				<div class="submitButton"><input type="submit" value="Update"/></div>
 			</form>
 		</div>

@@ -7,7 +7,7 @@
 	
 	<form>
 		<label for="foodSearch">Search For Food</label>
-		<input onchange={searchFoodName} id="foodSearch" type="text" name="foodSearch" placeholder="Enter Food Here" /><br>
+		<input onchange={searchFoodName} id="foodSearch" type="text" name="foodSearch" placeholder="Enter Food Here" /><br />
 	</form>
 	
 	<ul id="servingInformation">

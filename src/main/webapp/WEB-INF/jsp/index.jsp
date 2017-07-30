@@ -13,6 +13,7 @@
 	<link href="<c:url value="/css/registration.css" />" rel="stylesheet"/>	
 	<link href="<c:url value="/css/food-lookup.css" />" rel="stylesheet"/>
 	<link href="<c:url value="/css/edit-profile.css" />" rel="stylesheet"/>
+	<link href="<c:url value="/css/progress-graph.css" />" rel="stylesheet" />
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/riot@3.6.1/riot+compiler.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
@@ -31,7 +32,8 @@
 	<foodLookup></foodLookup>
 	<dashboard></dashboard>
 	<editProfile></editProfile>
-	<rg-chart></rg-chart>
+	<progressGraph></progressGraph>
+	
 	
 	<c:url value="/riotTags/userRegistration.tag" var="userRegistrationLocation" />
 	<script src="${userRegistrationLocation}" type="riot/tag"></script>
@@ -57,12 +59,17 @@
 	<c:url value="/riotTags/newsPage.tag" var="newsPageLocation" />
 	<script src="${newsPageLocation}" type="riot/tag"></script>
 	
+	<c:url value="/riotTags/progressGraph.tag" var="progressLocation" />
+	<script src="${progressLocation}" type="riot/tag"></script>
+	
 
 	
 	
 		
 	<script>
 	window.BASE_URL = "<c:url value="/" />";
+	
+	riot.mount('*');
 	
 	function Bus() {
 		var self = this;
@@ -93,8 +100,6 @@
 			console.log(error);
 		});
 	}
-
-	riot.mount('*');
 	</script>
 </body>
 </html>
