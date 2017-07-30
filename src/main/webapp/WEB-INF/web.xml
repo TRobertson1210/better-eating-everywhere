@@ -18,6 +18,7 @@
     <url-pattern>*.jpg</url-pattern>
     <url-pattern>*.gif</url-pattern>
     <url-pattern>*.tag</url-pattern>
+    <url-pattern>*.jpeg</url-pattern>
   </servlet-mapping>
   
    <session-config>
