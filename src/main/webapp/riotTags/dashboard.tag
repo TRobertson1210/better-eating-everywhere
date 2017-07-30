@@ -9,11 +9,13 @@
 				<h1 class="dashboard-title">Welcome!</h1>
 			</div>
 		</div>
-		<button class="hamburger hamburger--collapse" type="button">
-			  <span class="hamburger-box">
-				    <span class="hamburger-inner"></span>
-			  </span>
+		<div class="hamburger-bar">
+			<button class="hamburger hamburger--collapse" type="button">
+				  <span class="hamburger-box">
+					    <span class="hamburger-inner"></span>
+				  </span>
 		</button>
+		</div>
 		<div class="dashboard-navigation">
 			<div class="dashboard-content-head">
 				Nav List

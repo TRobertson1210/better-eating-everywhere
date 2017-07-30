@@ -25,32 +25,33 @@ dashboard {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
+	grid-template-areas: "logo ."
+						"welcome ."
 }
 
 .dashboard-logo {
-	grid-column: 1/2;
-	grid-row: 1/2;
-	grid-area: banner;
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+	grid-area: logo;
 }
 
 .dashboard-logo img {
-	width: 60%;
+	width: 80%;
 	margin: 10 10 10 10;
 }
 
 .dashboard-welcome {
-	grid-area: banner;
-	grid-column: 1/2;
-	grid-row: 2/3;
+	grid-column: 1 / 2;
+	grid-row: 2 / 3;
+	grid-area: welcome;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	font-family: 'Finger Paint', 'Roboto', Helvetica, sans-serif;
-	/* 	text-align: center; */
 	color: white;
-	/* padding-top: 10px;
+	padding-top: 10px;
 	padding-bottom: 10px;
-	margin: 10px 10% 10px 10%; */
+	margin: 10px 10% 10px 10%;
 }
 
 .dashboard-welcome h1 {
@@ -59,6 +60,11 @@ dashboard {
 
 .dashboard-gold-star {
 	display: inline;
+}
+
+.hamburger-bar {
+	grid-column: 1 / 3;
+	background-color: #124d77;
 }
 
 .dashboard-navigation {
@@ -122,18 +128,20 @@ dashboard {
 /* Hamburger CSS */
 .hamburger {
 	grid-area: hamburger;
+	display: flex;
+	justify-content: center;
 	padding: 15px 15px;
-	display: inline-block;
 	cursor: pointer;
 	transition-property: opacity, filter;
 	transition-duration: 0.15s;
 	transition-timing-function: linear;
 	font: inherit;
-	color: inherit;
+	color: #ffffff;
 	text-transform: none;
 	background-color: transparent;
-	border: 0;
-	margin: 0;
+	border: 2px solid white;
+	border-radius: 4px;
+	margin: 10px;
 	overflow: visible;
 }
 
@@ -142,8 +150,8 @@ dashboard {
 }
 
 .hamburger-box {
-	width: 40px;
-	height: 24px;
+	width: 10px;
+	height: 6px;
 	display: inline-block;
 	position: relative;
 }
@@ -155,9 +163,9 @@ dashboard {
 }
 
 .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
-	width: 40px;
-	height: 4px;
-	background-color: #000;
+	width: 15px;
+	height: 2px;
+	background-color: #ffffff;
 	border-radius: 4px;
 	position: absolute;
 	transition-property: transform;
@@ -269,6 +277,10 @@ dashboard {
 	
 	.dashboard-gold-star {
 		display: inline;
+	}
+	
+	.hamburger-bar {
+		display: none;
 	}
 	
 	.dashboard-navigation {
