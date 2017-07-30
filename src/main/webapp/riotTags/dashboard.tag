@@ -22,7 +22,7 @@
 				Nav List
 			</div>
 			<div class="dashboard-content">
-				<button id="homepage-foodlookup">Food Look Up</button>
+				<button id="dashboard-foodlookup">Food Look Up</button>
 			</div>
 		</div>
 		<div class="dashboard-profile-settings">
@@ -111,7 +111,7 @@
 		});
 	};
 	
-	$('button#homepage-foodlookup').on('click', function(e) {
+	$('#dashboard-foodlookup').on('click', function(e) {
 		$('dashboard').hide();
 		$('foodLookup').show();
 	});
