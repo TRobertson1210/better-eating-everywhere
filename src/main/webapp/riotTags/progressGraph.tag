@@ -7,10 +7,9 @@
 
 
 	<script>
-		/* bus.on('loginComplete', function(){
+		bus.on('loginComplete', function(){
 			loadCalorieInfo();
 			loadProfileInfo();
-			loadFoodEvents();
 		})
 		
 		var today = new Date();
@@ -28,74 +27,89 @@
 		}
 		
 		var currentDate = today.getFullYear()+'-'+getMonth(today.getMonth())+'-'+getDate(today.getDate());
-		
-		var currentWeek = [getDate(today.getDate()), getDate(today.getDate() -1), getDate(today.getDate() - 2), getDate(today.getDate()- 3), getDate(today.getDate() - 4), getDate(today.getDate() - 5), getDate(today.getDate() - 6))]
-		
+				
 		var userBMI;
 		var userCalories;
 		var userTargetCalories;
 		var userTargetWeight;
 		
-		var foodEventList;
+		var foodEventsAll;
 		var foodEventsByDay;
 		var foodEventsByWeek;
 		var foodEventsByMonth;
 		var foodEventsByYear;
 		
-		function getFoodEventsByDay(foodEventList, date){
-			var foodEventsByDay = [];
-			for(var i = 0; i < foodEventList.length; i++){
-				if(foodEventList[i].dateEaten == date){
-					foodEventsByDay.push(foodEventList[i]);
-				}
-			}
-			return foodEventsByDay;
-		};
-		
-		function getFoodEventsByWeek(foodEventList, week){
-			var foodEventsByWeek = [];
-			for(var i = 0; i < foodEventList.length; i++){
-				if(week.indexOf(foodEventList[i].dateEaten.substring(7)) != -1){
-					foodEventsByWeek.push(foodEventList[i]);
-				}
-			}
-			return foodEventsByWeek;
-		};
-		
-		function getFoodEventsByMonth(foodEventList, month){
-			var foodEventsByMonth = [];
-			for(var i = 0; i < foodEventList.length; i++){
-				if(foodEventList[i].dateEaten.substring(5, 7) == month){
-					foodEventsByMonth.push(foodEventList[i]);
-				}
-			}
-			return foodEventsByMonth;
-		};
-		
-		function getFoodEventsByYear(foodEventList){
-			var foodEventsByDay = [];
-			for(var i = 0; i < foodEventList.length; i++){
-				if(foodEventList[i].dateEaten.substring(0, 5) == currentDate){
-					foodEventsByYear.push(foodEventList[i]);
-				}
-			}
-			return foodEventsByYear;
-		};
-		
-		function loadFoodEvents(){
+		function loadAllFoodEvents(){
 			$.ajax({
-				url: BASE_URL + "foodEvent/getEvents",
+				url: BASE_URL + "foodEvent/getEvents/all",
 				type: "GET",
 				datatype: "json",
 			}).done(function (data) {
 				console.log(data);
 				if(data.status === "success") {
-					foodEventList = data.value;
-					foodEventsByDay = getFoodEventsByDay(foodEventList, getDate(today.getDate()));
-					foodEventsByWeek = getFoodEventsByWeek(foodEventList, currentWeek);
-					foodEventsByMonth = getFoodEventsByMonth(foodEventList, getMonth(today.getMonth()));
+					foodEventsAll = data.value;
 				}
 			}).fail(function(xhr, status, error) {
+				console.log(error);
+			});
+		}
+		
+		function loadFoodEventsDay(){
+			$.ajax({
+				url: BASE_URL + "foodEvent/getEvents/day",
+				type: "GET",
+				datatype: "json",
+			}).done(function(data){
+				console.log(data);
+				if(data.status === "success"){
+					foodEventsByDay = data.value;
+				}
+			}).fail(function(xhr, status, error){
+				console.log(error);
+			});
+		}
+		
+		function loadFoodEventsWeek(){
+			$.ajax({
+				url: BASE_URL + "foodEvent/getEvents/week",
+				type: "GET",
+				datatype: "json",
+			}).done(function(data){
+				console.log(data);
+				if(data.status === "success"){
+					foodEventsByWeek = data.value;
+				}
+			}).fail(function(xhr, status, error){
+				console.log(error);
+			});
+		}
+		
+		function loadFoodEventsMonth(){
+			$.ajax({
+				url: BASE_URL + "foodEvent/getEvents/month",
+				type: "GET",
+				datatype: "json",
+			}).done(function(data){
+				console.log(data);
+				if(data.status === "success"){
+					foodEventsByMonth = data.value;
+				}
+			}).fail(function(xhr, status, error){
+				console.log(error);
+			});
+		}
+		
+		function loadFoodEventsYear(){
+			$.ajax({
+				url: BASE_URL + "foodEvent/getEvents/year",
+				type: "GET",
+				datatype: "json",
+			}).done(function(data){
+				console.log(data);
+				if(data.status === "success"){
+					foodEventsByYear = data.value;
+				}
+			}).fail(function(xhr, status, error){
 				console.log(error);
 			});
 		}
@@ -110,7 +124,6 @@
 				if(data.status === "success") {
 					userTargetCalories = data.values.targetCalories;
 					userTargetWeight = data.values.targetWeight;
-					
 				}
 			}).fail(function(xhr, status, error) {
 				console.log(error);
