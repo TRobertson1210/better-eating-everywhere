@@ -13,7 +13,6 @@
 					<button onclick={showLogin}>Login</button>
 					</div>
 				</div>
-				
 				</div>	
 			</div>
 		</div>
