@@ -1,64 +1,11 @@
 <progressGraph>
 	
-	<div class="progress-graph">
-		<div class="progress-graph-progress">
-			<span id="current-calories"></span> / <span id="total-calories"></span><br />
-			<h3>calories</h3>
-		</div>
-		<div class="progress-graph-add-food">
-			<button value="Add Food"></button>
-		</div>
-		
-		<div><canvas id="myChart" width="400" height="400"></canvas></div>
+	<div class="progress-graph-progress">
+		<canvas id="myChart"></canvas>
 	</div>
+	<div class="add-food">STUFF</div>
 
 	<script>
-	
-	this.on("mount", function(){
-		var ctx = $("#myChart");
-		var myChart = new Chart(ctx, {
-		    type: 'bar',
-		    data: {
-		        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-		        datasets: [{
-		            label: '# of Votes',
-		            data: [12, 19, 3, 5, 2, 3],
-		            backgroundColor: [
-		                'rgba(255, 99, 132, 0.2)',
-		                'rgba(54, 162, 235, 0.2)',
-		                'rgba(255, 206, 86, 0.2)',
-		                'rgba(75, 192, 192, 0.2)',
-		                'rgba(153, 102, 255, 0.2)',
-		                'rgba(255, 159, 64, 0.2)'
-		            ],
-		            borderColor: [
-		                'rgba(255,99,132,1)',
-		                'rgba(54, 162, 235, 1)',
-		                'rgba(255, 206, 86, 1)',
-		                'rgba(75, 192, 192, 1)',
-		                'rgba(153, 102, 255, 1)',
-		                'rgba(255, 159, 64, 1)'
-		            ],
-		            borderWidth: 1
-		        }]
-		    },
-		    options: {
-		        scales: {
-		            yAxes: [{
-		                ticks: {
-		                    beginAtZero:true
-		                }
-		            }]
-		        }
-		    }
-		});
-	});
-	
-		bus.on('profileAcquired', function(){
-			loadCalorieInfo();
-			loadProfileInfo();
-			loadFoodEventsDay();
-		})
 		
 		var today = new Date();
 		
@@ -81,8 +28,11 @@
 		var currentDate = today.getFullYear()+'-'+formatMonth(today.getMonth())+'-'+formatDate(today.getDate());
 				
 		var userBMI;
-		var userCalories;
-		var userTargetCalories;
+		var userCaloriesDay = 0;
+		var userCaloriesWeek;
+		var userCaloriesMonth;
+		var userCaloriesYear;
+		var userTargetCalories = 0;
 		var userTargetWeight;
 		
 		var foodEventsAll;
@@ -117,8 +67,11 @@
 			}).done(function(data){
 				console.log(data);
 				if(data.status === "success"){
-					foodEventsByDay = data.value;
 					$('span#current-calories').text(data.value[0].eventCalories);
+					for (var i = 0; i < data.value.length; i++) {
+						userCaloriesDay = +userCaloriesDay + +data.value[i].eventCalories;
+					}
+					bus.trigger('graphInfoRetrieved');
 				}
 			}).fail(function(xhr, status, error){
 				console.log(error);
@@ -183,6 +136,7 @@
 					userTargetWeight = data.value.targetWeight;
 					console.log(currentDate);
 				}
+				bus.trigger('graphInfoRetrieved');
 			}).fail(function(xhr, status, error) {
 				console.log(error);
 			});
@@ -208,6 +162,34 @@
 		function calculateBMI(height, weight){
 			userBMI = weight / (height * height);
 		}
+		
+		bus.on("profileAcquired", function(){
+			loadFoodEventsDay();
+			loadCalorieInfo();
+			bus.on("graphInfoRetrieved", function(){
+				console.log(userTargetCalories);
+				console.log(userCaloriesDay);
+				var ctx = $("#myChart");
+				var myChart = new Chart(ctx, {
+				    type: 'doughnut',
+				    data: {
+				    	labels: ["Eaten", "Remaining"],
+				    	datasets: [{
+				            data: [userCaloriesDay, (+userTargetCalories - +userCaloriesDay)],
+				            backgroundColor: [
+				                '#FF0000',
+				                '#00FF00'
+				            ],
+				        }]
+				    },
+				    options: {
+				    	responsive : true,
+				    	maintainAspectRatio : false,
+				    },
+				});
+			});
+			
+		});
 
 	</script>
 </progressGraph>

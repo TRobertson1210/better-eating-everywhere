@@ -35,7 +35,6 @@
 	<dashboard></dashboard>
 	<editProfile></editProfile>
 	<setGoals></setGoals>
-	<progressGraph></progressGraph>
 	
 	<c:url value="/riotTags/userRegistration.tag" var="userRegistrationLocation" />
 	<script src="${userRegistrationLocation}" type="riot/tag"></script>
