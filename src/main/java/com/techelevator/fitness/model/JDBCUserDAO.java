@@ -43,7 +43,7 @@ public class JDBCUserDAO implements UserDAO {
 		String sqlStatement = "INSERT INTO users (email, hashed_password, name, height, weight, gender, "
 				+ "target_weight, target_calories, is_imperial, permission_level, salt) "
 				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		jdbc.update(sqlStatement, newUser.getEmail(), newUser.getHashedPassword(), newUser.getName(), newUser.getHeight(), newUser.getWeight(), newUser.getGender(), newUser.getTargetWeight(), newUser.getTargetCalories(), newUser.isImperial(), newUser.getPermissionLevel(), newUser.getSalt());
+		jdbc.update(sqlStatement, newUser.getEmail(), newUser.getHashedPassword(), newUser.getName(), newUser.getHeight(), newUser.getWeight(), newUser.getGender(), newUser.getTargetWeight(), newUser.getTargetCalories(), newUser.getIsImperial(), newUser.getPermissionLevel(), newUser.getSalt());
 	}
 	
 	@Override
@@ -52,7 +52,7 @@ public class JDBCUserDAO implements UserDAO {
 				+ "weight = ?, gender = ?, is_imperial = ? "
 				+ "WHERE user_id = ?";
 		jdbc.update(sqlStatement, user.getName(), user.getHeight(), user.getWeight(),
-				user.getGender(), user.isImperial(), user.getUserId());
+				user.getGender(), user.getIsImperial(), user.getUserId());
 	}
 	
 	@Override
@@ -80,7 +80,7 @@ public class JDBCUserDAO implements UserDAO {
 		user.setGender(results.getString("gender"));
 		user.setTargetWeight(results.getDouble("target_weight"));
 		user.setTargetCalories(results.getInt("target_calories"));
-		user.setImperial(results.getString("is_imperial"));
+		user.setIsImperial(results.getString("is_imperial"));
 		user.setPermissionLevel(results.getInt("permission_level"));
 		user.setSalt(results.getString("salt"));
 		

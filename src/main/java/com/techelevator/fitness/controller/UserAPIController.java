@@ -70,7 +70,7 @@ public class UserAPIController {
 			loggedInUser.setWeight(profileInfo.getWeight());
 			loggedInUser.setGender(profileInfo.getGender());
 			loggedInUser.setName(profileInfo.getName());
-			loggedInUser.setImperial(profileInfo.isImperial());
+			loggedInUser.setIsImperial(profileInfo.isImperial());
 			try{
 				userDAO.updateUser(loggedInUser);
 			}catch(DataAccessException exception){

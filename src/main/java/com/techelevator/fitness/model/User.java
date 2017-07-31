@@ -89,10 +89,10 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String isImperial() {
+	public String getIsImperial() {
 		return isImperial;
 	}
-	public void setImperial(String isImperial) {
+	public void setIsImperial(String isImperial) {
 		this.isImperial = isImperial;
 	}
 	public Integer getHeight() {
