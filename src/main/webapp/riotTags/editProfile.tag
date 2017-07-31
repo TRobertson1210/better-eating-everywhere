@@ -93,11 +93,11 @@
 				url: BASE_URL + "user/updateProfile",
 				type: "POST",
 				data: {
-					"name" : $('#name').val(),
-					"isImperial" : $('#isImperial').val(),
+					"name" : $('#edit-name').val(),
+					"isImperial" : $('#edit-isImperial').val(),
 					"height" : height,
 					"weight" : weight,
-					"gender" : $('#gender').val(),
+					"gender" : $('#edit-gender').val(),
 				},
 				datatype: "json",
 			}).done(function (data) {
