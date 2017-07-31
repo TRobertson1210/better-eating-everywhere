@@ -130,9 +130,23 @@
 	$('button.hamburger').on('click', function(e) {
 		$('button.hamburger').toggleClass('is-active');
 		console.log('hamboigahs');
-	    // Do something else, like open/close menu
+	    
+	});
+	
+	$('mobile-menu-items').on('click', function(e) {
+		$('button.hamburger').toggleClass('is-active')
 	});
 		
+	
+	/* //Open the menu
+    jQuery("#hamburger").click(function() {
+        ...
+    });
+ 
+    //close the menu
+    jQuery("#contentLayer").click(function() {
+        ...
+    }); */
 	</script>
 
 </dashboard>

@@ -166,9 +166,9 @@ dashboard {
 	background-color: #ffffff;
 	border-radius: 4px;
 	position: absolute;
-	-webkit-transition-property: transform;
-	   -moz-transition-property: transform;
-			transition-property: transform;
+	-webkit-transform: rotate(0deg);
+	   -moz-transfrom: rotate(0deg);
+			transfrom: rotate(0deg);
 	-webkit-transition-duration: 0.15s;
 	   -moz-transition-duration: 0.15s;
 			transition-duration: 0.15s;
