@@ -70,7 +70,7 @@ public class UserAPIController {
 			loggedInUser.setWeight(profileInfo.getWeight());
 			loggedInUser.setGender(profileInfo.getGender());
 			loggedInUser.setName(profileInfo.getName());
-			loggedInUser.setIsImperial(profileInfo.isImperial());
+			loggedInUser.setIsImperial(profileInfo.getIsImperial());
 			try{
 				userDAO.updateUser(loggedInUser);
 			}catch(DataAccessException exception){
@@ -168,6 +168,7 @@ public class UserAPIController {
 			profileInfo.setHeight(user.getHeight());
 			profileInfo.setWeight(user.getWeight());
 			profileInfo.setGender(user.getGender());
+			profileInfo.setIsImperial(user.getIsImperial());
 			return new JSONResponse("success", profileInfo);
 		}
 		return new JSONResponse("failure", "there is no user in the session");
@@ -180,6 +181,7 @@ public class UserAPIController {
 			GoalInfo goalInfo = new GoalInfo();
 			goalInfo.setTargetWeight(user.getTargetWeight());
 			goalInfo.setTargetCalories(user.getTargetCalories());
+			goalInfo.setIsImperial(user.getIsImperial());
 			return new JSONResponse("success", goalInfo);
 		}else{
 			return new JSONResponse("failure", "there is no user in the session");

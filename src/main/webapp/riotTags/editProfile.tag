@@ -63,6 +63,32 @@
 				console.log(error);
 			});
 		}
+		
+		function updateNumbers() {
+			$.ajax({
+				url: BASE_URL + "user/getProfile",
+				type: "GET",
+				datatype: "json",
+			}).done(function(data){
+				console.log(data);
+				if(data.status === "success"){
+					if($('#edit-isImperial').val() === "T") {
+						var databaseHeight = data.value.height;
+						var feet = Math.floor((+databaseHeight / 2.54) / 12);
+						var inches = Math.floor((+databaseHeight / 2.54) % 12);
+						var pounds = (+data.value.weight * 2.20462).toFixed(2);
+						$("#edit-height-feet").val(feet);
+						$("#edit-height-inches").val(inches);
+						$("#edit-weight").val(pounds);
+					} else {
+						$("#edit-height-cm").val(data.value.height);
+						$("#edit-weight").val(data.value.weight);
+					}
+				}
+			}).fail(function(xhr, status, error){
+				console.log(error);
+			});
+		}
 	
 		close(e) {
 			$('editProfile').hide();
@@ -93,11 +119,11 @@
 				url: BASE_URL + "user/updateProfile",
 				type: "POST",
 				data: {
-					"name" : $('#name').val(),
-					"isImperial" : $('#isImperial').val(),
+					"name" : $('#edit-name').val(),
+					"isImperial" : $('#edit-isImperial').val(),
 					"height" : height,
 					"weight" : weight,
-					"gender" : $('#gender').val(),
+					"gender" : $('#edit-gender').val(),
 				},
 				datatype: "json",
 			}).done(function (data) {
@@ -116,11 +142,11 @@
 			if($('#edit-isImperial').val() === "T") {
 				$('.height-input-edit').html('<label class="height-feet-label">Height: </label><div class="height-input-field-feet"><input id="edit-height-feet" type="text"/> ft.</div><div class="height-input-field-inches"><input id="edit-height-inches" type="text"/> in.</div>');
 				$('.weight-input-edit').html('<input id="edit-weight" type="text" name="weight"/> lbs');
-				getProfile();
+				updateNumbers();
 			} else {
 				$('.height-input-edit').html('<label class="height-cm-label" for="height-cm">Height:</label><div class="height-input-field-cm"><input id="edit-height-cm" type="text"/> cm</div>');
 				$('.weight-input-edit').html('<input id="edit-weight" type="text" name="weight"/> kg');
-				getProfile();
+				updateNumbers();
 			}
 		}
 		

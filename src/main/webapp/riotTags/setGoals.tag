@@ -24,26 +24,26 @@
 			e.stopPropagation();
 		}
 		
-		$(document).ready(function() {
+		bus.on('profileAcquired', function() {
 			getProfile();
 		});
 		
 		function getProfile() {
 			$.ajax({
-				url: BASE_URL + "user/getProfile",
+				url: BASE_URL + "user/getGoals",
 				type: "GET",
 				datatype: "json",
 			}).done(function(data){
 				imperial = data.value.isImperial;
 				console.log(data);
 				if(data.status === "success"){
-					('#edit-targetCalories').val(data.value.targetCalories);
+					$('#edit-targetCalories').val(data.value.targetCalories);
 					if(imperial === "T") {
-						('.edit-targetWeight-container').html('<input id="edit-targetWeight" type="text" name="targetWeight" /> lbs');
+						$('.edit-targetWeight-container').html('<input id="edit-targetWeight" type="text" name="targetWeight" /> lbs');
 						var pounds = (+data.value.targetWeight * 2.20462).toFixed(2);
 						$("#edit-targetWeight").val(pounds);
 					} else {
-						('.edit-targetWeight-container').html('<input id="edit-targetWeight" type="text" name="targetWeight" /> kg');
+						$('.edit-targetWeight-container').html('<input id="edit-targetWeight" type="text" name="targetWeight" /> kg');
 						$("#edit-targetWeight").val(data.value.targetWeight);
 					}
 				}
@@ -63,7 +63,6 @@
 		
 		editGoals(e) {
 			e.preventDefault();
-			getProfile();
 			convertToImperial();
 			var pounds = $('#edit-targetWeight').val();
 			$.ajax({

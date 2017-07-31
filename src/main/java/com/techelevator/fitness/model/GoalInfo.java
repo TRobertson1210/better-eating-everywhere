@@ -6,6 +6,7 @@ public class GoalInfo {
 
 	private Double targetWeight;
 	private Integer targetCalories;
+	private String isImperial;
 	
 	public Double getTargetWeight() {
 		return targetWeight;
@@ -18,6 +19,12 @@ public class GoalInfo {
 	}
 	public void setTargetCalories(Integer targetCalories) {
 		this.targetCalories = targetCalories;
+	}
+	public String getIsImperial() {
+		return isImperial;
+	}
+	public void setIsImperial(String isImperial) {
+		this.isImperial = isImperial;
 	}
 	
 	

@@ -34,10 +34,10 @@ public class ProfileInfo {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String isImperial() {
+	public String getIsImperial() {
 		return isImperial;
 	}
-	public void setImperial(String isImperial) {
+	public void setIsImperial(String isImperial) {
 		this.isImperial = isImperial;
 	}
 	
