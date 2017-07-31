@@ -1,16 +1,9 @@
 <progressGraph>
 	
-	<div class="progress-graph">
-		<div class="progress-graph-progress">
-			<span id="current-calories"></span> / <span id="total-calories"></span><br />
-			<h3>calories</h3>
-		</div>
-		<div class="progress-graph-add-food">
-			<button value="Add Food"></button>
-		</div>
-		
-		<div><canvas id="myChart" width="400" height="400"></canvas></div>
+	<div class="progress-graph-progress">
+		<canvas id="myChart"></canvas>
 	</div>
+	<div class="add-food">STUFF</div>
 
 	<script>
 		
@@ -188,6 +181,10 @@
 				                '#00FF00'
 				            ],
 				        }]
+				    },
+				    options: {
+				    	responsive : true,
+				    	maintainAspectRatio : false,
 				    },
 				});
 			});

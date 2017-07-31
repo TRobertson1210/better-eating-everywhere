@@ -46,9 +46,7 @@
 				Daily Progress Chart
 			</div>
 			<div class="dashboard-content">
-				<div class="dashboard-lifetime-progress">
-					Lifetime Progress
-				</div>
+				<progressGraph></progressGraph>
 			</div>
 		</div>
 		<div class="dashboard-food-history">
