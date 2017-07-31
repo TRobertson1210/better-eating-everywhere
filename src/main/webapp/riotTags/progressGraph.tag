@@ -3,7 +3,12 @@
 	<div class="progress-graph-progress">
 		<canvas id="myChart"></canvas>
 	</div>
-	<div class="add-food">STUFF</div>
+	<div class="progress-data">
+		<div class="targetCals">Target: --</div>
+		<div class="eatenCals">Eaten: --</div>
+		<div class="overeatenCals">Overeaten: --</div>
+		<button>Add a Food</button>
+	</div>
 
 	<script>
 		
@@ -26,7 +31,6 @@
 		}
 		
 		var currentDate = today.getFullYear()+'-'+formatMonth(today.getMonth())+'-'+formatDate(today.getDate());
-				
 		var userBMI;
 		var userCaloriesDay = 0;
 		var userCaloriesWeek;
@@ -71,7 +75,8 @@
 					for (var i = 0; i < data.value.length; i++) {
 						userCaloriesDay = +userCaloriesDay + +data.value[i].eventCalories;
 					}
-					bus.trigger('graphInfoRetrieved');
+					$('.eatenCals').text('Eaten: ' + userCaloriesDay);
+					bus.trigger('dailyGotten');
 				}
 			}).fail(function(xhr, status, error){
 				console.log(error);
@@ -136,6 +141,12 @@
 					userTargetWeight = data.value.targetWeight;
 					console.log(currentDate);
 				}
+				$('.targetCals').text('Target: ' + userTargetCalories);
+				if(userTargetCalories <= userCaloriesDay){
+					$('.overeatenCals').text('Overeaten: ' + (+userCaloriesDay - +userTargetCalories));
+				} else {
+					$('.overeatenCals').text('Overeaten: --');
+				}
 				bus.trigger('graphInfoRetrieved');
 			}).fail(function(xhr, status, error) {
 				console.log(error);
@@ -165,31 +176,57 @@
 		
 		bus.on("profileAcquired", function(){
 			loadFoodEventsDay();
-			loadCalorieInfo();
-			bus.on("graphInfoRetrieved", function(){
-				console.log(userTargetCalories);
-				console.log(userCaloriesDay);
-				var ctx = $("#myChart");
-				var myChart = new Chart(ctx, {
-				    type: 'doughnut',
-				    data: {
-				    	labels: ["Eaten", "Remaining"],
-				    	datasets: [{
-				            data: [userCaloriesDay, (+userTargetCalories - +userCaloriesDay)],
-				            backgroundColor: [
-				                '#FF0000',
-				                '#00FF00'
-				            ],
-				        }]
-				    },
-				    options: {
-				    	responsive : true,
-				    	maintainAspectRatio : false,
-				    },
+			bus.on('dailyGotten', function(){
+				loadCalorieInfo();
+				bus.on("graphInfoRetrieved", function(){
+					console.log(userTargetCalories);
+					console.log(userCaloriesDay);
+					console.log("horse");
+					
+					if (+userCaloriesDay <= +userTargetCalories) {
+						var ctx = $("#myChart");
+						var myChart = new Chart(ctx, {
+						    type: 'doughnut',
+						    data: {
+						    	labels: ["Eaten", "Remaining"],
+						    	datasets: [{
+						            data: [userCaloriesDay, (+userTargetCalories - +userCaloriesDay)],
+						            backgroundColor: [
+						                '#42A2E8',
+						                '#B0D1EA'
+						            ],
+						        }]
+						    },
+						    options: {
+						    	responsive : true,
+						    	maintainAspectRatio : false,
+						    },
+						});
+					} else {
+						var ctx = $("#myChart");
+						var myChart = new Chart(ctx, {
+						    type: 'doughnut',
+						    data: {
+						    	labels: ["Overeaten", "Eaten"],
+						    	datasets: [{
+						            data: [(+userCaloriesDay - +userTargetCalories), +userTargetCalories - (+userCaloriesDay - +userTargetCalories)],
+						            backgroundColor: [
+						                '#FF9564',
+						                '#42A2E8'
+						            ],
+						        }]
+						    },
+						    options: {
+						    	responsive : true,
+						    	maintainAspectRatio : false,
+						    	tooltips: {
+						    		enabled: false
+						    	},
+						    },
+						});
+					}
 				});
 			});
-			
 		});
-
 	</script>
 </progressGraph>
