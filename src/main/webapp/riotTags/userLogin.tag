@@ -1,5 +1,5 @@
 <userLogin>
-<div class="content-blocker">
+<div class="content-blocker" onclick={close}>
 
 
 	<div onclick = {noPropagate} class="login">

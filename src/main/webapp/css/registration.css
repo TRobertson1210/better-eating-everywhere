@@ -174,7 +174,7 @@ input#targetWeight {
 
 /* Tablet Styling */
 
-@media only screen and (min-width: 801px) {
+@media only screen and (min-width: 640px) {
 .registration {
 	width: 95vw;
 	height: 75vh;

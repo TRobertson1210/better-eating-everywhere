@@ -1,5 +1,5 @@
 <userRegistration>
-	<div class="content-blocker">
+	<div class="content-blocker" onclick={close}>
 	
 		<div onclick = {noPropagate} class="registration">
 			<h3>Registration</h3> <i onclick= { close } class="em em-x window-close"></i>

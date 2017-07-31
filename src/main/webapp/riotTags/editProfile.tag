@@ -72,8 +72,23 @@
 			e.stopPropagation();
 		}
 		
+		function convertToImperial() {
+			if($('edit-#isImperial').val() === "T") {
+				var feet = $('#edit-height-feet').val();
+				var inches = $('#edit-height-inches').val();
+				var pounds = $('#edit-weight').val();
+				height = (((+feet * 12) + +inches) * 2.54).toFixed();
+				weight = (+pounds / 2.20462).toFixed(2);
+				targetWeight = (+targetPounds / 2.20462).toFixed(2);
+			} else {
+				height = $('#edit-height-cm').val();
+				weight = $('#edit-weight').val();
+			}
+		}
+		
 		editProfile(e) {
 			e.preventDefault();
+			convertToImperial();
 			$.ajax({
 				url: BASE_URL + "user/updateProfile",
 				type: "POST",

@@ -24,7 +24,6 @@ editProfile {
 }
 
 .edit-profile h3 {
-	font-size: 1.2em;
 	margin-top: 0px;
 	text-align: center;
 }
@@ -133,11 +132,11 @@ input#edit-weight {
 	top: 1px;
 }
 
-@media only screen and (min-width: 801px) {
+@media only screen and (min-width: 640px) {
 	
 .edit-profile {
-	width: 95vw;
-	height: 75vh;
+	width: 65vw;
+	height: 45vh;
 }
 
 .edit-profile div.submitButton {

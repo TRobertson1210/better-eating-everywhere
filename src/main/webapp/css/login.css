@@ -91,14 +91,14 @@ userLogin {
 
 /* Tablet Styling */
 
-@media only screen and (min-width: 801px) {
+@media only screen and (min-width: 640px) {
 	
 .login {
 	height: auto;
 	position: relative;
 	font-size: 1em;
 	padding: 15px;
-	width: 50vw;
+	width: 45vw;
 	height: 40vh;
 	display: grid;
 	grid-template-rows: 1fr 6fr;
@@ -145,7 +145,7 @@ userLogin {
 
 .login {
 	font-size: 1.1em;
-	width: 50vw;
+	width: 35vw;
 }
 	
 	

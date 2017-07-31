@@ -30,6 +30,7 @@
 			</div>
 			<div class="dashboard-content">
 				<button id="dashboard-edit-profile" onclick={showEditProfile}>Edit Profile</button><br />
+				<button id="dashboard-set-goals" onclick={showSetGoals}>Set Goals</button>
 				<button id="dashboard-logout" onclick={logout}>Logout</button>
 			</div>
 		</div>
@@ -89,6 +90,10 @@
 	
 	showEditProfile() {
 		$('editProfile').show();
+	}
+	
+	showSetGoals() {
+		$('setGoals').show();
 	}
 	
 	logout(e) {
