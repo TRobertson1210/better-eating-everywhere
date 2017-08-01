@@ -101,7 +101,7 @@ public class JDBCFoodEventDAO implements FoodEventDAO{
 		}
 		java.sql.Date searchSqlDate = new Date(searchDate.getTime());
 		String sqlStatement = "SELECT * FROM food_events WHERE user_id = ? "
-				+ "AND date_eaten BETWEEN (?::DATE + interval '-1 month') AND ? "
+				+ "AND date_eaten BETWEEN (?::DATE + interval '-30 day') AND ? "
 				+ "ORDER BY date_eaten DESC";
 		SqlRowSet results = jdbc.queryForRowSet(sqlStatement, userId, searchSqlDate, searchSqlDate);
 		List<FoodEvent> userFoodEventsByMonth = new ArrayList<>();
