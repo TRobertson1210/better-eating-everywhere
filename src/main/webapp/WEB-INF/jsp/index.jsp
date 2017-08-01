@@ -9,7 +9,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Finger+Paint" rel="stylesheet">
 	<link rel="stylesheet" href="https://unpkg.com/blaze">
-	<link rel="icon" type="image/png" href="img/favicon.png">
+	<link rel="shortcut icon" href="<c:url value="/img/burger.ico"/>"  type="image/x-icon" />
 	<link href="<c:url value="/css/site.css" />" rel="stylesheet"/>
 	<link href="<c:url value="/css/dashboard.css" />" rel="stylesheet"/>
 	<link href="<c:url value="/css/login.css" />" rel="stylesheet"/>
@@ -28,16 +28,15 @@
 
 
 	<homePage></homePage>
-	<div class = "dummy-content">
 		<blogPage></blogPage>
-		<newsPage></newsPage>
-	</div>
 	<userregistration></userregistration>
 	<userLogin></userLogin>
 	<foodLookup></foodLookup>
 	<dashboard></dashboard>
 	<editProfile></editProfile>
 	<setGoals></setGoals>
+	
+	<footer>Created by the members of Team Alpha</footer>
 	
 	<c:url value="/riotTags/userRegistration.tag" var="userRegistrationLocation" />
 	<script src="${userRegistrationLocation}" type="riot/tag"></script>
