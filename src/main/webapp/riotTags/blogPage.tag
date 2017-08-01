@@ -2,15 +2,15 @@
 <div class="blog-page">
 	
 	<div class=" bee bee-movie-one">
-		<img class="" src=""></img>
+		<div class="bee-img"><img src="" /></div>
 		<h2>What Everybody Ought to Know About What They're Eating</h2>
 		<p>According to all known laws of aviation, there is no way a bee
 			should be able to fly. Its wings are too small to get its fat little
 			body off the ground. The bee, of course, flies anyway because bees
 			don't care what humans think is impossible. Yellow, black. Yellow,
 			black. Yellow, black. Yellow, black. Ooh, black and yellow! Let's
-			shake it up a little. Barry! Breakfast is ready! Ooming! Hang on a
-			second. Hello? - Barry? - Adam? - Oan you believe this is happening?
+			shake it up a little. Barry! Breakfast is ready! Coming! Hang on a
+			second. Hello? - Barry? - Adam? - Can you believe this is happening?
 			- I can't. I'll pick you up. Looking sharp. Use the stairs. Your
 			father paid good money for those. Sorry. I'm excited. Here's the
 			graduate. We're very proud of you, son. A perfect report card, all
@@ -30,11 +30,11 @@
 	</div>
 		
 	<div class="bee bee-movie-two">
-		<img class="" src=""></img>
+		<div class="bee-img"><img src="img/salad.jpeg" /></div>
 		<h2>The Best Kind of Vegetables for your Salads</h2>
 		<p>Well, Adam, today we are men. - We
 			are! - Bee-men. - Amen! Hallelujah! Students, faculty, distinguished
-			bees, please welcome Dean Buzzwell. Welcome, New Hive Oity graduating
+			bees, please welcome Dean Buzzwell. Welcome, New Hive City graduating
 			class of... ...9:15. That concludes our ceremonies. And begins your
 			career at Honex Industries! Will we pick our job today? I heard it's
 			just orientation. Heads up! Here we go. Keep your hands and antennas
@@ -44,7 +44,7 @@
 	</div>
 
 	<div class="bee bee-movie-three">
-		<img class="" src=""></img>
+		<div class="bee-img"><img src="img/meal-prep.jpg" /></div>
 		<h2>Make Meal Prep Work for You</h2>
 		<p>Wow. Wow. We know that you, as a bee, have worked your whole
 			life to get to the point where you can work for your whole life.
@@ -57,12 +57,12 @@
 			every aspect of bee existence. These bees are stress-testing a new
 			helmet technology. - What do you think he makes? - Not enough. Here
 			we have our latest advancement, the Krelman. - What does that do? -
-			Oatches that little strand of honey that hangs after you pour it.
+			Catches that little strand of honey that hangs after you pour it.
 			Saves us millions. Oan anyone work on the Krelman? Of course.</p>
 	</div>
 
 	<div class="bee bee-movie-four">
-		<img class="" src=""></img>
+		<div class="bee-img"><img src="img/junk-food.jpg" /></div>
 		<h2>Get Rid of Junk Food Once and For All</h2>
 		<p>Most bee jobs are small ones. But bees know that every small
 			job, if it's done well, means a lot. But choose carefully because
@@ -81,9 +81,9 @@
 	</div>
 
 	<div class="bee bee-movie-five">
-		<img class="" src=""></img>
+		<div class="bee-img"><img src="img/seinfeld.jpg" /></div>
 		<h2>Worst Diet Mistakes and How to Fix Them</h2>
-		<p>Wait a second. Oheck it out. - Hey, those are Pollen Jocks! -
+		<p>Wait a second. Check it out. - Hey, those are Pollen Jocks! -
 			Wow. I've never seen them this close. They know what it's like
 			outside the hive. Yeah, but some don't come back. - Hey, Jocks! - Hi,
 			Jocks! You guys did great! You're monsters! You're sky freaks! I love

@@ -106,10 +106,6 @@ body {
 	top: 1px;
 }
 
-.dummy-content {
-	font-size: 0px;
-}
-
 .homepage-signup {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -154,19 +150,19 @@ footer {
 	}
 	
 	.banner {
-	height: 33.75em;
-	background-image: url("../img/food-banner.jpg");
-	background-size: 1520px;
-	background-position: left top;
-	
-	background-repeat: no-repeat;
-	overflow: hidden;
-	-webkit-filter: brightness(90%);
-	-moz-filter: brightness(90%);
-	filter: brightness(90%);
-	display: grid;
-	grid-template-columns: 40% 1fr;
-	grid-template-rows: 35% 1fr;
+		height: 33.75em;
+		background-image: url("../img/food-banner.jpg");
+		background-size: 1520px;
+		background-position: left top;
+		
+		background-repeat: no-repeat;
+		overflow: hidden;
+		-webkit-filter: brightness(90%);
+		-moz-filter: brightness(90%);
+		filter: brightness(90%);
+		display: grid;
+		grid-template-columns: 40% 1fr;
+		grid-template-rows: 35% 1fr;
 	}
 	
 	.banner img{
@@ -242,21 +238,27 @@ footer {
 	
 	.blog-page {
 		display: grid;
-		padding: 1em;
-		font-size: .8em;
-		grid-template-columns: 1fr 1fr 1fr;
+ 		padding: 1em;
+ 		font-size: .8em;
+		grid-template-columns: 25% 25% 25% 25%;
 		grid-template-rows: 1fr 1fr 1fr;
-		grid-template-areas: "one one two"
-							 "one one three"
-							 "four five five";
+		grid-template-areas: "one one one two"
+							 "one one one three"
+							 "four four five five";
 	}
 	
 	.blog-page h2 {
 		text-align: center;
 	}
 	
+	.blog-page p {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 250ch;
+	}
+	
 	.bee {
-		padding: 20px;
+		padding: 20px 20px 20px 20px;
 	}
 	
 	.bee-movie-one {
@@ -279,6 +281,23 @@ footer {
 		grid-area: five;
 	}
 	
+	.bee-img {
+		width: 100%;
+		margin-bottom: 15px;
+		overflow: hidden;
+		max-height: 282px;
+	}
+	
+	.bee-img img{
+		width: 100%;
+		
+	}
+	
+	/* 
+	.bee-movie-four .bee-movie-five img {
+		max-height: 280px !important;
+	} */
+	
 	
 	/* END BLOG CONTENT */
 	
@@ -289,8 +308,8 @@ footer {
 	}
 }
 
-
-@media only screen and (min-width: 1025px) {  /* Media query for larger monitors */
+/* Media query for larger monitors */
+@media only screen and (min-width: 1025px) {
 	.banner-content h6 {
 		font-size: 1em;
 	}
@@ -312,8 +331,8 @@ footer {
 	background-repeat: no-repeat;
 	overflow: hidden;
 	-webkit-filter: brightness(90%);
-	-moz-filter: brightness(90%);
-	filter: brightness(90%);
+	   -moz-filter: brightness(90%);
+			filter: brightness(90%);
 	display: grid;
 	grid-template-columns: 40% 1fr;
 	grid-template-rows: 35% 1fr;
@@ -329,8 +348,8 @@ footer {
 		grid-row: 2 / 3;
 		z-index: 2;
 		-webkit-filter: brightness(110%);
-		-moz-filter: brightness(110%);
-		filter: brightness(110%);
+		   -moz-filter: brightness(110%);
+				filter: brightness(110%);
 	}
 	
 	.banner button {
@@ -343,12 +362,12 @@ footer {
 		text-decoration: none;
 		border: 0px solid black;
 		background-color: #ffffff;
-		-moz-box-shadow: 0px 8px 12px -9px #000000;
 		-webkit-box-shadow: 0px 8px 12px -9px #000000;
-		box-shadow: 0px 8px 12px -9px #000000;
-		-moz-border-radius: 5px;
+		   -moz-box-shadow: 0px 8px 12px -9px #000000;
+				box-shadow: 0px 8px 12px -9px #000000;
 		-webkit-border-radius: 5px;
-		border-radius: 5px;
+		   -moz-border-radius: 5px;
+				border-radius: 5px;
 	}
 	
 	.banner-content button input:hover {
@@ -368,14 +387,7 @@ footer {
 		position: relative;
 		top: 1px;
 	}
-	
-	.dummy-content h2 {
-		text-align: center;
-	}
-	
-	blogpage {
-		grid-column: 2 / 3;
-	}
+
 }
 
 @media only screen and (min-width: 1281px) {
@@ -401,8 +413,8 @@ footer {
 		background-repeat: no-repeat;
 		overflow: hidden;
 		-webkit-filter: brightness(90%);
-		-moz-filter: brightness(90%);
-		filter: brightness(90%);
+		   -moz-filter: brightness(90%);
+				filter: brightness(90%);
 		display: grid;
 		grid-template-columns: 40% 1fr;
 		grid-template-rows: 40% 1fr;
@@ -417,12 +429,10 @@ footer {
 		grid-row: 2 / 3;
 		z-index: 2;
 		-webkit-filter: brightness(110%);
-		-moz-filter: brightness(110%);
-		filter: brightness(110%);
+		   -moz-filter: brightness(110%);
+				filter: brightness(110%);
 	}
-	
-	
-	
+
 	.banner button {
 		grid-column: 1 / 2;
 		grid-row: 2 / 3;
@@ -433,12 +443,12 @@ footer {
 		text-decoration: none;
 		border: 0px solid black;
 		background-color: #ffffff;
-		-moz-box-shadow: 0px 8px 12px -9px #000000;
 		-webkit-box-shadow: 0px 8px 12px -9px #000000;
-		box-shadow: 0px 8px 12px -9px #000000;
-		-moz-border-radius: 5px;
+		   -moz-box-shadow: 0px 8px 12px -9px #000000;
+				box-shadow: 0px 8px 12px -9px #000000;
 		-webkit-border-radius: 5px;
-		border-radius: 5px;
+		   -moz-border-radius: 5px;
+				border-radius: 5px;
 	}
 	
 	.button-container {
@@ -464,10 +474,6 @@ footer {
 		position: relative;
 		top: 1px;
 	}
-	
-	.dummy-content h2 {
-		text-align: center;
-	}
 
 }
 
@@ -480,8 +486,8 @@ footer {
 		background-position: right top;
 		background-repeat: no-repeat;
 		-webkit-filter: brightness(90%);
-		-moz-filter: brightness(90%);
-		filter: brightness(90%);
+		   -moz-filter: brightness(90%);
+				filter: brightness(90%);
 		display: grid;
 		grid-template-columns: 40% 1fr;
 		grid-template-rows: 35% 1fr;
