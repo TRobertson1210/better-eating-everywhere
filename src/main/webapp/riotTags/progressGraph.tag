@@ -164,6 +164,8 @@
 		}
 		
 		bus.on("profileAcquired", function(){
+			userCaloriesDay = 0;
+			userTargetCalories = 0;
 			loadFoodEventsDay();
 			bus.on('dailyGotten', function(){
 				loadCalorieInfo();
@@ -185,9 +187,6 @@
 						    options: {
 						    	responsive : true,
 						    	maintainAspectRatio : false,
-						    	tooltips: {
-						    		enabled: false
-						    	}
 						    },
 						});
 					} else {

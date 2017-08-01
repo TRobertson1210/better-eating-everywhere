@@ -76,6 +76,7 @@
 			}).done(function (data) {
 				console.log(data);
 				if(data.status === "success") {
+					bus.trigger('profileAcquired');
 					$('setGoals').hide();
 				}
 			}).fail(function(xhr, status, error) {
