@@ -8,6 +8,8 @@ public interface UserDAO {
 
 	public void addUser(User newUser);
 	
+	public void updateProfile(User user);
+	
 	public void updateUser(User user);
 	
 	public void updatePassword(User user);

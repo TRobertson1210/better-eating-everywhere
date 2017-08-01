@@ -47,6 +47,16 @@ public class JDBCUserDAO implements UserDAO {
 	}
 	
 	@Override
+	public void updateProfile(User user){
+		String sqlStatement = "UPDATE users SET name = ?, height = ?, weight = ?, "
+				+ "gender = ?, is_imperial = ?, target_weight = ?, target_calories = ? "
+				+ "WHERE user_id = ?";
+		jdbc.update(sqlStatement, user.getName(), user.getHeight(), user.getWeight(),
+				user.getGender(), user.getIsImperial(), user.getTargetWeight(),
+				user.getTargetCalories(),user.getUserId());
+	}
+	
+	@Override
 	public void updateUser(User user) {
 		String sqlStatement = "UPDATE users SET name = ?, height = ?, "
 				+ "weight = ?, gender = ?, is_imperial = ? "
