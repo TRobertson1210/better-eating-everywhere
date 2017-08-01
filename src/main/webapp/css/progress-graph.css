@@ -1,19 +1,51 @@
-/* progressGraph {
-	display: none;
-} */
-
 progressGraph {
 	display: grid;
 	grid-template-columns: 67% 33%;
 }
 
-.progress-graph-progress {
+.progress-graph {
 	grid-column: 1 / 2;
+	display: grid;
+	grid-template-rows: 6fr 1fr;
+}
+
+.progress-graph-progress {
+	grid-row: 1 / 2;
 	position: relative;
 	width: 100%;
 	margin: auto;
 }
 
+.progress-graph-buttons {
+	margin: auto;
+	grid-row: 2 / 3;
+}
+
 .add-food {
 	grid-column: 2 / 3;
+}
+
+.progress-data {
+	padding: 2%;
+	display: grid;
+	grid-template-rows: 2fr 1fr 1fr 1fr 2fr;
+}
+
+.time-period {
+	margin: auto;
+	text-align: center;
+	font-size: 1.2em;
+	grid-row: 1 / 2;
+}
+
+.targetCals {
+	grid-row: 2 / 3;
+}
+
+.eatenCals {
+	grid-row: 3 / 4;
+}
+
+.overeatenCals {
+	grid-row: 4 / 5;
 }
