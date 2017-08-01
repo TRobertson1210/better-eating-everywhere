@@ -51,7 +51,6 @@
 				type: "GET",
 				datatype: "json",
 			}).done(function (data) {
-				console.log(data);
 				if(data.status === "success") {
 					foodEventsAll = data.value;
 				}
@@ -69,7 +68,6 @@
 				},
 				datatype: "json",
 			}).done(function(data){
-				console.log(data);
 				if(data.status === "success"){
 					$('span#current-calories').text(data.value[0].eventCalories);
 					for (var i = 0; i < data.value.length; i++) {
@@ -89,7 +87,6 @@
 				type: "GET",
 				datatype: "json",
 			}).done(function(data){
-				console.log(data);
 				if(data.status === "success"){
 					foodEventsByWeek = data.value;
 				}
@@ -104,7 +101,6 @@
 				type: "GET",
 				datatype: "json",
 			}).done(function(data){
-				console.log(data);
 				if(data.status === "success"){
 					foodEventsByMonth = data.value;
 				}
@@ -119,7 +115,6 @@
 				type: "GET",
 				datatype: "json",
 			}).done(function(data){
-				console.log(data);
 				if(data.status === "success"){
 					foodEventsByYear = data.value;
 				}
@@ -134,7 +129,6 @@
 				type: "GET",
 				datatype: "json",
 			}).done(function (data) {
-				console.log(data);
 				if(data.status === "success") {
 					userTargetCalories = data.value.targetCalories;
 					$('span#total-calories').text(userTargetCalories);
@@ -159,7 +153,6 @@
 				type: "GET",
 				datatype: "json",
 			}).done(function (data) {
-				console.log(data);
 				if(data.status === "success") {
 					var metricHeight = data.value.height;
 					var metricWeight = data.value.weight;
@@ -170,19 +163,11 @@
 			});
 		}
 		
-		function calculateBMI(height, weight){
-			userBMI = weight / (height * height);
-		}
-		
 		bus.on("profileAcquired", function(){
 			loadFoodEventsDay();
 			bus.on('dailyGotten', function(){
 				loadCalorieInfo();
 				bus.on("graphInfoRetrieved", function(){
-					console.log(userTargetCalories);
-					console.log(userCaloriesDay);
-					console.log("horse");
-					
 					if (+userCaloriesDay <= +userTargetCalories) {
 						var ctx = $("#myChart");
 						var myChart = new Chart(ctx, {
@@ -200,6 +185,9 @@
 						    options: {
 						    	responsive : true,
 						    	maintainAspectRatio : false,
+						    	tooltips: {
+						    		enabled: false
+						    	}
 						    },
 						});
 					} else {
