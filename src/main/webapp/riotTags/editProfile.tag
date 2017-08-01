@@ -76,7 +76,7 @@
 						var databaseHeight = data.value.height;
 						var feet = Math.floor((+databaseHeight / 2.54) / 12);
 						var inches = Math.floor((+databaseHeight / 2.54) % 12);
-						var pounds = (+data.value.weight / 2.20462).toFixed(2);
+						var pounds = (+data.value.weight * 2.20462).toFixed(2);
 						$("#edit-height-feet").val(feet);
 						$("#edit-height-inches").val(inches);
 						$("#edit-weight").val(pounds);
@@ -89,23 +89,14 @@
 				console.log(error);
 			});
 		}
-	
-		close(e) {
-			$('editProfile').hide();
-		}
-		
-		noPropagate(e) {
-			e.stopPropagation();
-		}
 		
 		function convertToImperial() {
-			if($('edit-#isImperial').val() === "T") {
+			if($('#edit-isImperial').val() === "T") {
 				var feet = $('#edit-height-feet').val();
 				var inches = $('#edit-height-inches').val();
 				var pounds = $('#edit-weight').val();
 				height = (((+feet * 12) + +inches) * 2.54).toFixed();
 				weight = (+pounds / 2.20462).toFixed(2);
-				targetWeight = (+targetPounds / 2.20462).toFixed(2);
 			} else {
 				height = $('#edit-height-cm').val();
 				weight = $('#edit-weight').val();
@@ -148,6 +139,14 @@
 				$('.weight-input-edit').html('<input id="edit-weight" type="text" name="weight"/> kg');
 				updateNumbers();
 			}
+		}
+		
+		close(e) {
+			$('editProfile').hide();
+		}
+		
+		noPropagate(e) {
+			e.stopPropagation();
 		}
 		
 		

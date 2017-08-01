@@ -34,7 +34,7 @@
 	<foodLookup></foodLookup>
 	<dashboard></dashboard>
 	<editProfile></editProfile>
-	<setGoals></setGoals>
+<!-- 	<setGoals></setGoals> -->
 	
 	<footer>Created by the members of Team Alpha</footer>
 	
