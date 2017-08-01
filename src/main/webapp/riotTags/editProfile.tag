@@ -54,6 +54,8 @@
 						$("#edit-height-inches").val(inches);
 						$("#edit-weight").val(pounds);
 					} else {
+						$('.height-input-edit').html('<label class="height-cm-label" for="height-cm">Height:</label><div class="height-input-field-cm"><input id="edit-height-cm" type="text"/> cm</div>');
+						$('.weight-input-edit').html('<input id="edit-weight" type="text" name="weight"/> kg');
 						$("#edit-height-cm").val(data.value.height);
 						$("#edit-weight").val(data.value.weight);
 					}
