@@ -3,10 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Tech Fitness APPPPPPPPP</title>
+
 	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Finger+Paint" rel="stylesheet">
 	<link rel="stylesheet" href="https://unpkg.com/blaze">
+	<link rel="icon" type="image/png" href="img/favicon.png">
 	<link href="<c:url value="/css/site.css" />" rel="stylesheet"/>
 	<link href="<c:url value="/css/dashboard.css" />" rel="stylesheet"/>
 	<link href="<c:url value="/css/login.css" />" rel="stylesheet"/>
