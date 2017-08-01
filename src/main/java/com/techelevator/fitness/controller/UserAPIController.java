@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.techelevator.fitness.model.ChangePassInfo;
+import com.techelevator.fitness.model.EditProfileInfo;
 import com.techelevator.fitness.model.GoalInfo;
 import com.techelevator.fitness.model.JSONResponse;
 import com.techelevator.fitness.model.LoginInfo;
@@ -60,6 +61,49 @@ public class UserAPIController {
 		}
 		return new JSONResponse("failure", null);
 	}
+	
+	@RequestMapping(path="/user/getProfileInfo", method=RequestMethod.GET)
+	public JSONResponse getProfileInfo(ModelMap model){
+		if(model.containsAttribute("loggedInUser")){
+			User user = (User) model.get("loggedInUser");
+			EditProfileInfo editProfileInfo = new EditProfileInfo();
+			editProfileInfo.setName(user.getName());
+			editProfileInfo.setGender(user.getGender());
+			editProfileInfo.setIsImperial(user.getIsImperial());
+			editProfileInfo.setHeight(user.getHeight());
+			editProfileInfo.setWeight(user.getWeight());
+			editProfileInfo.setTargetCalories(user.getTargetCalories());
+			editProfileInfo.setTargetWeight(user.getTargetWeight());
+			return new JSONResponse("success", editProfileInfo);
+		}
+		return new JSONResponse("failure", "there is no user in the session");
+	}
+	
+	@RequestMapping(path="/user/editProfile", method=RequestMethod.POST)
+	public JSONResponse editProfile(@ModelAttribute EditProfileInfo editProfileInfo, ModelMap model){
+		if(model.containsAttribute("loggedInUser")){
+			User loggedInUser = (User) model.get("loggedInUser");
+			loggedInUser.setName(editProfileInfo.getName());
+			loggedInUser.setGender(editProfileInfo.getGender());
+			loggedInUser.setIsImperial(editProfileInfo.getIsImperial());
+			if(editProfileInfo.getHeight().compareTo(new Integer(0)) < 1){
+				loggedInUser.setHeight(new Integer(0));
+			}
+			if(editProfileInfo.getWeight().compareTo(new Double(0)) < 1){
+				loggedInUser.setWeight(new Double(0));
+			}
+			if(editProfileInfo.getTargetCalories().compareTo(new Integer(0)) < 1){
+				loggedInUser.setTargetCalories(new Integer(0));
+			}
+			if(editProfileInfo.getTargetWeight().compareTo(new Double(0)) < 1){
+				loggedInUser.setTargetWeight(new Double(0));
+			}
+			userDAO.updateProfile(loggedInUser);
+			return new JSONResponse("success", editProfileInfo);
+		}else{
+			return new JSONResponse("failure", "there is no user in the session");
+		}
+	}
 
 
 	@RequestMapping(path="/user/updateProfile", method=RequestMethod.POST)
@@ -81,7 +125,7 @@ public class UserAPIController {
 			return new JSONResponse("failure", "there is no user in the session");
 		}
 	}
-
+	
 	@RequestMapping(path="/user/updateGoals", method=RequestMethod.POST)
 	public JSONResponse updateGoals(@ModelAttribute GoalInfo goalInfo, ModelMap model){
 		if(model.containsAttribute("loggedInUser")){
@@ -160,7 +204,7 @@ public class UserAPIController {
 	}
 
 	@RequestMapping(path="/user/getProfile", method=RequestMethod.GET)
-	public JSONResponse logout(ModelMap model){
+	public JSONResponse getProfile(ModelMap model){
 		if(model.containsAttribute("loggedInUser")){
 			User user = (User) model.get("loggedInUser");
 			ProfileInfo profileInfo = new ProfileInfo();

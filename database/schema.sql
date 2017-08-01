@@ -14,9 +14,9 @@ CREATE TABLE users (
     name VARCHAR(255),
     is_imperial VARCHAR(255) DEFAULT 'T',
     height INTEGER,
-    weight DECIMAL(5,2),
+    weight DECIMAL(10,2),
     gender VARCHAR(255),
-    target_weight DECIMAL(5,2),
+    target_weight DECIMAL(10,2),
     target_calories INTEGER,
     permission_level INTEGER,
     salt VARCHAR(255)

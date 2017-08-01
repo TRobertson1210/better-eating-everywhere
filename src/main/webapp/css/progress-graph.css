@@ -1,7 +1,3 @@
-/* progressGraph {
-	display: none;
-} */
-
 progressGraph {
 	display: grid;
 	grid-template-columns: 67% 33%;
