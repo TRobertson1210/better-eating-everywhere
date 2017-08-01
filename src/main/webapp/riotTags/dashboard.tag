@@ -10,11 +10,18 @@
 			</div>
 		</div>
 		<div class="hamburger-bar">
-			<button class="hamburger hamburger--collapse" type="button">
+			<button class="hamburger .hamburger--3dx" type="button">
 				  <span class="hamburger-box">
-					    <span class="hamburger-inner"></span>
+					    <span class="hamburger-inner">
+					    	<ul class="mobile-menu-items">
+					    		<button id="mobile-dashboard-foodlookup">Food Look Up</button>
+					    		<button id="mobile-dashboard-edit-profile" onclick={showEditProfile}>Edit Profile</button><br />
+								<button id="mobile-dashboard-set-goals" onclick={showSetGoals}>Set Goals</button>
+								<button id="mobile-dashboard-logout" onclick={logout}>Logout</button>
+					    	</ul>
+					    </span>
 				  </span>
-		</button>
+			</button>
 		</div>
 		<div class="dashboard-navigation">
 			<div class="dashboard-content-head">
@@ -46,9 +53,7 @@
 				Daily Progress Chart
 			</div>
 			<div class="dashboard-content">
-				<div class="dashboard-lifetime-progress">
-					Lifetime Progress
-				</div>
+				<progressGraph></progressGraph>
 			</div>
 		</div>
 		<div class="dashboard-food-history">
@@ -125,9 +130,23 @@
 	$('button.hamburger').on('click', function(e) {
 		$('button.hamburger').toggleClass('is-active');
 		console.log('hamboigahs');
-	    // Do something else, like open/close menu
+	    
+	});
+	
+	$('mobile-menu-items').on('click', function(e) {
+		$('button.hamburger').toggleClass('is-active')
 	});
 		
+	
+	/* //Open the menu
+    jQuery("#hamburger").click(function() {
+        ...
+    });
+ 
+    //close the menu
+    jQuery("#contentLayer").click(function() {
+        ...
+    }); */
 	</script>
 
 </dashboard>
