@@ -76,7 +76,7 @@
 						var databaseHeight = data.value.height;
 						var feet = Math.floor((+databaseHeight / 2.54) / 12);
 						var inches = Math.floor((+databaseHeight / 2.54) % 12);
-						var pounds = (+data.value.weight * 2.20462).toFixed(2);
+						var pounds = (+data.value.weight / 2.20462).toFixed(2);
 						$("#edit-height-feet").val(feet);
 						$("#edit-height-inches").val(inches);
 						$("#edit-weight").val(pounds);

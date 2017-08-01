@@ -228,9 +228,10 @@
 			bus.on('calorieInfoRetrieved', function(){
 				self.loadFoodEventsDay();
 				bus.on('eventsRetrieved', function(){
+					$('.progress-graph-progress').html('<canvas id="myChart"></canvas>');
 					if (+userCaloriesEaten <= +userTargetCalories) {
 						var ctx = $("#myChart");
-						var myChart = new Chart(ctx, {
+						myChart = new Chart(ctx, {
 						    type: 'doughnut',
 						    data: {
 						    	labels: ["Eaten", "Remaining"],
@@ -249,7 +250,8 @@
 						});
 					} else {
 						var ctx = $("#myChart");
-						var myChart = new Chart(ctx, {
+						ctx.width = ctx.width;
+						myChart = new Chart(ctx, {
 						    type: 'doughnut',
 						    data: {
 						    	labels: ["Overeaten", "Eaten"],
@@ -277,9 +279,11 @@
 		//selection made
 		
 		bus.on('eventsRetrieved', function(){
+			$('.progress-graph-progress').html('<canvas id="myChart"></canvas>');
 			if (+userCaloriesEaten <= +userTargetCalories) {
 				var ctx = $("#myChart");
-				var myChart = new Chart(ctx, {
+				ctx.width = ctx.width;
+				myChart = new Chart(ctx, {
 				    type: 'doughnut',
 				    data: {
 				    	labels: ["Eaten", "Remaining"],
@@ -298,7 +302,8 @@
 				});
 			} else {
 				var ctx = $("#myChart");
-				var myChart = new Chart(ctx, {
+				ctx.width = ctx.width;
+				myChart = new Chart(ctx, {
 				    type: 'doughnut',
 				    data: {
 				    	labels: ["Overeaten", "Eaten"],
