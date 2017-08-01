@@ -4,14 +4,19 @@
 		<canvas id="myChart"></canvas>
 	</div>
 	<div class="progress-data">
-		<div class="targetCals">Target: --</div>
+		<div class="time-period">Today</div>
+		<div class="targetCals">Budget: --</div>
 		<div class="eatenCals">Eaten: --</div>
 		<div class="overeatenCals">Overeaten: --</div>
 		<button>Add a Food</button>
+		<button onclick={loadFoodEventsDay}>Daily</button>
+		<button onclick={loadFoodEventsWeek}>Weekly</button>
+		<button onclick={loadFoodEventsMonth}>Monthly</button>
+		<button onclick={loadFoodEventsYear}>Yearly</button>
 	</div>
 
 	<script>
-		
+		var self = this;
 		var today = new Date();
 		
 		function formatMonth(date){
@@ -32,12 +37,13 @@
 		
 		var currentDate = today.getFullYear()+'-'+formatMonth(today.getMonth())+'-'+formatDate(today.getDate());
 		var userBMI;
+		var userCaloriesEaten = 0;
 		var userCaloriesDay = 0;
-		var userCaloriesWeek;
-		var userCaloriesMonth;
-		var userCaloriesYear;
+		var userCaloriesWeek = 0;
+		var userCaloriesMonth = 0;
+		var userCaloriesYear = 0;
 		var userTargetCalories = 0;
-		var userTargetWeight;
+		var userTargetWeight = 0;
 		
 		var foodEventsAll;
 		var foodEventsByDay;
@@ -45,7 +51,7 @@
 		var foodEventsByMonth;
 		var foodEventsByYear;
 		
-		function loadAllFoodEvents(){
+		loadAllFoodEvents(){
 			$.ajax({
 				url: BASE_URL + "foodEvent/getEvents/all",
 				type: "GET",
@@ -59,7 +65,7 @@
 			});
 		}
 		
-		function loadFoodEventsDay(){
+		loadFoodEventsDay(){
 			$.ajax({
 				url: BASE_URL + "foodEvent/getEvents/day",
 				type: "GET",
@@ -69,61 +75,102 @@
 				datatype: "json",
 			}).done(function(data){
 				if(data.status === "success"){
-					$('span#current-calories').text(data.value[0].eventCalories);
+					userCaloriesEaten = 0;
 					for (var i = 0; i < data.value.length; i++) {
-						userCaloriesDay = +userCaloriesDay + +data.value[i].eventCalories;
+						userCaloriesEaten = +userCaloriesEaten + +data.value[i].eventCalories;
 					}
-					$('.eatenCals').text('Eaten: ' + userCaloriesDay);
-					bus.trigger('dailyGotten');
+					$('.time-period').text('Today');
+					$('.targetCals').text('Budget: ' + userTargetCalories);
+					$('.eatenCals').text('Eaten: ' + userCaloriesEaten);
+					self.overEatenJSUpdate();
+					bus.trigger('eventsRetrieved');
 				}
 			}).fail(function(xhr, status, error){
 				console.log(error);
 			});
 		}
 		
-		function loadFoodEventsWeek(){
+		loadFoodEventsWeek(){
 			$.ajax({
 				url: BASE_URL + "foodEvent/getEvents/week",
 				type: "GET",
+				data: {
+					"searchDate" : currentDate,
+				},
 				datatype: "json",
 			}).done(function(data){
 				if(data.status === "success"){
-					foodEventsByWeek = data.value;
+					userTargetCalories = 7 * userTargetCalories;
+					userCaloriesEaten = 0;
+					for (var i = 0; i < data.value.length; i++) {
+						userCaloriesEaten = +userCaloriesEaten + +data.value[i].eventCalories;
+					}
+					$('.time-period').text('This Week');
+					$('.targetCals').text('Budget: ' + userTargetCalories);
+					$('.eatenCals').text('Eaten: ' + userCaloriesEaten);
+					self.overEatenJSUpdate();
+					bus.trigger('eventsRetrieved');
 				}
 			}).fail(function(xhr, status, error){
 				console.log(error);
+			}).always(function() {
+				console.log("HORSE");
 			});
 		}
 		
-		function loadFoodEventsMonth(){
+		loadFoodEventsMonth(){
 			$.ajax({
 				url: BASE_URL + "foodEvent/getEvents/month",
 				type: "GET",
+				data: {
+					"searchDate" : currentDate,
+				},
 				datatype: "json",
 			}).done(function(data){
 				if(data.status === "success"){
-					foodEventsByMonth = data.value;
+					userTargetCalories = 30 * userTargetCalories;
+					userCaloriesEaten = 0;
+					for (var i = 0; i < data.value.length; i++) {
+						userCaloriesEaten = +userCaloriesEaten + +data.value[i].eventCalories;
+					}
+					$('.time-period').text('Past 30 Days');
+					$('.targetCals').text('Budget: ' + userTargetCalories);
+					$('.eatenCals').text('Eaten: ' + userCaloriesEaten);
+					self.overEatenJSUpdate();
+					bus.trigger('eventsRetrieved');
 				}
 			}).fail(function(xhr, status, error){
 				console.log(error);
 			});
 		}
 		
-		function loadFoodEventsYear(){
+		loadFoodEventsYear(){
 			$.ajax({
 				url: BASE_URL + "foodEvent/getEvents/year",
 				type: "GET",
+				data: {
+					"searchDate" : currentDate,
+				},
 				datatype: "json",
 			}).done(function(data){
+				userCaloriesEaten = 0;
+				userTargetCalories = 365 * userTargetCalories;
 				if(data.status === "success"){
-					foodEventsByYear = data.value;
+					for (var i = 0; i < data.value.length; i++) {
+						userCaloriesEaten = +userCaloriesEaten + +data.value[i].eventCalories;
+					}
+					$('.time-period').text('This Year');
+					$('.targetCals').text('Budget: ' + userTargetCalories);
+					$('.eatenCals').text('Eaten: ' + userCaloriesEaten);
+					self.overEatenJSUpdate();
+					bus.trigger('eventsRetrieved');
 				}
 			}).fail(function(xhr, status, error){
 				console.log(error);
 			});
 		}
 		
-		function loadCalorieInfo(){
+		loadCalorieInfo(){
 			$.ajax({
 				url: BASE_URL + "user/getGoals",
 				type: "GET",
@@ -134,20 +181,14 @@
 					$('span#total-calories').text(userTargetCalories);
 					userTargetWeight = data.value.targetWeight;
 					console.log(currentDate);
-				}
-				$('.targetCals').text('Target: ' + userTargetCalories);
-				if(userTargetCalories <= userCaloriesDay){
-					$('.overeatenCals').text('Overeaten: ' + (+userCaloriesDay - +userTargetCalories));
-				} else {
-					$('.overeatenCals').text('Overeaten: --');
-				}
-				bus.trigger('graphInfoRetrieved');
+				}		
+				bus.trigger('calorieInfoRetrieved');
 			}).fail(function(xhr, status, error) {
 				console.log(error);
 			});
 		}
 		
-		function loadProfileInfo(){
+		loadProfileInfo(){
 			$.ajax({
 				url: BASE_URL + "user/getProfile",
 				type: "GET",
@@ -156,28 +197,38 @@
 				if(data.status === "success") {
 					var metricHeight = data.value.height;
 					var metricWeight = data.value.weight;
-					calculateBMI(metricHeight, metricWeight);
+					self.calculateBMI(metricHeight, metricWeight);
 				}
 			}).fail(function(xhr, status, error) {
 				console.log(error);
 			});
 		}
 		
+		overEatenJSUpdate() {
+			if(userTargetCalories <= userCaloriesDay){
+				$('.overeatenCals').text('Overeaten: ' + (+userCaloriesEaten - +userTargetCalories));
+			} else {
+				$('.overeatenCals').text('Overeaten: --');
+			}
+		}
+		
+		//page load or reload
+		
 		bus.on("profileAcquired", function(){
 			userCaloriesDay = 0;
 			userTargetCalories = 0;
-			loadFoodEventsDay();
-			bus.on('dailyGotten', function(){
-				loadCalorieInfo();
-				bus.on("graphInfoRetrieved", function(){
-					if (+userCaloriesDay <= +userTargetCalories) {
+			self.loadCalorieInfo();
+			bus.on('calorieInfoRetrieved', function(){
+				self.loadFoodEventsDay();
+				bus.on('eventsRetrieved', function(){
+					if (+userCaloriesEaten <= +userTargetCalories) {
 						var ctx = $("#myChart");
 						var myChart = new Chart(ctx, {
 						    type: 'doughnut',
 						    data: {
 						    	labels: ["Eaten", "Remaining"],
 						    	datasets: [{
-						            data: [userCaloriesDay, (+userTargetCalories - +userCaloriesDay)],
+						            data: [userCaloriesEaten, (+userTargetCalories - +userCaloriesEaten)],
 						            backgroundColor: [
 						                '#42A2E8',
 						                '#B0D1EA'
@@ -196,7 +247,7 @@
 						    data: {
 						    	labels: ["Overeaten", "Eaten"],
 						    	datasets: [{
-						            data: [(+userCaloriesDay - +userTargetCalories), +userTargetCalories - (+userCaloriesDay - +userTargetCalories)],
+						            data: [(+userCaloriesEaten - +userTargetCalories), +userTargetCalories - (+userCaloriesEaten - +userTargetCalories)],
 						            backgroundColor: [
 						                '#FF9564',
 						                '#42A2E8'
@@ -212,8 +263,56 @@
 						    },
 						});
 					}
-				});
+				});	
 			});
 		});
+		
+		//selection made
+		
+		bus.on('eventsRetrieved', function(){
+			if (+userCaloriesEaten <= +userTargetCalories) {
+				var ctx = $("#myChart");
+				var myChart = new Chart(ctx, {
+				    type: 'doughnut',
+				    data: {
+				    	labels: ["Eaten", "Remaining"],
+				    	datasets: [{
+				            data: [userCaloriesEaten, (+userTargetCalories - +userCaloriesEaten)],
+				            backgroundColor: [
+				                '#42A2E8',
+				                '#B0D1EA'
+				            ],
+				        }]
+				    },
+				    options: {
+				    	responsive : true,
+				    	maintainAspectRatio : false,
+				    },
+				});
+			} else {
+				var ctx = $("#myChart");
+				var myChart = new Chart(ctx, {
+				    type: 'doughnut',
+				    data: {
+				    	labels: ["Overeaten", "Eaten"],
+				    	datasets: [{
+				            data: [(+userCaloriesEaten - +userTargetCalories), +userTargetCalories - (+userCaloriesEaten - +userTargetCalories)],
+				            backgroundColor: [
+				                '#FF9564',
+				                '#42A2E8'
+				            ],
+				        }]
+				    },
+				    options: {
+				    	responsive : true,
+				    	maintainAspectRatio : false,
+				    	tooltips: {
+				    		enabled: false
+				    	},
+				    },
+				});
+			}
+		});
+		
 	</script>
 </progressGraph>
