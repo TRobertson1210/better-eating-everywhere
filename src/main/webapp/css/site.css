@@ -237,28 +237,23 @@ footer {
 	/* BLOG CONTENT */
 	
 	.blog-page {
+		width: 80vw;
 		display: grid;
- 		padding: 1em;
+ 		padding: 1.5em;
  		font-size: .8em;
-		grid-template-columns: 25% 25% 25% 25%;
-		grid-template-rows: 1fr 1fr 1fr;
-		grid-template-areas: "one one one two"
-							 "one one one three"
-							 "four four five five";
+		grid-template-columns: 25% 25% 25% 25% 25%;
+		grid-template-areas: "one one one two two"
+							 "one one one three three"
+							 "five five five four four";
 	}
 	
 	.blog-page h2 {
 		text-align: center;
-	}
-	
-	.blog-page p {
-		overflow: hidden;
-		text-overflow: ellipsis;
-		max-width: 250ch;
+		width: 250px
 	}
 	
 	.bee {
-		padding: 20px 20px 20px 20px;
+		padding: 30px 30px 0px 30px;
 	}
 	
 	.bee-movie-one {
@@ -273,30 +268,44 @@ footer {
 		grid-area: three;
 	}
 	
+	.blog-page .bee-movie-three p {
+		/* height: 150px; */
+		white-space: wrap;
+		overflow: scroll;
+	}
+	
 	.bee-movie-four {
 		grid-area: four;
 	}
+	
+	
+	.blog-page .bee-movie-four p {
+		white-space: wrap;
+		overflow: scroll;
+	}
+	
+	/* .bee-movie-five .bee-img {
+		max-height: 300px;
+	} */
 	
 	.bee-movie-five {
 		grid-area: five;
 	}
 	
+	.blog-page .bee-movie-five p {
+		/* height: 150px; */
+		white-space: wrap;
+		overflow: scroll;
+	}
+	
 	.bee-img {
-		width: 100%;
 		margin-bottom: 15px;
-		overflow: hidden;
-		max-height: 282px;
 	}
 	
-	.bee-img img{
+	.bee-img img {
 		width: 100%;
-		
+		overflow: hidden;
 	}
-	
-	/* 
-	.bee-movie-four .bee-movie-five img {
-		max-height: 280px !important;
-	} */
 	
 	
 	/* END BLOG CONTENT */

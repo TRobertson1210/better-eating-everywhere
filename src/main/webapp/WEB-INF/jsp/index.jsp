@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tech Fitness APPPPPPPPP</title>
+	<title>Buzz Buzz!</title>
 
 	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">

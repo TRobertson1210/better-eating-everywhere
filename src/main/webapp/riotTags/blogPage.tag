@@ -2,8 +2,8 @@
 <div class="blog-page">
 	
 	<div class=" bee bee-movie-one">
-		<div class="bee-img"><img src="" /></div>
-		<h2>What Everybody Ought to Know About What They're Eating</h2>
+		<div class="bee-img"><img src="img/food.jpg" /></div>
+		<h2>What Everybody Ought to Know About What Food You're Eating</h2>
 		<p>According to all known laws of aviation, there is no way a bee
 			should be able to fly. Its wings are too small to get its fat little
 			body off the ground. The bee, of course, flies anyway because bees
@@ -26,7 +26,14 @@
 			waste it on a squirrel. Such a hothead. I guess he could have just
 			gotten out of the way. I love this incorporating an amusement park
 			into our day. That's why we don't need vacations. Boy, quite a bit of
-			pomp... under the circumstances.</p>
+			pomp... under the circumstances. Honey! - That girl
+			was hot. - She's my cousin! - She is? - Yes, we're all cousins. -
+			Right. You're right. - At Honex, we constantly strive to improve
+			every aspect of bee existence. These bees are stress-testing a new
+			helmet technology. - What do you think he makes? - Not enough. Here
+			we have our latest advancement, the Krelman. - What does that do? -
+			Catches that little strand of honey that hangs after you pour it.
+			Saves us millions. Oan anyone work on the Krelman? Of course.</p>
 	</div>
 		
 	<div class="bee bee-movie-two">
@@ -51,14 +58,7 @@
 			Honey begins when our valiant Pollen Jocks bring the nectar to the
 			hive. Our top-secret formula is automatically color-corrected,
 			scent-adjusted and bubble-contoured into this soothing sweet syrup
-			with its distinctive golden glow you know as... Honey! - That girl
-			was hot. - She's my cousin! - She is? - Yes, we're all cousins. -
-			Right. You're right. - At Honex, we constantly strive to improve
-			every aspect of bee existence. These bees are stress-testing a new
-			helmet technology. - What do you think he makes? - Not enough. Here
-			we have our latest advancement, the Krelman. - What does that do? -
-			Catches that little strand of honey that hangs after you pour it.
-			Saves us millions. Oan anyone work on the Krelman? Of course.</p>
+			with its distinctive golden glow you know as...</p>
 	</div>
 
 	<div class="bee bee-movie-four">
