@@ -1,18 +1,22 @@
 <progressGraph>
-	
-	<div class="progress-graph-progress">
-		<canvas id="myChart"></canvas>
+	<div class="progress-graph">
+		<div class="progress-graph-progress">
+			<canvas id="myChart"></canvas>
+		</div>
+		<div class="progress-graph-buttons">
+			<button onclick={loadFoodEventsDay}>Daily</button>
+			<button onclick={loadFoodEventsWeek}>Weekly</button>
+			<button onclick={loadFoodEventsMonth}>Monthly</button>
+			<button onclick={loadFoodEventsYear}>Yearly</button>
+		</div>
 	</div>
 	<div class="progress-data">
-		<div class="time-period">Today</div>
+		<h3 class="time-period">Today</h3>
 		<div class="targetCals">Budget: --</div>
 		<div class="eatenCals">Eaten: --</div>
 		<div class="overeatenCals">Overeaten: --</div>
 		<button>Add a Food</button>
-		<button onclick={loadFoodEventsDay}>Daily</button>
-		<button onclick={loadFoodEventsWeek}>Weekly</button>
-		<button onclick={loadFoodEventsMonth}>Monthly</button>
-		<button onclick={loadFoodEventsYear}>Yearly</button>
+		
 	</div>
 
 	<script>
@@ -43,6 +47,7 @@
 		var userCaloriesMonth = 0;
 		var userCaloriesYear = 0;
 		var userTargetCalories = 0;
+		var userInitialTargetCalories = 0;
 		var userTargetWeight = 0;
 		
 		var foodEventsAll;
@@ -75,6 +80,7 @@
 				datatype: "json",
 			}).done(function(data){
 				if(data.status === "success"){
+					userTargetCalories = userInitialTargetCalories;
 					userCaloriesEaten = 0;
 					for (var i = 0; i < data.value.length; i++) {
 						userCaloriesEaten = +userCaloriesEaten + +data.value[i].eventCalories;
@@ -100,7 +106,7 @@
 				datatype: "json",
 			}).done(function(data){
 				if(data.status === "success"){
-					userTargetCalories = 7 * userTargetCalories;
+					userTargetCalories = 7 * userInitialTargetCalories;
 					userCaloriesEaten = 0;
 					for (var i = 0; i < data.value.length; i++) {
 						userCaloriesEaten = +userCaloriesEaten + +data.value[i].eventCalories;
@@ -128,7 +134,7 @@
 				datatype: "json",
 			}).done(function(data){
 				if(data.status === "success"){
-					userTargetCalories = 30 * userTargetCalories;
+					userTargetCalories = 30 * userInitialTargetCalories;
 					userCaloriesEaten = 0;
 					for (var i = 0; i < data.value.length; i++) {
 						userCaloriesEaten = +userCaloriesEaten + +data.value[i].eventCalories;
@@ -154,7 +160,7 @@
 				datatype: "json",
 			}).done(function(data){
 				userCaloriesEaten = 0;
-				userTargetCalories = 365 * userTargetCalories;
+				userTargetCalories = 365 * userInitialTargetCalories;
 				if(data.status === "success"){
 					for (var i = 0; i < data.value.length; i++) {
 						userCaloriesEaten = +userCaloriesEaten + +data.value[i].eventCalories;
@@ -178,6 +184,7 @@
 			}).done(function (data) {
 				if(data.status === "success") {
 					userTargetCalories = data.value.targetCalories;
+					userInitialTargetCalories = data.value.targetCalories;
 					$('span#total-calories').text(userTargetCalories);
 					userTargetWeight = data.value.targetWeight;
 					console.log(currentDate);
