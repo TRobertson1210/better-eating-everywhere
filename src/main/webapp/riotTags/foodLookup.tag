@@ -44,11 +44,6 @@
 		var searchTerm;
 		
 		var today = new Date();
-		var foodNameJSON;
-		var foodCaloriesJSON;
-		var foodCaloriesEventJSON;
-		var servingAmountJSON;
-		var userIdJSON;
 		
 		function formatMonth(date){
 			if((date + 1) < 10){
@@ -68,16 +63,23 @@
 		
 		var currentDate = today.getFullYear()+'-'+formatMonth(today.getMonth())+'-'+formatDate(today.getDate());
 		
-		/* addFood() {
+		addFood(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			var form = $(e.target);
+			var foodName = form.find('input[name="name"]').val();
+			var foodCalories = form.find('input[name="calories"]').val();
+			var amountOfServings = form.find('input[name="amountOfServings"]').val();
+			console.log(foodName);
+			console.log(amountOfServings);
 			$.ajax({
 				url: BASE_URL + "foodEvent/add",
 				type: "POST",
 				data: {
-					"userId" : userIdJSON,
-					"name" : foodNameJSON,
-					"calories" : foodCaloriesJSON,
-					"eventCalories" : foodCaloriesEventJSON,
-					"amountOfServings" : servingAmountJSON,
+					"name" : foodName,
+					"calories" : foodCalories,
+					"eventCalories" : (foodCalories * amountOfServings),
+					"amountOfServings" : amountOfServings,
 					"dateEaten" : currentDate,
 				},
 				datatype: "json",
@@ -85,8 +87,10 @@
 				console.log(data);
 			}).fail(function(xhr, status, error) {
 				console.log(error);
+			}).always(function(){
+				console.log("addFood AJAX tried to happen, at least");
 			});
-		} */
+		}
 		
 		searchFoodGroup(e) {
 			e.preventDefault();
@@ -126,7 +130,7 @@
 				searchResults = searchJSON.list.item;
 				var listDad = $("#listDad");
 				for(var i = 0; i < searchResults.length; i++){
-					listDad.append('<li class="food-item" onclick="$(\'foodLookup\')[0]._tag.foodName(this, ' + i + ')">' + searchResults[i].name + '</li>')
+					listDad.append('<li class="food-item" onclick="$(\'foodLookup\')[0]._tag.getFoodServings(this, ' + i + ')">' + searchResults[i].name + '</li>')
 				}				
 				console.log(data);
 			}).fail(function(xhr, status, error) {
@@ -136,7 +140,8 @@
 		};
 		
 		
-		foodName(element, i){
+		getFoodServings(element, i){
+			var self = this;
 			var number = searchResults[i].ndbno;
  			$.ajax({
 				url: "https://api.nal.usda.gov/ndb/reports/?ndbno=" + number + "&type=b&format=json&api_key=dO8HHi951iNchZApEmVrvxdDyMrVLuGo1xpZQktf",
@@ -145,8 +150,18 @@
 			}).done(function (data) {
 				foodJSON = data;
 				var measures = foodJSON.report.food.nutrients[1].measures;
+				var foodName = "" + data.report.food.name;
 				for(var j = 0; j < measures.length; j++){
-					$("#servingDad").append('<li class="food-stats">' + measures[j].qty + ' ' + measures[j].label + ' is ' + measures[j].value + ' kcal</li>');
+					var form = $('<form><li class="food-stats">' + measures[j].qty + ' ' + measures[j].label + ' is ' + measures[j].value + ' kcal</li>' +
+					'<input type="hidden" name="name" value="'+foodName + '">'+
+					'<input type="hidden" name="calories" value="'+measures[j].value+'">'+
+					//', "' + measures[j].qty + '", "' + measures[j].label + '", "' + measures[j].value + '", "' +
+					//currentDate + '", "' + $("#servingAmountInput").val() + '")}">'+
+					'<input id="servingAmountInput" type="text" name="amountOfServings">'+
+					'<input type="submit" value="Add"></form>');
+					
+ 					form.on('submit', self.addFood);
+					$("#servingDad").append(form);
 				}
 			});
 		};

@@ -175,7 +175,7 @@
 		}).fail(function(xhr, status, error) {
 			console.log(error);
 		});
-	};
+	}
 	
 	showEditProfile() {
 		$('editProfile').show();

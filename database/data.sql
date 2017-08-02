@@ -12,6 +12,6 @@ VALUES ('noinfo@gmail.com', 'nxSb+vyAuMMie7ca7W3xvQ====', null, 'F', null, null,
             
 INSERT INTO food_events(user_id, food_name, food_calories, event_calories,
                     amount_of_servings, date_eaten)
-VALUES (1, 'Carrot', 80, 80, 1, '2017-08-01');
+VALUES (1, 'Carrot', 80, 80, 1, '2017-08-02');
 
 COMMIT;
