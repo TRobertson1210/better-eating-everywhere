@@ -50,6 +50,7 @@
 		var userInitialTargetCalories = 0;
 		var userTargetWeight = 0;
 		
+		var myChart;
 		var foodEventsAll;
 		var foodEventsByDay;
 		var foodEventsByWeek;
@@ -228,103 +229,107 @@
 			bus.on('calorieInfoRetrieved', function(){
 				self.loadFoodEventsDay();
 				bus.on('eventsRetrieved', function(){
-					$('.progress-graph-progress').html('<canvas id="myChart"></canvas>');
-					if (+userCaloriesEaten <= +userTargetCalories) {
-						var ctx = $("#myChart");
-						myChart = new Chart(ctx, {
-						    type: 'doughnut',
-						    data: {
-						    	labels: ["Eaten", "Remaining"],
-						    	datasets: [{
-						            data: [userCaloriesEaten, (+userTargetCalories - +userCaloriesEaten)],
-						            backgroundColor: [
-						                '#42A2E8',
-						                '#B0D1EA'
-						            ],
-						        }]
-						    },
-						    options: {
-						    	responsive : true,
-						    	maintainAspectRatio : false,
-						    },
-						});
+					if(myChart) {
+						removeData(myChart);
+						if(+userCaloriesEaten <= +userTargetCalories) {
+							addData(myChart, ["Eaten", "Remaining"], {
+					            data: [userCaloriesEaten, (+userTargetCalories - +userCaloriesEaten)],
+					            backgroundColor: [
+					                '#42A2E8',
+					                '#B0D1EA'
+					            ]
+							})
+						} else {
+							addData(myChart, ["Overeaten", "Eaten"], {
+					            data: [(+userCaloriesEaten - +userTargetCalories), +userTargetCalories - (+userCaloriesEaten - +userTargetCalories)],
+					            backgroundColor: [
+					                '#FF9564',
+					                '#42A2E8'
+					            ]
+					        })
+						}
 					} else {
-						var ctx = $("#myChart");
-						ctx.width = ctx.width;
-						myChart = new Chart(ctx, {
-						    type: 'doughnut',
-						    data: {
-						    	labels: ["Overeaten", "Eaten"],
-						    	datasets: [{
-						            data: [(+userCaloriesEaten - +userTargetCalories), +userTargetCalories - (+userCaloriesEaten - +userTargetCalories)],
-						            backgroundColor: [
-						                '#FF9564',
-						                '#42A2E8'
-						            ],
-						        }]
-						    },
-						    options: {
-						    	responsive : true,
-						    	maintainAspectRatio : false,
-						    	tooltips: {
-						    		enabled: false
-						    	},
-						    },
-						});
+						$('.progress-graph-progress').html('<canvas id="myChart"></canvas>');
+						if (+userCaloriesEaten <= +userTargetCalories) {
+							var ctx = $("#myChart");
+							myChart = new Chart(ctx, {
+							    type: 'doughnut',
+							    data: {
+							    	labels: ["Eaten", "Remaining"],
+							    	datasets: [{
+							            data: [userCaloriesEaten, (+userTargetCalories - +userCaloriesEaten)],
+							            backgroundColor: [
+							                '#42A2E8',
+							                '#B0D1EA'
+							            ],
+							        }]
+							    },
+							    options: {
+							    	responsive : true,
+							    	maintainAspectRatio : false,
+							    },
+							});
+						} else {
+							var ctx = $("#myChart");
+							myChart = new Chart(ctx, {
+							    type: 'doughnut',
+							    data: {
+							    	labels: ["Overeaten", "Eaten"],
+							    	datasets: [{
+							            data: [(+userCaloriesEaten - +userTargetCalories), +userTargetCalories - (+userCaloriesEaten - +userTargetCalories)],
+							            backgroundColor: [
+							                '#FF9564',
+							                '#42A2E8'
+							            ],
+							        }]
+							    },
+							    options: {
+							    	responsive : true,
+							    	maintainAspectRatio : false,
+							    	tooltips: {
+							    		enabled: false
+							    	},
+							    }, 
+							});
+						}
 					}
 				});	
 			});
 		});
 		
-		//selection made
+		//For updating data in chart
+		function removeData(chart) {
+			chart.data.labels.pop();
+			chart.data.labels.pop();	  
+			chart.data.datasets.forEach(function(dataset) {
+		        dataset.data.pop();
+		        dataset.data.pop();
+		        dataset.backgroundColor.pop();
+		        dataset.backgroundColor.pop();
+		    });
+		    chart.update();
+		}
 		
-		bus.on('eventsRetrieved', function(){
-			$('.progress-graph-progress').html('<canvas id="myChart"></canvas>');
-			if (+userCaloriesEaten <= +userTargetCalories) {
-				var ctx = $("#myChart");
-				ctx.width = ctx.width;
-				myChart = new Chart(ctx, {
-				    type: 'doughnut',
-				    data: {
-				    	labels: ["Eaten", "Remaining"],
-				    	datasets: [{
-				            data: [userCaloriesEaten, (+userTargetCalories - +userCaloriesEaten)],
-				            backgroundColor: [
-				                '#42A2E8',
-				                '#B0D1EA'
-				            ],
-				        }]
-				    },
-				    options: {
-				    	responsive : true,
-				    	maintainAspectRatio : false,
-				    },
+		function addData(chart, labels, dataset) {
+			$.each(labels, function(index, label) {
+				console.log(label);
+				chart.data.labels.push(label);
+			});
+			chart.data.datasets.forEach(function(chartDataset) {
+				$.each(dataset.data, function(index, datum) {
+					chartDataset.data.push(datum);
 				});
-			} else {
-				var ctx = $("#myChart");
-				ctx.width = ctx.width;
-				myChart = new Chart(ctx, {
-				    type: 'doughnut',
-				    data: {
-				    	labels: ["Overeaten", "Eaten"],
-				    	datasets: [{
-				            data: [(+userCaloriesEaten - +userTargetCalories), +userTargetCalories - (+userCaloriesEaten - +userTargetCalories)],
-				            backgroundColor: [
-				                '#FF9564',
-				                '#42A2E8'
-				            ],
-				        }]
-				    },
-				    options: {
-				    	responsive : true,
-				    	maintainAspectRatio : false,
-				    	tooltips: {
-				    		enabled: false
-				    	},
-				    },
+				$.each(dataset.backgroundColor, function(index, color) {
+					chartDataset.backgroundColor.push(color);
 				});
-			}
-		});
+		        
+		    });
+		    chart.update();
+		}
+		
+		
+		
+	
 		
 	</script>
 </progressGraph>
