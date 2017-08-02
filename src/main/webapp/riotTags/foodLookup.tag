@@ -43,6 +43,51 @@
 		
 		var searchTerm;
 		
+		var today = new Date();
+		var foodNameJSON;
+		var foodCaloriesJSON;
+		var foodCaloriesEventJSON;
+		var servingAmountJSON;
+		var userIdJSON;
+		
+		function formatMonth(date){
+			if((date + 1) < 10){
+				return '0' + (date + 1);
+			} else {
+				return (date + 1);
+			}
+		}
+		
+		function formatDate(date){
+			if(date < 10){
+				return '0' + date;
+			} else {
+				return date;
+			}
+		}
+		
+		var currentDate = today.getFullYear()+'-'+formatMonth(today.getMonth())+'-'+formatDate(today.getDate());
+		
+		/* addFood() {
+			$.ajax({
+				url: BASE_URL + "foodEvent/add",
+				type: "POST",
+				data: {
+					"userId" : userIdJSON,
+					"name" : foodNameJSON,
+					"calories" : foodCaloriesJSON,
+					"eventCalories" : foodCaloriesEventJSON,
+					"amountOfServings" : servingAmountJSON,
+					"dateEaten" : currentDate,
+				},
+				datatype: "json",
+			}).done(function (data) {
+				console.log(data);
+			}).fail(function(xhr, status, error) {
+				console.log(error);
+			});
+		} */
+		
 		searchFoodGroup(e) {
 			e.preventDefault();
 			searchTerm = $("#foodSearch").val();
@@ -62,7 +107,7 @@
 				var foodGroupList = [];
 				foodGroupSet.forEach(foodGroup => foodGroupList.push(foodGroup));
 				for(var p = 0; p < foodGroupSet.size; p++){
-					foodGroupDad.append('<li onclick="$(\'foodLookup\')[0]._tag.searchFoodName(this, \'' + foodGroupList[p] + '\',\'' + searchTerm + '\')">' + foodGroupList[p] + '</li>')
+					foodGroupDad.append('<li class="food-group" onclick="$(\'foodLookup\')[0]._tag.searchFoodName(this, \'' + foodGroupList[p] + '\',\'' + searchTerm + '\')">' + foodGroupList[p] + '</li>');
 				}
 				console.log(data);
 			}).fail(function(xhr, status, error) {
@@ -81,7 +126,7 @@
 				searchResults = searchJSON.list.item;
 				var listDad = $("#listDad");
 				for(var i = 0; i < searchResults.length; i++){
-					listDad.append('<li onclick="$(\'foodLookup\')[0]._tag.foodName(this, ' + i + ')">' + searchResults[i].name + '</li>')
+					listDad.append('<li class="food-item" onclick="$(\'foodLookup\')[0]._tag.foodName(this, ' + i + ')">' + searchResults[i].name + '</li>')
 				}				
 				console.log(data);
 			}).fail(function(xhr, status, error) {
@@ -101,7 +146,7 @@
 				foodJSON = data;
 				var measures = foodJSON.report.food.nutrients[1].measures;
 				for(var j = 0; j < measures.length; j++){
-					$("#servingDad").append('<li>' + measures[j].qty + ' ' + measures[j].label + ' is ' + measures[j].value + ' kcal</li>');
+					$("#servingDad").append('<li class="food-stats">' + measures[j].qty + ' ' + measures[j].label + ' is ' + measures[j].value + ' kcal</li>');
 				}
 			});
 		};
