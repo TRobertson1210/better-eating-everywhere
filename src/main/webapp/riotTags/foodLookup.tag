@@ -1,37 +1,39 @@
 <foodLookup>
-
-	<button id="homepage" onclick={backToHome}>Home</button>
-
-	<h3>{title}</h3>
+	<div class="content-blocker" onclick={close}>
 	
-	
-	<form>
-		<label for="foodSearch">Search For Food</label>
-		<input onchange={searchFoodGroup} id="foodSearch" type="text" name="foodSearch" placeholder="Enter Food Here" /><br />
-	</form>
-	
-	<ul id="foodGroupInformation">
-		<span id="foodGroupDad"></span>
-	</ul>
-	
-	<ul id="servingInformation">
-		<span id="servingDad"></span>
-	</ul>
-	
-	<ul id="foodInformation">
-		<span id="foodDad"></span>
-	</ul>
-	
-	<ul id="foodNameList">
-		<span id="listDad"></span>
-	</ul>
+		<div onclick = {noPropagate} class="food-lookup">
+			<h3>Food Lookup</h3> <i onclick= { close } class="em em-x window-close"></i>
+			
+			
+			<form onsubmit={searchFoodGroup}>
+				<label for="foodSearch">Search For Food</label>
+				<input id="foodSearch" type="text" name="foodSearch" placeholder="Enter Food Here" /><br />
+				<div class="submitButton"><input type="submit" value="Search"/></div>
+			</form>
+			
+			<ul id="foodGroupInformation">
+				<span id="foodGroupDad"></span>
+			</ul>
+			
+			<ul id="servingInformation">
+				<span id="servingDad"></span>
+			</ul>
+			
+			<ul id="foodInformation">
+				<span id="foodDad"></span>
+			</ul>
+			
+			<ul id="foodNameList">
+				<span id="listDad"></span>
+			</ul>
+		</div>
+	</div>
 	
 	<!-- API KEY 
 	dO8HHi951iNchZApEmVrvxdDyMrVLuGo1xpZQktf -->
 	
 	<script>
 		var self = this;
-		this.title = opts.title;
 		
 		var searchJSON;
 		
@@ -110,6 +112,13 @@
 			$('foodLookup').hide();
 		};
 		
+		close() {
+			$('foodLookup').hide();
+		}
+		
+		noPropagate(e) {
+			e.stopPropagation();
+		};
 		
 	</script>
 

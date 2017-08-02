@@ -15,6 +15,12 @@ dashboard {
 						"food-history";
 }
 
+.window-close {
+	position: absolute;
+	right: 2%;
+	top: 2%;
+}
+
 .dashboard-banner {
 	grid-area: banner;
 	grid-column: 1 / 2;

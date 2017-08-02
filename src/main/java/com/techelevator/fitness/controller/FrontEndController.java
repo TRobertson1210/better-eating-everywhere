@@ -9,5 +9,6 @@ public class FrontEndController {
 	@RequestMapping(path="/", method=RequestMethod.GET)
 	public String indexPage(){
 		return "index";
+		
 	}
 }
