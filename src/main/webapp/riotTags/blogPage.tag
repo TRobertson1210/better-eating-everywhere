@@ -2,8 +2,8 @@
 <div class="blog-page">
 	
 	<div class=" bee bee-movie-one">
-		<div class="bee-img"><img src="img/food.jpg" /></div>
 		<h2>What Everybody Ought to Know About What Food You're Eating</h2>
+		<div class="bee-img"><img src="img/food.jpg" /></div>
 		<p>According to all known laws of aviation, there is no way a bee
 			should be able to fly. Its wings are too small to get its fat little
 			body off the ground. The bee, of course, flies anyway because bees
@@ -37,8 +37,8 @@
 	</div>
 		
 	<div class="bee bee-movie-two">
-		<div class="bee-img"><img src="img/salad.jpeg" /></div>
 		<h2>The Best Kind of Vegetables for your Salads</h2>
+		<div class="bee-img"><img src="img/salad.jpeg" /></div>
 		<p>Well, Adam, today we are men. - We
 			are! - Bee-men. - Amen! Hallelujah! Students, faculty, distinguished
 			bees, please welcome Dean Buzzwell. Welcome, New Hive City graduating
@@ -51,8 +51,8 @@
 	</div>
 
 	<div class="bee bee-movie-three">
-		<div class="bee-img"><img src="img/meal-prep.jpg" /></div>
 		<h2>Make Meal Prep Work for You</h2>
+		<div class="bee-img"><img src="img/meal-prep.jpg" /></div>
 		<p>Wow. Wow. We know that you, as a bee, have worked your whole
 			life to get to the point where you can work for your whole life.
 			Honey begins when our valiant Pollen Jocks bring the nectar to the
@@ -62,8 +62,8 @@
 	</div>
 
 	<div class="bee bee-movie-four">
-		<div class="bee-img"><img src="img/junk-food.jpg" /></div>
 		<h2>Get Rid of Junk Food Once and For All</h2>
+		<div class="bee-img"><img src="img/junk-food.jpg" /></div>
 		<p>Most bee jobs are small ones. But bees know that every small
 			job, if it's done well, means a lot. But choose carefully because
 			you'll stay in the job you pick for the rest of your life. The same
@@ -81,8 +81,8 @@
 	</div>
 
 	<div class="bee bee-movie-five">
-		<div class="bee-img"><img src="img/seinfeld.jpg" /></div>
 		<h2>Worst Diet Mistakes and How to Fix Them</h2>
+		<div class="bee-img"><img src="img/seinfeld.jpg" /></div>
 		<p>Wait a second. Check it out. - Hey, those are Pollen Jocks! -
 			Wow. I've never seen them this close. They know what it's like
 			outside the hive. Yeah, but some don't come back. - Hey, Jocks! - Hi,
@@ -106,5 +106,5 @@
 	</div>
 </div>
 
-
+<footer>Created by the members of Team Alpha</footer>
 </blogPage>

@@ -36,7 +36,7 @@
 	<editProfile></editProfile>
  	<setGoals></setGoals>
 	
-	<footer>Created by the members of Team Alpha</footer>
+	
 	
 	<c:url value="/riotTags/userRegistration.tag" var="userRegistrationLocation" />
 	<script src="${userRegistrationLocation}" type="riot/tag"></script>
