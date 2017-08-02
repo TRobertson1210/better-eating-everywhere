@@ -51,11 +51,13 @@
 		</div>
 		<div class="dashboard-food-history">
 			<div class="dashboard-content-head">
-				Food History Daily
+				Food History
 			</div>
 			<div class="dashboard-content">
 				<div class="dashboard-food-history-lifetime">
-					Food History Lifetime
+					<table id= "food-table">
+						
+					</table>
 				</div>
 			</div>
 		</div>
@@ -63,8 +65,28 @@
 
 
 	<script>
+	
+	var today = new Date();
+	function formatMonth(date){
+		if((date + 1) < 10){
+			return '0' + (date + 1);
+		} else {
+			return (date + 1);
+		}
+	}
+	
+	function formatDate(date){
+		if(date < 10){
+			return '0' + date;
+		} else {
+			return date;
+		}
+	}
+	var currentDate = today.getFullYear()+'-'+formatMonth(today.getMonth())+'-'+formatDate(today.getDate());
+
 	bus.on('profileAcquired', function() {
 		updateWelcomeMessage();
+		populateDaysFood();
 	});
 	
 	function updateWelcomeMessage() {
@@ -84,6 +106,54 @@
 		}).fail(function(xhr, status, error) {
 			console.log(error);
 		});
+	}
+	
+	function populateDaysFood() {
+		$.ajax({
+			url: BASE_URL + "foodEvent/getEvents/day",
+			type: "GET",
+			data: {
+				"searchDate" : currentDate
+			},
+			datatype: "json",
+		}).done(function (data) {
+			if(data.status === "success") {
+				if(data.value.length > 0) {
+					console.log(data);
+					$("#food-table").empty();
+					$("#food-table").append("<tr><th>Name</th><th>Calories</th><th>Servings</th><th>Delete</th></tr>")
+					 for (var i = 0; i < data.value.length; i++) {
+						 tempId = data.value.id;
+						 $("#food-table").append("<tr><td>" + data.value[i].name + "</td><td>" + data.value[i].eventCalories + "</td><td>" + data.value[i].amountOfServings + "</td><td class='food-delete'><button onclick='$(\'dashboard\')[0]._tag.deleteFoodEvent("+ tempId + ")'></button></td></tr>");
+					}
+				}
+			} else {
+				console.log("No food events, you idiot.");
+			}
+		}).fail(function(xhr, status, error) {
+			console.log(error);
+		});
+	}
+	
+	deleteFoodEvent(id) {
+		$.ajax({
+			url: BASE_URL + "foodEvent/delete",
+			type: "DELETE",
+			data: {
+				"foodEventId": id,
+			},
+			datatype: "json",
+		}).done(function (data) {
+			populateDaysFood();
+		});
+	}
+	
+	showEditProfile() {
+		$('editProfile').show();
+	}
+	
+	showSetGoals() {
+		$('setGoals').show();
 	}
 	
 	logout() {
