@@ -70,8 +70,6 @@
 			var foodName = form.find('input[name="name"]').val();
 			var foodCalories = form.find('input[name="calories"]').val();
 			var amountOfServings = form.find('input[name="amountOfServings"]').val();
-			console.log(foodName);
-			console.log(amountOfServings);
 			$.ajax({
 				url: BASE_URL + "foodEvent/add",
 				type: "POST",

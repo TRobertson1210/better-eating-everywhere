@@ -109,6 +109,7 @@
 	}
 	
 	function populateDaysFood() {
+		var self = this;
 		$.ajax({
 			url: BASE_URL + "foodEvent/getEvents/day",
 			type: "GET",
@@ -118,13 +119,16 @@
 			datatype: "json",
 		}).done(function (data) {
 			if(data.status === "success") {
+				$("#food-table").empty();
+				$("#food-table").append("<tr><th>Name</th><th>Calories</th><th>Servings</th><th>Delete</th></tr>");
 				if(data.value.length > 0) {
 					console.log(data);
-					$("#food-table").empty();
-					$("#food-table").append("<tr><th>Name</th><th>Calories</th><th>Servings</th><th>Delete</th></tr>")
 					 for (var i = 0; i < data.value.length; i++) {
-						 tempId = data.value.id;
-						 $("#food-table").append("<tr><td>" + data.value[i].name + "</td><td>" + data.value[i].eventCalories + "</td><td>" + data.value[i].amountOfServings + "</td><td class='food-delete'><button onclick='$(\'dashboard\')[0]._tag.deleteFoodEvent("+ tempId + ")'></button></td></tr>");
+						 tempId = data.value[i].id;
+						 $("#food-table").append("<tr><td>" + data.value[i].name + "</td><td>" + 
+								 data.value[i].eventCalories + "</td><td>" + data.value[i].amountOfServings + 
+								 "</td><td class='food-delete'><button onclick='$(\"dashboard\")[0]._tag.deleteFoodEvent("+ 
+										 tempId + ")'>Delete</button></td></tr>");
 					}
 				}
 			} else {
@@ -138,13 +142,17 @@
 	deleteFoodEvent(id) {
 		$.ajax({
 			url: BASE_URL + "foodEvent/delete",
-			type: "DELETE",
+			type: "POST",
 			data: {
-				"foodEventId": id,
+				"id": id,
 			},
 			datatype: "json",
 		}).done(function (data) {
+			console.log(data);
 			populateDaysFood();
+			bus.trigger('profileAcquired');
+		}).fail(function(xhr, status, error) {
+			console.log(error);
 		});
 	}
 	

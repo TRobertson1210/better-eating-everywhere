@@ -45,15 +45,15 @@ public class FoodEventAPIController {
 		}
 	}
 
-	@RequestMapping(path="foodEvent/delete", method=RequestMethod.DELETE)
-	public JSONResponse deleteFoodEvent(@RequestParam Long foodEventId, ModelMap model) {
+	@RequestMapping(path="foodEvent/delete", method=RequestMethod.POST)
+	public JSONResponse deleteFoodEvent(@RequestParam Long id, ModelMap model) {
 		if(model.containsAttribute("loggedInUser")){
 			try{
-			foodEventDAO.removeFoodEvent(foodEventId);
+			foodEventDAO.removeFoodEvent(id);
 			}catch(DataAccessException exception){
 				return new JSONResponse("failure", exception.getMessage());
 			}
-			return new JSONResponse("success", foodEventId);
+			return new JSONResponse("success", id);
 		}else{
 			return new JSONResponse("failure", "no user in session");
 		}
