@@ -40,7 +40,7 @@
 				}).done(function (data) {
 					if(data.status === "success") {
 						$('homePage').hide();
-						$('.dummy-content').hide();
+						$('blogPage').hide();
 						$('dashboard').show();
 						bus.trigger('profileAcquired');
 					} else {
@@ -83,7 +83,7 @@
 				if(data.status === "success") {
 					$('userLogin').hide();
 					$('homePage').hide();
-					$('.dummy-content').hide();
+					$('blogPage').hide();
 					$('dashboard').show();
 					$('progressGraph').show();
 					sessionStorage.setItem('loggedIn', 'true');
