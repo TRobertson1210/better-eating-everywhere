@@ -3,7 +3,7 @@
 	<div class="dashboard">
 		<div class="dashboard-banner">
 			<div class="dashboard-logo">
-				<img src="img/tfs-white.png" />
+				<img src="img/bee-white.png" />
 			</div>
 			<div class="dashboard-welcome">
 				<h1 class="dashboard-title">Welcome!</h1>
@@ -42,13 +42,6 @@
 			</div>
 		</div>
 		<div class="dashboard-daily-progress">
-			<div class="dashboard-set-targets">
-				<div class="dashboard-content-head">
-					Target Parameters
-				</div>
-				<div class="dashboard-content">
-				</div>
-			</div>
 			<div class="dashboard-content-head">
 				Daily Progress Chart
 			</div>
@@ -163,7 +156,7 @@
 		$('setGoals').show();
 	}
 	
-	logout(e) {
+	logout() {
 		$.ajax({
 			url: BASE_URL + "user/logout",
 			type: "POST",
@@ -184,20 +177,13 @@
 		});
 	};
 	
-	$('#dashboard-foodlookup').on('click', function(e) {
-		$('dashboard').hide();
-		$('foodLookup').show();
-	});
+	showEditProfile() {
+		$('editProfile').show();
+	}
 	
-	$('button.hamburger').on('click', function(e) {
-		$('button.hamburger').toggleClass('is-active');
-		console.log('hamboigahs');
-	    
-	});
-	
-	$('mobile-menu-items').on('click', function(e) {
-		$('button.hamburger').toggleClass('is-active')
-	});
+	showSetGoals() {
+		$('setGoals').show();
+	}
 		
 	
 	/* //Open the menu
@@ -209,6 +195,21 @@
     jQuery("#contentLayer").click(function() {
         ...
     }); */
+    
+	$('button.hamburger').on('click', function(e) {
+		$('button.hamburger').toggleClass('is-active');
+		console.log('hamboigahs');
+	    
+	});
+	
+	$('mobile-menu-items').on('click', function(e) {
+		$('button.hamburger').toggleClass('is-active')
+	});
+	
+	$('#dashboard-foodlookup').on('click', function(e) {
+		$('dashboard').hide();
+		$('foodLookup').show();
+	});
 	</script>
 
 </dashboard>

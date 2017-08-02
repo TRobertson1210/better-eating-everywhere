@@ -15,7 +15,7 @@
 		<div class="targetCals">Budget: --</div>
 		<div class="eatenCals">Eaten: --</div>
 		<div class="overeatenCals">Overeaten: --</div>
-		<button>Add a Food</button>
+		<button onclick={showFoodLookup}>Add a Food</button>
 		
 	</div>
 
@@ -325,6 +325,10 @@
 		        
 		    });
 		    chart.update();
+		}
+		
+		showFoodLookup() {
+			$('foodLookup').show();
 		}
 		
 		
