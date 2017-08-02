@@ -7,7 +7,7 @@
 			
 			<form onsubmit={searchFoodGroup}>
 				<label for="foodSearch">Search For Food</label>
-				<input id="foodSearch" type="text" name="foodSearch" placeholder="Enter Food Here" /><br />
+				<div><input id="foodSearch" type="text" name="foodSearch" placeholder="Enter Food Here" /></div><br />
 				<div class="submitButton"><input type="submit" value="Search"/></div>
 			</form>
 			
@@ -85,10 +85,11 @@
 				datatype: "json",
 			}).done(function (data) {
 				console.log(data);
+				if(data.status === "success") {
+					bus.trigger('profileAcquired');
+				}
 			}).fail(function(xhr, status, error) {
 				console.log(error);
-			}).always(function(){
-				console.log("addFood AJAX tried to happen, at least");
 			});
 		}
 		

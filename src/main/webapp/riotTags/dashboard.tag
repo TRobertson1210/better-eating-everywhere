@@ -51,7 +51,7 @@
 		</div>
 		<div class="dashboard-food-history">
 			<div class="dashboard-content-head">
-				Food History
+				Today's Food History
 			</div>
 			<div class="dashboard-content">
 				<div class="dashboard-food-history-lifetime">
@@ -167,7 +167,7 @@
 				$('dashboard').hide();
 				$('.dashboard-welcome').html('<h1>Welcome!</h1>');
 				$('homePage').show();
-				$('.dummy-content').show();
+				$('blogPage').show();
 				sessionStorage.setItem("loggedIn", null);
 			} else {
 				console.log("No user in session");
