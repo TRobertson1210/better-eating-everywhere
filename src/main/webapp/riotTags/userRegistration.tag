@@ -5,13 +5,13 @@
 			<h3>Registration</h3> <i onclick= { close } class="em em-x window-close"></i>
 			<form onsubmit={register}>
 				<span id="email-error"></span>
-				<label>Email Address: </label>
+				<label>Email Address(<span class="red">*</span>): </label>
 				<div><input id="email" type="email" name="email" placeholder="example@mail.com" /></div><br>
 				<span id="password-error"></span>
-				<label for="password">Password: </label>
+				<label for="password">Password(<span class="red">*</span>): </label>
 				<div><input id="password" type="password" name="password" /></div><br />
 				<span id="confirmPassword-error"></span>
-				<label for="confirmPassword">Confirm Password: </label>
+				<label for="confirmPassword">Confirm Password(<span class="red">*</span>): </label>
 				<div><input id="confirmPassword" type="password" name="confirmPassword" /></div><br />
 				<label for="name">Name: </label>
 				<div><input id="name" type="text" name="name" /></div><br />
@@ -31,7 +31,7 @@
 				<div><input id="gender" type="text" name="gender"></div><br />
 				<label class="targetWeight-label" for="targetWeight">Target Weight: </label>
 				<div class="targetWeight-input"><input id="targetWeight" type="number" name="targetWeight"/> lbs</div><br />
-				<label for="targetCalories">Target Daily Calories: </label>
+				<label for="targetCalories">Target Daily Calories(<span class="red">*</span>): </label>
 				<div><input id="targetCalories" type="number" name="targetCalories"/></div><br />
 				<input id="permissionLevel" type="hidden" value="2" name="permissionLevel" />
 				<div class="submitButton"><input type="submit" value="Register"/></div>

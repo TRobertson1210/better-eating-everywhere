@@ -61,11 +61,20 @@
 			}
 		}
 		
+		function clearFormData() {
+			$('#foodDad').empty();			
+			$('#listDad').empty();
+			$('#servingDad').empty();
+			$('#foodGroupDad').empty();
+		}
+		
 		var currentDate = today.getFullYear()+'-'+formatMonth(today.getMonth())+'-'+formatDate(today.getDate());
 		
 		addFood(e) {
 			e.preventDefault();
 			e.stopPropagation();
+			$('#foodSearch').val("");
+			clearFormData();
 			var form = $(e.target);
 			var foodName = form.find('input[name="name"]').val();
 			var foodCalories = form.find('input[name="calories"]').val();
@@ -124,7 +133,7 @@
 				type: "GET",
 				datatype: "json",
 			}).done(function (data) {
-				$("#listDad").empty();
+				clearFormData();
 				searchJSON = data;
 				searchResults = searchJSON.list.item;
 				var listDad = $("#listDad");
@@ -147,6 +156,7 @@
 				type: "GET",
 				datatype: "json",
 			}).done(function (data) {
+				clearFormData();
 				foodJSON = data;
 				var measures = foodJSON.report.food.nutrients[1].measures;
 				var foodName = "" + data.report.food.name;
@@ -171,6 +181,7 @@
 		
 		close() {
 			$('foodLookup').hide();
+			clearFormData();
 		}
 		
 		noPropagate(e) {
