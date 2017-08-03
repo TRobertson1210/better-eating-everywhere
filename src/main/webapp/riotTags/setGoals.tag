@@ -5,9 +5,9 @@
 			<h3>Set Goals</h3> <i onclick= { close } class="em em-x window-close"></i>
 			<form onsubmit={editGoals}>
 				<label for="targetWeight">Target Weight: </label>
-				<div class="edit-targetWeight-container"><input id="edit-targetWeight" type="text" name="targetWeight" /> lbs</div><br>
+				<div class="edit-targetWeight-container"><input id="edit-targetWeight" type="number" name="targetWeight" /> lbs</div><br>
 				<label for="targetCalories">Daily Calories: </label>
-				<div class="edit-targetCalories-container"><input id="edit-targetCalories" type="text" name="targetCalories" /></div><br>
+				<div class="edit-targetCalories-container"><input id="edit-targetCalories" type="number" name="targetCalories" /></div><br>
 				<div class="submitButton"><input type="submit" value="Set Goals"/></div>
 			</form>
 		</div>
@@ -39,11 +39,11 @@
 				if(data.status === "success"){
 					$('#edit-targetCalories').val(data.value.targetCalories);
 					if(imperial === "T") {
-						$('.edit-targetWeight-container').html('<input id="edit-targetWeight" type="text" name="targetWeight" /> lbs');
+						$('.edit-targetWeight-container').html('<input id="edit-targetWeight" type="number" name="targetWeight" /> lbs');
 						var pounds = (+data.value.targetWeight * 2.20462).toFixed(2);
 						$("#edit-targetWeight").val(pounds);
 					} else {
-						$('.edit-targetWeight-container').html('<input id="edit-targetWeight" type="text" name="targetWeight" /> kg');
+						$('.edit-targetWeight-container').html('<input id="edit-targetWeight" type="number" name="targetWeight" /> kg');
 						$("#edit-targetWeight").val(data.value.targetWeight);
 					}
 				}

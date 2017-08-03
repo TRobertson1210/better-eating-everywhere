@@ -14,11 +14,11 @@
 		 		</select></div><br />
 		 		<div class="height-input-edit">
 					<label class="height-feet-label">Height: </label>
-					<div class="height-input-field-feet"><input id="edit-height-feet" type="text"/> ft.</div>
-					<div class="height-input-field-inches"><input id="edit-height-inches" type="text"/> in.</div>
+					<div class="height-input-field-feet"><input id="edit-height-feet" type="number"/> ft.</div>
+					<div class="height-input-field-inches"><input id="edit-height-inches" type="number"/> in.</div>
 				</div><br />
 				<label class="weight-label" for="edit-weight">Current Weight: </label>
-				<div class="weight-input-edit"><input id="edit-weight" type="text" name="weight"/> lbs</div><br />
+				<div class="weight-input-edit"><input id="edit-weight" type="number" name="weight"/> lbs</div><br />
 				<label for="edit-gender">Gender: </label>
 				<div><input id="edit-gender" type="text" name="gender"></div><br />
 				<div class="submitButton"><input type="submit" value="Update"/></div>
@@ -54,8 +54,8 @@
 						$("#edit-height-inches").val(inches);
 						$("#edit-weight").val(pounds);
 					} else {
-						$('.height-input-edit').html('<label class="height-cm-label" for="height-cm">Height:</label><div class="height-input-field-cm"><input id="edit-height-cm" type="text"/> cm</div>');
-						$('.weight-input-edit').html('<input id="edit-weight" type="text" name="weight"/> kg');
+						$('.height-input-edit').html('<label class="height-cm-label" for="height-cm">Height:</label><div class="height-input-field-cm"><input id="edit-height-cm" type="number"/> cm</div>');
+						$('.weight-input-edit').html('<input id="edit-weight" type="number" name="weight"/> kg');
 						$("#edit-height-cm").val(data.value.height);
 						$("#edit-weight").val(data.value.weight);
 					}
@@ -133,12 +133,12 @@
 		
 		changeImperialEdit() {
 			if($('#edit-isImperial').val() === "T") {
-				$('.height-input-edit').html('<label class="height-feet-label">Height: </label><div class="height-input-field-feet"><input id="edit-height-feet" type="text"/> ft.</div><div class="height-input-field-inches"><input id="edit-height-inches" type="text"/> in.</div>');
-				$('.weight-input-edit').html('<input id="edit-weight" type="text" name="weight"/> lbs');
+				$('.height-input-edit').html('<label class="height-feet-label">Height: </label><div class="height-input-field-feet"><input id="edit-height-feet" type="number"/> ft.</div><div class="height-input-field-inches"><input id="edit-height-inches" type="number"/> in.</div>');
+				$('.weight-input-edit').html('<input id="edit-weight" type="number" name="weight"/> lbs');
 				updateNumbers();
 			} else {
-				$('.height-input-edit').html('<label class="height-cm-label" for="height-cm">Height:</label><div class="height-input-field-cm"><input id="edit-height-cm" type="text"/> cm</div>');
-				$('.weight-input-edit').html('<input id="edit-weight" type="text" name="weight"/> kg');
+				$('.height-input-edit').html('<label class="height-cm-label" for="height-cm">Height:</label><div class="height-input-field-cm"><input id="edit-height-cm" type="number"/> cm</div>');
+				$('.weight-input-edit').html('<input id="edit-weight" type="number" name="weight"/> kg');
 				updateNumbers();
 			}
 		}

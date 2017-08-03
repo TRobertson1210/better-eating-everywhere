@@ -156,7 +156,7 @@
 					'<input type="hidden" name="calories" value="'+measures[j].value+'">'+
 					//', "' + measures[j].qty + '", "' + measures[j].label + '", "' + measures[j].value + '", "' +
 					//currentDate + '", "' + $("#servingAmountInput").val() + '")}">'+
-					'<input id="servingAmountInput" type="text" name="amountOfServings">'+
+					'<input id="servingAmountInput" type="number" name="amountOfServings">'+
 					'<input type="submit" value="Add"></form>');
 					
  					form.on('submit', self.addFood);
