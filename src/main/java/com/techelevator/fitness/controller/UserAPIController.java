@@ -178,14 +178,19 @@ public class UserAPIController {
 		}
 		if(!model.containsAttribute("loggedInUser")){
 			User compareUser = userDAO.getUserByEmail(loginInfo.getEmail());
+			if(compareUser == null) {
+				Map<String, String> errorMap = new HashMap<>();
+				errorMap.put("email", "Your email or password is incorrect");
+				return new JSONResponse("failure", errorMap);
+			}
 			if(compareUser != null){
 				PasswordHasher pboy = new PasswordHasher();
 				if(compareUser.getHashedPassword().equals(pboy.computeHash(loginInfo.getPassword(), compareUser.getSalt()))){
 					model.addAttribute("loggedInUser", compareUser);
 					return new JSONResponse("success", compareUser);
-				}else{
+				}else if(!compareUser.getHashedPassword().equals(pboy.computeHash(loginInfo.getPassword(), compareUser.getSalt()))){
 					Map<String, String> errorMap = new HashMap<>();
-					errorMap.put("password", "your email/password is incorrect");
+					errorMap.put("password", "Your email or password is incorrect");
 					return new JSONResponse("failure", errorMap);
 				}
 			}

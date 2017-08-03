@@ -10,7 +10,7 @@
 			<span id="login-error"></span>
 			<label for="loginEmail">Email Address: </label>
 			<div>
-				<input id="loginEmail" type="text" name="email" placeholder="example@mail.com" />
+				<input id="loginEmail" type="email" name="email" placeholder="example@mail.com" />
 			</div><br />
 			<label for="loginPassword">Password: </label>
 			<div>
@@ -53,6 +53,7 @@
 		
 		close(e) {
 			$('userLogin').hide();
+			removeLoginInfo();
 		};
 		
 		function removeLoginInfo() {
@@ -95,18 +96,23 @@
 			}).always(function() {
 				console.log("Gun");
 			});
-		};
+		}
 		
 		validate(jsonResult) {
+			if($('#loginPassword').val() === null) {
+				$('span#login-error').text("Your email or password is incorrect");
+			}
+			if($('#loginEmail').val() === null) {
+				$('span#login-error').text("Your email or password is incorrect");
+			}
 			if(jsonResult.status === "failure") {
 				if(jsonResult.value.email != null) {
 					$('span#login-error').text(jsonResult.value.email);
-				}
-				if(jsonResult.value.password != null) {
+				} else if(jsonResult.value.password != null) {
 					$('span#login-error').text(jsonResult.value.password);
 				}
 			}
-		};
+		}
 	</script>
 
 </userLogin>
