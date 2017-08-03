@@ -260,15 +260,15 @@ footer {
 	}
 	
 	.header-box {
-		border-bottom: 1px solid #cccbcd;
+		border-bottom: 1px solid #124d77;
 		padding-bottom: 7px;
 		margin-bottom: 25px;
 	}
 	
 	.blog-page p {
-		color: #124d77;
+		color: #666666;
 		line-height: 1.7;
-		white-space: wrap;
+		white-space: pre-wrap;
 		overflow: scroll;
 	}
 	

@@ -19,7 +19,7 @@ foodLookup {
 	z-index: 5;
 	width: 95vw;
 	height: 75vh;
-	max-height: 100vh;
+	max-height: 80vh;
 	-webkit-box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.75);
 	box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.75);
@@ -33,6 +33,8 @@ li {
 	line-height: 2;
 	padding-left: 5px;
 	border-bottom: 1px solid #cccbcd;
+	display: grid;
+	grid-template-columns: 60% 25% 15%;
 }
 
 li:hover {
@@ -55,6 +57,21 @@ ul {
 	grid-gap: 3px;
 	grid-template-columns: 1fr 1fr;
 
+}
+
+.serving-list-form {
+	display: block !important;
+}
+
+.serving-list-form #servingSubmit {
+	grid-column: 3 / 4;
+	margin: 3px 3px;
+}
+
+.serving-list-form #servingAmountInput {
+	grid-column: 2 / 3;
+	margin: 3px 0px;
+	border: 0px;
 }
 
 .food-lookup form label {
@@ -119,6 +136,12 @@ ul {
 .food-lookup div.submitButton input:active {
 	position: relative;
 	top: 1px;
+}
+
+.progress-button {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
 }
 
 /* Tablet Styling */

@@ -23,14 +23,6 @@
 				  </span>
 			</button>
 		</div>
-		<div class="dashboard-navigation">
-			<div class="dashboard-content-head">
-				Nav List
-			</div>
-			<div class="dashboard-content">
-				<button id="dashboard-foodlookup">Food Look Up</button>
-			</div>
-		</div>
 		<div class="dashboard-profile-settings">
 			<div class="dashboard-content-head">
 				Profile Settings

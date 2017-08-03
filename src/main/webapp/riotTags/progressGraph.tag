@@ -15,7 +15,7 @@
 		<div class="targetCals">Budget: --</div>
 		<div class="eatenCals">Eaten: --</div>
 		<div class="overeatenCals">Overeaten: --</div>
-		<button onclick={showFoodLookup}>Add a Food</button>
+		<div class="progress-button"><button class="add-food-button" onclick={showFoodLookup}>Add Food</button></div>
 		
 	</div>
 

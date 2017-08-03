@@ -151,13 +151,11 @@
 				var measures = foodJSON.report.food.nutrients[1].measures;
 				var foodName = "" + data.report.food.name;
 				for(var j = 0; j < measures.length; j++){
-					var form = $('<form><li class="food-stats">' + measures[j].qty + ' ' + measures[j].label + ' is ' + measures[j].value + ' kcal</li>' +
-					'<input type="hidden" name="name" value="'+foodName + '">'+
+					var form = $('<form class="serving-list-form"><li class="food-stats">' + measures[j].qty + ' ' + measures[j].label + ' is ' + measures[j].value + ' kcal <input type="hidden" name="name" value="'+foodName + '">'+
 					'<input type="hidden" name="calories" value="'+measures[j].value+'">'+
-					//', "' + measures[j].qty + '", "' + measures[j].label + '", "' + measures[j].value + '", "' +
-					//currentDate + '", "' + $("#servingAmountInput").val() + '")}">'+
-					'<input id="servingAmountInput" type="number" name="amountOfServings">'+
-					'<input type="submit" value="Add"></form>');
+					'<input id="servingAmountInput" type="number" name="amountOfServings" placeholder=" # of servings">'+
+					'<input id="servingSubmit" type="submit" value="Add"></li>' +
+					'</form>');
 					
  					form.on('submit', self.addFood);
 					$("#servingDad").append(form);

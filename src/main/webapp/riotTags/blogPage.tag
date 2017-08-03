@@ -17,8 +17,9 @@
 			B's. Very proud. Ma! I got a thing going here. - You got lint on your
 			fuzz. - Ow! That's me! - Wave to us! We'll be in row 118,000. - Bye!
 			Barry, I told you, stop flying in the house! - Hey, Adam. - Hey,
-			Barry. - Is that fuzz gel? - A little. Special day, graduation. Never
-			thought I'd make it. Three days grade school, three days high school.
+			Barry. - Is that fuzz gel? - A little.</p>
+			
+			<p>Special day, graduation. Never thought I'd make it. Three days grade school, three days high school.
 			Those were awkward. Three days college. I'm glad I took a day and
 			hitchhiked around the hive. You did come back different. - Hi, Barry.
 			- Artie, growing a mustache? Looks good. - Hear about Frankie? -
@@ -36,24 +37,31 @@
 			that hangs after you pour it. Saves us millions. Oan anyone work on
 			the Krelman? Of course. Gusty. We're hitting a sunflower patch six
 			miles from here tomorrow. - Six miles, huh? - Barry! A puddle jump
-			for us, but maybe you're not up for it. Lorem ipsum dolor sit amet
-			consectetur adipiscing elit est vestibulum, mollis tincidunt torquent
-			potenti bibendum magna ornare vitae elementum, tristique lacus
-			parturient felis accumsan faucibus sollicitudin tempus. Proin varius
-			libero volutpat nam ullamcorper nec nisi sociosqu cursus, ante rutrum
-			vestibulum interdum nostra nisl fringilla taciti, per maecenas eros
-			neque aptent justo aliquam mattis. Tristique cursus habitant pulvinar
-			risus cubilia aliquam ut bibendum consequat convallis mus lacinia,
-			class pellentesque semper tempor nostra porttitor vulputate faucibus
-			nec lectus mi. Eu cursus montes luctus mollis posuere imperdiet
-			bibendum platea varius, nam eleifend cras quisque risus molestie
-			interdum lobortis congue, fermentum leo ullamcorper facilisi vivamus
-			venenatis diam cum. Natoque nec mollis imperdiet vulputate vel
-			gravida vitae erat, enim hac class eros felis posuere justo fusce
-			neque, dui quis tellus malesuada nisl aenean donec. Libero dictum
-			justo id torquent luctus vivamus egestas convallis rutrum, non mi
-			sollicitudin etiam eget quam gravida varius. Dapibus est egestas
-			pulvinar enim imperdiet parturient, rhoncus auctor a sodales nunc.</p>
+			for us, but maybe you're not up for it. You do that!</p>
+			
+			
+			<p>This whole parade is a fiasco! Let's see what this baby'll do. Hey, what are you
+			doing?! Then all we do is blend in with traffic... ...without
+			arousing suspicion. Once at the airport, there's no stopping us.
+			Stop! Security. - You and your insect pack your float? - Yes. Has it
+			been in your possession the entire time? Would you remove your shoes?
+			- Remove your stinger. - It's part of me. I know. Just having some
+			fun. Enjoy your flight. Then if we're lucky, we'll have just enough
+			pollen to do the job. Oan you believe how lucky we are? We have just
+			enough pollen to do the job! I think this is gonna work. It's got to
+			work. Attention, passengers, this is Oaptain Scott. We have a bit of
+			bad weather in New York. It looks like we'll experience a couple
+			hours delay. Barry, these are cut flowers with no water. They'll
+			never make it. I gotta get up there and talk to them. Be careful. Oan
+			I get help with the Sky Mall magazine? I'd like to order the talking
+			inflatable nose and ear hair trimmer. Oaptain, I'm in a real
+			situation. - What'd you say, Hal? - Nothing. Bee! Don't freak out! My
+			entire species... What are you doing? - Wait a minute! I'm an
+			attorney! - Who's an attorney? Don't move. Oh, Barry. Good afternoon,
+			passengers. This is your captain. Would a Miss Vanessa Bloome in 24B
+			please report to the cockpit? And please hurry! What happened here?
+			There was a DustBuster, a toupee, a life raft exploded. One's bald,
+			one's in a boat, they're both unconscious!</p>
 	</div>
 		
 	<div class="bee bee-movie-two">
@@ -97,17 +105,16 @@
 			anything? We're bees. We're the most perfectly functioning society on
 			Earth. You ever think maybe things work a little too well here? Like
 			what? Give me one example. I don't know. But you know what I'm
-			talking about. Please clear the gate. Royal Nectar Force on approach.
-			Lorem ipsum dolor sit amet consectetur adipiscing elit est
-			vestibulum, mollis tincidunt torquent potenti bibendum magna ornare
-			vitae elementum, tristique lacus parturient felis accumsan faucibus
-			sollicitudin tempus. Proin varius libero volutpat nam ullamcorper nec
-			nisi sociosqu cursus, ante rutrum vestibulum interdum nostra nisl
-			fringilla taciti, per maecenas eros neque aptent justo aliquam
-			mattis. Tristique cursus habitant pulvinar risus cubilia aliquam ut
-			bibendum consequat convallis mus lacinia, class pellentesque semper
-			tempor nostra porttitor vulputate faucibus nec lectus mi. Eu cursus
-			montes</p>
+			talking about. Please clear the gate. </p>
+
+		<p>Like what? Like tiny screaming. Turn off the radio. Whassup,
+			bee boy? Hey, Blood. Just a row of honey jars, as far as the eye
+			could see. Wow! I assume wherever this truck goes is where they're
+			getting it. I mean, that honey's ours. - Bees hang tight. - We're all
+			jammed in. It's a close community. Not us, man. We on our own. Every
+			mosquito on his own. - What if you get in trouble? - You a mosquito,
+			you in trouble. Nobody likes us. They just smack. See a mosquito,
+			smack, smack!.</p>
 	</div>
 
 	<div class="bee bee-movie-five">
