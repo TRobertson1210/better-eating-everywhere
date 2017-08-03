@@ -23,14 +23,10 @@ public class User {
 	private String confirmPassword;
 	private String name;
 	private String isImperial;
-	@Min(1)
 	private Integer height; //Height and Weight stored in metric
-	@Min(1)
 	private Double weight;
 	private String gender;
-	@Min(1)
 	private Double targetWeight;
-	@Min(1)
 	private Integer targetCalories;
 	private Integer permissionLevel;
 	private String salt;
