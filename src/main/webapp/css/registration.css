@@ -172,6 +172,10 @@ input#targetWeight {
 	top: 1px;
 }
 
+span.red {
+	color: red;
+}
+
 /* Tablet Styling */
 
 @media only screen and (min-width: 640px) {
