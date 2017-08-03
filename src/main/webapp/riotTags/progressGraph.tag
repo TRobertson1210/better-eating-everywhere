@@ -213,7 +213,7 @@
 		}
 		
 		overEatenJSUpdate() {
-			if(userTargetCalories <= userCaloriesDay){
+			if(userTargetCalories <= userCaloriesEaten){
 				$('.overeatenCals').text('Overeaten: ' + (+userCaloriesEaten - +userTargetCalories));
 			} else {
 				$('.overeatenCals').text('Overeaten: --');
@@ -241,7 +241,7 @@
 							})
 						} else {
 							addData(myChart, ["Overeaten", "Eaten"], {
-					            data: [(+userCaloriesEaten - +userTargetCalories), +userTargetCalories - (+userCaloriesEaten - +userTargetCalories)],
+					            data: [(+userCaloriesEaten - +userTargetCalories), userTargetCalories],
 					            backgroundColor: [
 					                '#FF9564',
 					                '#42A2E8'
@@ -276,7 +276,7 @@
 							    data: {
 							    	labels: ["Overeaten", "Eaten"],
 							    	datasets: [{
-							            data: [(+userCaloriesEaten - +userTargetCalories), +userTargetCalories - (+userCaloriesEaten - +userTargetCalories)],
+							            data: [(+userCaloriesEaten - +userTargetCalories), userTargetCalories],
 							            backgroundColor: [
 							                '#FF9564',
 							                '#42A2E8'
