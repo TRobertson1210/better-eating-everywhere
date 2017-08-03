@@ -119,13 +119,15 @@ body {
 }
 
 footer {
+	grid-column: 1 / 4;
 	display: flex;
 	align-items: baseline;
 	justify-content: center;
-	font-size: 0.6em;
-	/* text-align: center; */
-	grid-column: 1 / 4;
-	margin: 3%;
+	font-size: 0.7em;
+	background-color: #124d77;
+	margin-top: 2%;
+	padding: 2.5%;
+	
 }
 
 /* Media query for laptops and smaller monitors */
@@ -233,26 +235,54 @@ footer {
 		top: 1px;
 	}
 	
+	.button-container {
+		position: absolute;
+		bottom: 1.75em;
+		left: 1.75em;
+	}
 	
 	/* BLOG CONTENT */
 	
 	.blog-page {
-		width: 80vw;
+		width: 100vw;
 		display: grid;
- 		padding: 1.5em;
+ 		padding: 4.5em 1.5em 2.5em 1.5em;
  		font-size: .8em;
-		grid-template-columns: 25% 25% 25% 25% 25%;
+		grid-template-columns: 20% 20% 20% 20% 20%;
 		grid-template-areas: "one one one two two"
 							 "one one one three three"
-							 "five five five four four";
+							 "four four five five five";
 	}
 	
-	.blog-page h2 {
+	.blog-page h3 {
 		text-align: center;
+		color: #124d77;
+	}
+	
+	.header-box {
+		border-bottom: 1px solid #cccbcd;
+		padding-bottom: 7px;
+		margin-bottom: 25px;
+	}
+	
+	.blog-page p {
+		color: #124d77;
+		line-height: 1.5;
+		white-space: wrap;
+		overflow: scroll;
+	}
+	
+	.bee-img {
+		margin-bottom: 25px;
+	}
+	
+	.bee-img img {
+		width: 100%;
+		overflow: hidden;
 	}
 	
 	.bee {
-		padding: 30px 30px 0px 30px;
+		padding: 50px 30px 0px 30px;
 	}
 	
 	.bee-movie-one {
@@ -267,53 +297,14 @@ footer {
 		grid-area: three;
 	}
 	
-	.blog-page .bee-movie-three p {
-		/* height: 150px; */
-		white-space: wrap;
-		overflow: scroll;
-	}
-	
 	.bee-movie-four {
 		grid-area: four;
 	}
-	
-	
-	.blog-page .bee-movie-four p {
-		white-space: wrap;
-		overflow: scroll;
-	}
-	
-	/* .bee-movie-five .bee-img {
-		max-height: 300px;
-	} */
-	
+	 
 	.bee-movie-five {
 		grid-area: five;
 	}
 	
-	.blog-page .bee-movie-five p {
-		/* height: 150px; */
-		white-space: wrap;
-		overflow: scroll;
-	}
-	
-	.bee-img {
-		margin-bottom: 15px;
-	}
-	
-	.bee-img img {
-		width: 100%;
-		overflow: hidden;
-	}
-	
-	
-	/* END BLOG CONTENT */
-	
-	.button-container {
-		position: absolute;
-		bottom: 1.75em;
-		left: 1.75em;
-	}
 }
 
 /* Media query for larger monitors */

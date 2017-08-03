@@ -2,7 +2,7 @@
 <div class="blog-page">
 	
 	<div class=" bee bee-movie-one">
-		<h2>What Everybody Ought to Know About What Food You're Eating</h2>
+		<div class="header-box"><h3>What Everybody Ought to Know About What Food You're Eating</h3></div>
 		<div class="bee-img"><img src="img/food.jpg" /></div>
 		<p>According to all known laws of aviation, there is no way a bee
 			should be able to fly. Its wings are too small to get its fat little
@@ -17,27 +17,47 @@
 			B's. Very proud. Ma! I got a thing going here. - You got lint on your
 			fuzz. - Ow! That's me! - Wave to us! We'll be in row 118,000. - Bye!
 			Barry, I told you, stop flying in the house! - Hey, Adam. - Hey,
-			Barry. - Is that fuzz gel? - A little. Special day, graduation. Never thought I'd make it. Three days
-			grade school, three days high school. Those were awkward. Three days
-			college. I'm glad I took a day and hitchhiked around the hive. You
-			did come back different. - Hi, Barry. - Artie, growing a mustache?
-			Looks good. - Hear about Frankie? - Yeah. - You going to the funeral?
-			- No, I'm not going. Everybody knows, sting someone, you die. Don't
-			waste it on a squirrel. Such a hothead. I guess he could have just
-			gotten out of the way. I love this incorporating an amusement park
-			into our day. That's why we don't need vacations. Boy, quite a bit of
-			pomp... under the circumstances. Honey! - That girl
-			was hot. - She's my cousin! - She is? - Yes, we're all cousins. -
-			Right. You're right. - At Honex, we constantly strive to improve
-			every aspect of bee existence. These bees are stress-testing a new
-			helmet technology. - What do you think he makes? - Not enough. Here
-			we have our latest advancement, the Krelman. - What does that do? -
-			Catches that little strand of honey that hangs after you pour it.
-			Saves us millions. Oan anyone work on the Krelman? Of course.</p>
+			Barry. - Is that fuzz gel? - A little. Special day, graduation. Never
+			thought I'd make it. Three days grade school, three days high school.
+			Those were awkward. Three days college. I'm glad I took a day and
+			hitchhiked around the hive. You did come back different. - Hi, Barry.
+			- Artie, growing a mustache? Looks good. - Hear about Frankie? -
+			Yeah. - You going to the funeral? - No, I'm not going. Everybody
+			knows, sting someone, you die. Don't waste it on a squirrel. Such a
+			hothead. I guess he could have just gotten out of the way. I love
+			this incorporating an amusement park into our day. That's why we
+			don't need vacations. Boy, quite a bit of pomp... under the
+			circumstances. Honey! - That girl was hot. - She's my cousin! - She
+			is? - Yes, we're all cousins. - Right. You're right. - At Honex, we
+			constantly strive to improve every aspect of bee existence. These
+			bees are stress-testing a new helmet technology. - What do you think
+			he makes? - Not enough. Here we have our latest advancement, the
+			Krelman. - What does that do? - Catches that little strand of honey
+			that hangs after you pour it. Saves us millions. Oan anyone work on
+			the Krelman? Of course. Gusty. We're hitting a sunflower patch six
+			miles from here tomorrow. - Six miles, huh? - Barry! A puddle jump
+			for us, but maybe you're not up for it. Lorem ipsum dolor sit amet
+			consectetur adipiscing elit est vestibulum, mollis tincidunt torquent
+			potenti bibendum magna ornare vitae elementum, tristique lacus
+			parturient felis accumsan faucibus sollicitudin tempus. Proin varius
+			libero volutpat nam ullamcorper nec nisi sociosqu cursus, ante rutrum
+			vestibulum interdum nostra nisl fringilla taciti, per maecenas eros
+			neque aptent justo aliquam mattis. Tristique cursus habitant pulvinar
+			risus cubilia aliquam ut bibendum consequat convallis mus lacinia,
+			class pellentesque semper tempor nostra porttitor vulputate faucibus
+			nec lectus mi. Eu cursus montes luctus mollis posuere imperdiet
+			bibendum platea varius, nam eleifend cras quisque risus molestie
+			interdum lobortis congue, fermentum leo ullamcorper facilisi vivamus
+			venenatis diam cum. Natoque nec mollis imperdiet vulputate vel
+			gravida vitae erat, enim hac class eros felis posuere justo fusce
+			neque, dui quis tellus malesuada nisl aenean donec. Libero dictum
+			justo id torquent luctus vivamus egestas convallis rutrum, non mi
+			sollicitudin etiam eget quam gravida varius. Dapibus est egestas
+			pulvinar enim imperdiet parturient, rhoncus auctor a sodales nunc.</p>
 	</div>
 		
 	<div class="bee bee-movie-two">
-		<h2>The Best Kind of Vegetables for your Salads</h2>
+		<div class="header-box"><h3>The Best Kind of Vegetables for your Salads</h3></div>
 		<div class="bee-img"><img src="img/salad.jpeg" /></div>
 		<p>Well, Adam, today we are men. - We
 			are! - Bee-men. - Amen! Hallelujah! Students, faculty, distinguished
@@ -51,7 +71,7 @@
 	</div>
 
 	<div class="bee bee-movie-three">
-		<h2>Make Meal Prep Work for You</h2>
+		<div class="header-box"><h3>Make Meal Prep Work for You</h3></div>
 		<div class="bee-img"><img src="img/meal-prep.jpg" /></div>
 		<p>Wow. Wow. We know that you, as a bee, have worked your whole
 			life to get to the point where you can work for your whole life.
@@ -62,7 +82,7 @@
 	</div>
 
 	<div class="bee bee-movie-four">
-		<h2>Get Rid of Junk Food Once and For All</h2>
+		<div class="header-box"><h3>Get Rid of Junk Food Once and For All</h3></div>
 		<div class="bee-img"><img src="img/junk-food.jpg" /></div>
 		<p>Most bee jobs are small ones. But bees know that every small
 			job, if it's done well, means a lot. But choose carefully because
@@ -77,11 +97,21 @@
 			anything? We're bees. We're the most perfectly functioning society on
 			Earth. You ever think maybe things work a little too well here? Like
 			what? Give me one example. I don't know. But you know what I'm
-			talking about. Please clear the gate. Royal Nectar Force on approach.</p>
+			talking about. Please clear the gate. Royal Nectar Force on approach.
+			Lorem ipsum dolor sit amet consectetur adipiscing elit est
+			vestibulum, mollis tincidunt torquent potenti bibendum magna ornare
+			vitae elementum, tristique lacus parturient felis accumsan faucibus
+			sollicitudin tempus. Proin varius libero volutpat nam ullamcorper nec
+			nisi sociosqu cursus, ante rutrum vestibulum interdum nostra nisl
+			fringilla taciti, per maecenas eros neque aptent justo aliquam
+			mattis. Tristique cursus habitant pulvinar risus cubilia aliquam ut
+			bibendum consequat convallis mus lacinia, class pellentesque semper
+			tempor nostra porttitor vulputate faucibus nec lectus mi. Eu cursus
+			montes</p>
 	</div>
 
 	<div class="bee bee-movie-five">
-		<h2>Worst Diet Mistakes and How to Fix Them</h2>
+		<div class="header-box"><h3>Worst Diet Mistakes and How to Fix Them</h3></div>
 		<div class="bee-img"><img src="img/seinfeld.jpg" /></div>
 		<p>Wait a second. Check it out. - Hey, those are Pollen Jocks! -
 			Wow. I've never seen them this close. They know what it's like
@@ -100,9 +130,7 @@
 			was slapping me! - Oh, my! - I never thought I'd knock him out. What
 			were you doing during this? Trying to alert the authorities. I can
 			autograph that. A little gusty out there today, wasn't it, comrades?
-			Yeah. Gusty. We're hitting a sunflower patch six miles from here
-			tomorrow. - Six miles, huh? - Barry! A puddle jump for us, but maybe
-			you're not up for it.</p>
+			Yeah. </p>
 	</div>
 </div>
 
